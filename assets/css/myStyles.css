@@ -1,0 +1,55 @@
+/* Home page start */
+.bg-purple-light{
+    background-color: #d5be94;
+}
+.slider-content-4 .slider-btn-4 > a > i {
+    background-color: #111111;
+}
+.slider-content-4 .slider-btn-4 > a {
+    border: 1px solid #111111;
+    color: #111111;
+}
+.slider-content-4 h1, .section-title-4 h2, .product-wrap .product-content-2 h4  {
+    color: #111111;
+    font-family: "Roboto", sans-serif;
+}
+.slider-content-4 .slider-btn-4 > a:hover {
+    color: #ffffff !important;
+    border: 1px solid #282828;
+    background-color: #282828;
+}
+.slider-content-4 .slider-btn-4 > a:hover i {
+    color: #282828;
+    background-color: #ffffff;
+}
+.product-wrap .product-img .product-action-3 a, .product-wrap .product-img .product-action-3 a:hover {
+    border: 1px solid #4d350b;
+}
+.product-wrap .product-img .product-action-3 a:hover {
+    border: 1px solid #ffffff !important;
+    background-color: #4d350b;
+}
+#scrollUp , .shopping-cart-content .shopping-cart-btn a {
+    background-color: #111111;
+}
+.default-btn a.btn-style-outline {
+    border: 1px solid #111111; 
+    color: #000;
+}      
+.btn-hover a:hover,.btn-hover a::after, .product-action-3 a:hover {
+    background: #8b5a02 !important;
+    color: #ffffff !important;
+}
+.mobile-off-canvas-active .header-mobile-aside-wrap .mobile-curr-lang-wrap .single-mobile-curr-lang:hover > a ,.header-mobile-aside-wrap a:hover, .header-mobile-aside-wrap a:focus, .header-right-wrap .common-style:hover button , .mobile-off-canvas a:hover , .product-wrap h4 a:hover , .product-content-2 a:hover , .footer-widget .footer-social ul li a:hover ,.footer-widget .footer-list ul li a:hover, .header-right-wrap .cart-wrap-2 button:hover i , .main-menu.menu-common-style.menu-margin-4 > nav > ul > li:hover > a , .product-wrap .product-content .price-addtocart .product-addtocart a  {
+    color: #8b5a02 !important;
+}
+.product-wrap:hover .product-content .product-addtocart a {
+    border: 1px solid #8b5a02;
+    padding:5px 15px;
+    margin-right: 0 !important;
+    border-radius: 5px;
+}
+.header-right-wrap .cart-wrap-2 button span.count-style-2{
+    background-color: #8b5a02 !important;
+}
+/* Home page start */
