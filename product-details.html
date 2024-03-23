@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Daxone - eCommerce Bootstrap 5 Template</title>
+    <title>Nobel Story</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/gem-favicon.png">
 
     <!-- CSS
 	============================================ -->
@@ -27,24 +27,31 @@
     <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
+
+    <link rel="stylesheet" href="assets/css/myStyles.css">
+    <!-- <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css" > -->
 </head>
 
 <body>
     <div class="main-wrapper">
-        <header class="header-area transparent-bar sticky-bar pt-10">
+        <header class="header-area transparent-ba sticky-bar header-padding-3">
             <div class="main-header-wrap">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-2 col-lg-3">
-                            <div class="logo">
-                                <a href="index.html"><img src="assets/images/logo/logo-1.png" alt="logo"></a>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4">
+                            <div class="logo mt-25">
+                                <a href="index.html"><img src="assets/images/logo/main_logo.png" alt="logo"></a>
                             </div>
                         </div>
-                        <div class="col-xl-7 col-lg-6">
-                            <div class="main-menu menu-common-style menu-lh-1 menu-margin-4 menu-font-3 ml-20 menu-others-page">
+                        <div class="col-xl-6 col-lg-4 d-flex justify-content-center">
+                            <div class="main-menu menu-common-style menu-lh-3 menu-margin-4 menu-font-2">
                                 <nav>
                                     <ul>
-                                        <li class="angle-shape"><a href="index.html">Home</a>
+                                        <li><a href="contact.html">Home</a></li>
+                                        <li><a href="contact.html">About</a></li>
+                                        <li><a href="contact.html">Shop</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <!-- <li class="angle-shape"><a href="index.html">Home</a>
                                             <ul class="submenu">
                                                 <li><a href="index.html">Home version 1 </a></li>
                                                 <li><a href="index-2.html">Home version 2 </a></li>
@@ -58,8 +65,9 @@
                                                 <li><a href="index-10.html">Home version 10 </a></li>
                                             </ul>
                                         </li>
+                                        <li><a href="">About</a></li>
                                         <li class="angle-shape"><a href="shop.html">Shop </a>
-                                            <ul class="mega-menu">
+                                            <ul class="mega-menu mega-menu-hm4">
                                                 <li><a class="menu-title" href="#">Shop Layout</a>
                                                     <ul>
                                                         <li><a href="shop.html">standard style</a></li>
@@ -97,7 +105,6 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="shop.html">Mens</a></li>
                                         <li class="angle-shape"><a href="#">Pages</a>
                                             <ul class="submenu">
                                                 <li><a href="about-us.html">about us </a></li>
@@ -118,23 +125,69 @@
                                                 <li><a href="blog-details.html">blog details </a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="contact.html">Contact</a></li> -->
                                     </ul>
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 position-relative">
-                            <div class="header-right-wrap mt-10">
-                                <div class="header-wishlist">
-                                    <a href="wishlist.html"><i class="la la-heart-o"></i></a>
+                       
+                        <div class="col-xl-3 col-lg-4 position-relative">
+                            <div class="header-right-wrap mt-25 stick-mt-40">
+                                <!-- <div class="search-wrap-2 search-wrap-2-mrg">
+                                    <button class="search-active">
+                                        <i class="la la-search"></i>
+                                    </button>
+                                </div> -->
+                                <div class="cart-wrap cart-wrap-2 mr-10">
+                                    <button class="cart-active">
+                                        <i class="la la-user"></i>
+                                    </button>
                                 </div>
-                                <div class="header-login ml-40">
-                                    <a href="login-register.html"><i class="la la-user"></i></a>
-                                </div>
-                                <div class="cart-wrap common-style ml-35">
-                                    <button class="cart-active cart-3">
-                                        <span class="mini-cart-price">$240</span>
+                                <!-- <div class="cart-wrap cart-wrap-2">
+                                    <button class="cart-active">
                                         <i class="la la-shopping-cart"></i>
+                                    </button>
+                                </div> -->
+                                <!-- <div class="setting-wrap setting-wrap-mrg border-style">
+                                    <a class="setting-active" href="#">
+                                        <i class="la la-cog"></i>
+                                        Account
+                                    </a>
+                                    <div class="setting-content">
+                                        <ul>
+                                            <li>
+                                                <h4>Currency</h4>
+                                                <ul>
+                                                    <li><a href="#">USD</a></li>
+                                                    <li><a href="#">Euro</a></li>
+                                                    <li><a href="#">Real</a></li>
+                                                    <li><a href="#">BDT</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4>Language</h4>
+                                                <ul>
+                                                    <li><a href="#">English (US)</a></li>
+                                                    <li><a href="#">English (UK)</a></li>
+                                                    <li><a href="#">Spanish</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4>Account</h4>
+                                                <ul>
+                                                    <li><a href="login-register.html">Login</a></li>
+                                                    <li><a href="login-register.html">Creat Account</a></li>
+                                                    <li><a href="my-account.html">My Account</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div> -->
+                                <div class="cart-wrap cart-wrap-2">
+                                    <button class="cart-active">
+                                        <!-- <span class="mini-cart-price-2">$400.00</span> -->
+                                        <i class="la la-shopping-cart"></i>
+                                        <span class="count-style-2">01</span>
                                     </button>
                                     <div class="shopping-cart-content">
                                         <div class="shopping-cart-top">
@@ -220,12 +273,12 @@
                 </div>
             </div>
             <div class="header-small-mobile">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-6">
                             <div class="mobile-logo">
                                 <a href="index.html">
-                                    <img alt="" src="assets/images/logo/logo-1.png">
+                                    <img alt="" src="assets/images/logo/main_logo.png">
                                 </a>
                             </div>
                         </div>
@@ -234,7 +287,7 @@
                                 <div class="cart-wrap common-style">
                                     <button class="cart-active">
                                         <i class="la la-shopping-cart"></i>
-                                        <span class="count-style">2 Items</span>
+                                        <!-- <span class="count-style">2 Items</span> -->
                                     </button>
                                     <div class="shopping-cart-content">
                                         <div class="shopping-cart-top">
@@ -310,33 +363,32 @@
         <div class="mobile-off-canvas-active">
             <a class="mobile-aside-close"><i class="la la-close"></i></a>
             <div class="header-mobile-aside-wrap">
-                <div class="mobile-search">
+                <!-- <div class="mobile-search">
                     <form class="search-form" action="#">
                         <input type="text" placeholder="Search entire store…">
                         <button class="button-search"><i class="la la-search"></i></button>
                     </form>
-                </div>
+                </div> -->
                 <div class="mobile-menu-wrap">
                     <!-- mobile menu start -->
                     <div class="mobile-navigation">
                         <!-- mobile menu navigation start -->
                         <nav>
                             <ul class="mobile-menu">
-                                <li class="menu-item-has-children"><a href="index.html">Home</a>
+                                <li><a href="contact.html">Home</a></li>
+                                <li><a href="contact.html">About</a></li>
+                                <li><a href="contact.html">Shop</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+
+                                <!-- <li class="menu-item-has-children"><a href="index.html">Home</a>
                                     <ul class="dropdown">
-                                        <li><a href="index.html">Home version 1 </a></li>
-                                        <li><a href="index-2.html">Home version 2 </a></li>
-                                        <li><a href="index-3.html">Home version 3 </a></li>
-                                        <li><a href="index-4.html">Home version 4 </a></li>
-                                        <li><a href="index-5.html">Home version 5 </a></li>
-                                        <li><a href="index-6.html">Home version 6 </a></li>
-                                        <li><a href="index-7.html">Home version 7 </a></li>
-                                        <li><a href="index-8.html">Home version 8 </a></li>
-                                        <li><a href="index-9.html">Home version 9 </a></li>
-                                        <li><a href="index-10.html">Home version 10 </a></li>
+                                        <li><a href="contact.html">Home</a></li>
+                                        <li><a href="contact.html">About</a></li>
+                                        <li><a href="contact.html">Shop</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
-                                </li>
-                                <li class="menu-item-has-children "><a href="#">shop</a>
+                                </li> -->
+                                <!-- <li class="menu-item-has-children "><a href="#">shop</a>
                                     <ul class="dropdown">
                                         <li class="menu-item-has-children"><a href="#">shop layout</a>
                                             <ul class="dropdown">
@@ -390,7 +442,7 @@
                                         <li><a href="blog-details.html">blog details </a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contact us</a></li>
+                                <li><a href="contact.html">Contact us</a></li> -->
                             </ul>
                         </nav>
                         <!-- mobile menu navigation end -->
@@ -398,7 +450,7 @@
                     <!-- mobile menu end -->
                 </div>
                 <div class="mobile-curr-lang-wrap">
-                    <div class="single-mobile-curr-lang">
+                    <!-- <div class="single-mobile-curr-lang">
                         <a class="mobile-language-active" href="#">Language <i class="la la-angle-down"></i></a>
                         <div class="lang-curr-dropdown lang-dropdown-active">
                             <ul>
@@ -418,7 +470,7 @@
                                 <li><a href="#">BDT</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="single-mobile-curr-lang">
                         <a class="mobile-account-active" href="#">My Account <i class="la la-angle-down"></i></a>
                         <div class="lang-curr-dropdown account-dropdown-active">
@@ -439,15 +491,15 @@
                 </div>
             </div>
         </div>
-        <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/bg/breadcrumb.jpg);">
+        <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/slider/1.jpg);">
             <div class="container">
                 <div class="breadcrumb-content text-center">
-                    <h2>Product details page</h2>
+                    <h2 class="text-white">Product Details page</h2>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="index.html" class="text-white">Home</a>
                         </li>
-                        <li class="active">Product details </li>
+                        <li class="active">Product Details</li>
                     </ul>
                 </div>
             </div>
@@ -456,15 +508,35 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <div class="product-details-img-left">
-                            <img class="zoompro" src="assets/images/product-details/pro-details-1.jpg" data-zoom-image="assets/images/product-details/product-detalis-bl1.jpg" alt="product-details-img">
+                        <div class="product-details-img">
+                            <div class="zoompro-border zoompro-span">
+                                <img class="zoompro" src="assets/images/product-details/800x800.jpg" data-zoom-image="assets/images/product-details/800x800.jpg" alt="" />
+                                 <!-- <span>-29%</span> -->
+                            </div>
+                            <div id="gallery" class="mt-20 product-dec-slider">
+                                <a data-image="assets/images/product-details/800x800.jpg" data-zoom-image="assets/images/product-details/product-detalis-bl1.jpg">
+                                    <img class="w-80" src="assets/images/product-details/800x800.jpg" alt="">
+                                </a>
+                                <a data-image="assets/images/product-details/product-detalis-l2.jpg" data-zoom-image="assets/images/product-details/product-detalis-bl2.jpg">
+                                    <img src="assets/images/product-details/product-detalis-s2.jpg" alt="">
+                                </a>
+                                <a data-image="assets/images/product-details/product-detalis-l3.jpg" data-zoom-image="assets/images/product-details/product-detalis-bl3.jpg">
+                                    <img src="assets/images/product-details/product-detalis-s3.jpg" alt="">
+                                </a>
+                                <a data-image="assets/images/product-details/product-detalis-l4.jpg" data-zoom-image="assets/images/product-details/product-detalis-bl4.jpg">
+                                    <img src="assets/images/product-details/product-detalis-s4.jpg" alt="">
+                                </a>
+                                <a data-image="assets/images/product-details/product-detalis-l5.jpg" data-zoom-image="assets/images/product-details/product-detalis-bl5.jpg">
+                                    <img src="assets/images/product-details/product-detalis-s5.jpg" alt="">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-content pro-details-content-modify">
                             <span>Life Style</span>
                             <h2>LaaVista Depro, FX 829 v1</h2>
-                            <div class="product-ratting-review">
+                            <!-- <div class="product-ratting-review">
                                 <div class="product-ratting">
                                     <i class="la la-star"></i>
                                     <i class="la la-star"></i>
@@ -475,8 +547,8 @@
                                 <div class="product-review">
                                     <span>40+ Reviews</span>
                                 </div>
-                            </div>
-                            <div class="pro-details-color-wrap">
+                            </div> -->
+                            <!-- <div class="pro-details-color-wrap">
                                 <span>Color:</span>
                                 <div class="pro-details-color-content">
                                     <ul>
@@ -486,41 +558,38 @@
                                         <li class="blue"></li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="pro-details-size">
-                                <span>Size:</span>
-                                <div class="pro-details-size-content">
-                                    <ul>
-                                        <li><a href="#">s</a></li>
-                                        <li><a href="#">m</a></li>
-                                        <li><a href="#">xl</a></li>
-                                        <li><a href="#">xxl</a></li>
-                                    </ul>
+                            </div> -->
+                            <div class="pro-details-description pt-3">
+                                <span><b>Description</b></span>
+                                <div class="pro-details-description-content readmore">
+                                   <p> kfjdhv dfkjhv fdkjhd fvjdfhv kfdjhvd fkjvhdf vkjdhf vkdjfh fdkjfhv dfjhv dfkjvh dfkjhv dkfjvh dkjfvhdfkjhvdkjfh dfkjvhfd kjvdhf kvjdhf vkdjfhv fdkjhdLorem Ipsum is simply dummy texfgngfn gfgfngfngfnfgt of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                                    <span class="readmore-link"></span> 
                                 </div>
                             </div>
                             <div class="pro-details-price-wrap">
                                 <div class="product-price">
                                     <span>$210.00</span>
-                                    <span class="old">$230.00</span>
+                                    <!-- <span class="old">$230.00</span> -->
                                 </div>
-                                <div class="dec-rang"><span>- 30%</span></div>
+                                <!-- <div class="dec-rang"><span>- 30%</span></div> -->
                             </div>
-                            <div class="pro-details-quality">
-                                <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
+                            <div class="pro-details-quality col-12 row m-0">
+                                <div class="cart-plus-minus col-6">
+                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="01">
+                                </div>
+                                <div class="col-6 pro-details-buy-now btn-hover btn-hover-radious">
+                                    <a href="#">Add To Cart</a>
                                 </div>
                             </div>
-                            <div class="pro-details-compare-wishlist">
+                            <!-- <div class="pro-details-compare-wishlist">
                                 <div class="pro-details-compare">
                                     <a title="Add To Compare" href="#"><i class="la la-retweet"></i> Compare</a>
                                 </div>
                                 <div class="pro-details-wishlist">
                                     <a title="Add To Wishlist" href="#"><i class="la la-heart-o"></i> Add to wish list</a>
                                 </div>
-                            </div>
-                            <div class="pro-details-buy-now btn-hover btn-hover-radious">
-                                <a href="#">Add To Cart</a>
-                            </div>
+                            </div> -->
+                            
                         </div>
                     </div>
                 </div>
@@ -531,9 +600,9 @@
                 <div class="row">
                     <div class="ms-auto me-auto col-lg-10">
                         <div class="dec-review-topbar nav mb-40">
-                            <a data-bs-toggle="tab" href="#des-details1">Description</a>
+                            <a data-bs-toggle="tab" href="#des-details1">Story</a>
                             <a class="active" data-bs-toggle="tab" href="#des-details2">Specification</a>
-                            <a data-bs-toggle="tab" href="#des-details3">Reviews</a>
+                            <!-- <a data-bs-toggle="tab" href="#des-details3">Reviews</a> -->
                         </div>
                         <div class="tab-content dec-review-bottom">
                             <div id="des-details1" class="tab-pane">
@@ -581,7 +650,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div id="des-details3" class="tab-pane">
+                            <!-- <div id="des-details3" class="tab-pane">
                                 <div class="dec-review-wrap mb-50">
                                     <div class="row">
                                         <div class="col-xl-3 col-lg-4 col-md-5">
@@ -684,7 +753,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1064,6 +1133,33 @@
     <script src="assets/js/plugins/smoothscroll.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+       // A $( document ).ready() block.
+        $( document ).ready(function() {
+            debugger
+            if(($('.readmore p').height()) < 180){
+                $('.readmore-link').hide();  
+            }
+        });
+
+
+
+        $(".readmore-link").click( function(e) {
+        // record if our text is expanded
+        var isExpanded =  $(e.target).hasClass("expand");
+        
+        //close all open paragraphs
+        $(".readmore.expand").removeClass("expand");
+        $(".readmore-link.expand").removeClass("expand");
+        
+        // if target wasn't expand, then expand it
+        if (!isExpanded){
+            $( e.target ).parent( ".readmore" ).addClass( "expand" );
+            $(e.target).addClass("expand");  
+        } 
+        });
+    </script>
 </body>
 
 </html>
