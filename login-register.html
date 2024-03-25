@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
+      <!-- izToast styles -->
+      <link rel="stylesheet" href="assets/js/plugins/iziToast/dist/css/iziToast.min.css">
+
 
     <link rel="stylesheet" href="assets/css/myStyles.css">
     <!-- <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css" > -->
@@ -539,17 +542,17 @@
                                 <div id="lg2" class="tab-pane">
                                     <div class="login-form-container p-5">
                                         <div class="login-register-form">
-                                            <form action="#" method="post">                                               
+                                            <form id="register-user">                                               
                                                 <div class="input-group">
-                                                    <input type="text" name="first-name" placeholder="First Name" class="col-6">
-                                                    <input type="text" name="last-name" placeholder="Last Name" class="col-6">
+                                                    <input type="text" name="firstName" placeholder="First Name" class="col-6" required>
+                                                    <input type="text" name="lastName" placeholder="Last Name" class="col-6" required>
                                                 </div>
-                                                <input type="email" name="E-Mail" placeholder="E-Mail">
-                                                <input type="password" name="user-password" placeholder="Password">
-                                                <input type="password" name="user-confirm-password" placeholder="Confirm Password">
+                                                <input type="email" name="emailAddress" placeholder="E-Mail" required>
+                                                <input type="password" name="password" placeholder="Password" required>
+                                                <input type="password" name="confirm-password" placeholder="Confirm Password" required>
                                                 
                                                 <div class="button-box">
-                                                    <button type="submit">Register</button>
+                                                    <button id="btn-register" type="submit">Register</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -667,6 +670,10 @@
     <!-- Bootstrap JS -->
     <script src="assets/js/vendor/bootstrap.min.js"></script>
 
+    <!-- JQuery Validations -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+
     <!-- Slick Slider JS -->
     <script src="assets/js/plugins/countdown.js"></script>
     <script src="assets/js/plugins/counterup.js"></script>
@@ -685,9 +692,12 @@
     <script src="assets/js/plugins/elevatezoom.js"></script>
     <script src="assets/js/plugins/sticky-sidebar.js"></script>
     <script src="assets/js/plugins/smoothscroll.js"></script>
+
+    <!-- izToast js -->
+    <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/pageScripts/index-4.js"></script>
+    <script src="assets/js/pageScripts/login-register.js"></script>
     
 </body>
 
