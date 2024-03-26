@@ -1,22 +1,27 @@
-<header class="header-area transparent-bar sticky-bar header-padding-3">
+<header class="header-area transparent-ba sticky-bar header-padding-3">
             <div class="main-header-wrap">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 d-flex align-items-center">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/images/logo/main_logo.png" alt="logo"></a>
+                                <a href="index.php"><img src="assets/images/logo/main_logo.png" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-4 d-flex justify-content-center align-items-center">
                             <div class="main-menu menu-common-style menu-lh-3 menu-margin-4 menu-font-2">
                                 <nav>
                                     <ul>
-                                        <li><a href="contact.html">Home</a></li>
+                                        <li><a href="index.php">Home</a></li>
                                         <li><a href="contact.html">About</a></li>
                                         <li><a href="contact.html">Shop</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                         <li><a href="login-register.php">Log In</a></li>
-                                        <li><a href="contact.html">Log Out</a></li>
+                                        <li class="angle-shape"><a href="#">My Account</a>
+                                            <ul class="submenu">
+                                                <li><a href="index.html">Dashboard</a></li>
+                                                <li><a href="index-2.html">Log Out</a></li>
+                                            </ul>
+                                        </li>
                                         <!-- <li class="angle-shape"><a href="index.html">Home</a>
                                             <ul class="submenu">
                                                 <li><a href="index.html">Home version 1 </a></li>
@@ -106,7 +111,7 @@
                                 </div> -->
                                 <div style="border-right: 1px solid rgba(26, 26, 26, 0.5);display: flex;justify-content: center;align-items: center;" class="header-login ml-40">
                                     <!-- <a href="login-register.html"><i style="font-size: 35px;" class="la la-user"></i></a> -->
-                                    <span class="me-3" style="font-size: 1rem;"><i style="font-size: 25px;" class="la la-user"></i><span></span></span>
+                                    <span class="me-3" style="font-size: 1rem;"><i style="font-size: 25px;" class="la la-user"></i><span>Hasantha</span></span>
                                    
                                 </div>
                                 <!-- <div class="cart-wrap cart-wrap-2">
