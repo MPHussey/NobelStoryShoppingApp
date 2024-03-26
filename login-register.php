@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Daxone - eCommerce Bootstrap 5 Template</title>
+    <title>Nobel Story</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/gem-favicon.png">
 
     <!-- CSS
 	============================================ -->
@@ -27,24 +27,34 @@
     <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
+      <!-- izToast styles -->
+      <link rel="stylesheet" href="assets/js/plugins/iziToast/dist/css/iziToast.min.css">
+
+
+    <link rel="stylesheet" href="assets/css/myStyles.css">
+    <!-- <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css" > -->
 </head>
 
 <body>
     <div class="main-wrapper">
-        <header class="header-area transparent-bar sticky-bar pt-10">
+        <header class="header-area transparent-ba sticky-bar header-padding-3">
             <div class="main-header-wrap">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-2 col-lg-3">
-                            <div class="logo">
-                                <a href="index.html"><img src="assets/images/logo/logo-1.png" alt="logo"></a>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4">
+                            <div class="logo mt-25">
+                                <a href="index.html"><img src="assets/images/logo/main_logo.png" alt="logo"></a>
                             </div>
                         </div>
-                        <div class="col-xl-7 col-lg-6">
-                            <div class="main-menu menu-common-style menu-lh-1 menu-margin-4 menu-font-3 ml-20 menu-others-page">
+                        <div class="col-xl-6 col-lg-4 d-flex justify-content-center">
+                            <div class="main-menu menu-common-style menu-lh-3 menu-margin-4 menu-font-2">
                                 <nav>
                                     <ul>
-                                        <li class="angle-shape"><a href="index.html">Home</a>
+                                        <li><a href="contact.html">Home</a></li>
+                                        <li><a href="contact.html">About</a></li>
+                                        <li><a href="contact.html">Shop</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <!-- <li class="angle-shape"><a href="index.html">Home</a>
                                             <ul class="submenu">
                                                 <li><a href="index.html">Home version 1 </a></li>
                                                 <li><a href="index-2.html">Home version 2 </a></li>
@@ -58,8 +68,9 @@
                                                 <li><a href="index-10.html">Home version 10 </a></li>
                                             </ul>
                                         </li>
+                                        <li><a href="">About</a></li>
                                         <li class="angle-shape"><a href="shop.html">Shop </a>
-                                            <ul class="mega-menu">
+                                            <ul class="mega-menu mega-menu-hm4">
                                                 <li><a class="menu-title" href="#">Shop Layout</a>
                                                     <ul>
                                                         <li><a href="shop.html">standard style</a></li>
@@ -97,7 +108,6 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="shop.html">Mens</a></li>
                                         <li class="angle-shape"><a href="#">Pages</a>
                                             <ul class="submenu">
                                                 <li><a href="about-us.html">about us </a></li>
@@ -118,23 +128,69 @@
                                                 <li><a href="blog-details.html">blog details </a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="contact.html">Contact</a></li> -->
                                     </ul>
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 position-relative">
-                            <div class="header-right-wrap mt-10">
-                                <!-- <div class="header-wishlist">
-                                    <a href="wishlist.html"><i class="la la-heart-o"></i></a>
+                       
+                        <div class="col-xl-3 col-lg-4 position-relative">
+                            <div class="header-right-wrap mt-25 stick-mt-40">
+                                <!-- <div class="search-wrap-2 search-wrap-2-mrg">
+                                    <button class="search-active">
+                                        <i class="la la-search"></i>
+                                    </button>
                                 </div> -->
-                                <div class="header-login ml-40">
-                                    <a href="login-register.html"><i class="la la-user"></i></a>
+                                <div class="cart-wrap cart-wrap-2 mr-10">
+                                    <button class="cart-active">
+                                        <i class="la la-user"></i>
+                                    </button>
                                 </div>
-                                <div class="cart-wrap common-style ml-35">
-                                    <button class="cart-active cart-3">
-                                        <!-- <span class="mini-cart-price">$240</span> -->
+                                <!-- <div class="cart-wrap cart-wrap-2">
+                                    <button class="cart-active">
                                         <i class="la la-shopping-cart"></i>
+                                    </button>
+                                </div> -->
+                                <!-- <div class="setting-wrap setting-wrap-mrg border-style">
+                                    <a class="setting-active" href="#">
+                                        <i class="la la-cog"></i>
+                                        Account
+                                    </a>
+                                    <div class="setting-content">
+                                        <ul>
+                                            <li>
+                                                <h4>Currency</h4>
+                                                <ul>
+                                                    <li><a href="#">USD</a></li>
+                                                    <li><a href="#">Euro</a></li>
+                                                    <li><a href="#">Real</a></li>
+                                                    <li><a href="#">BDT</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4>Language</h4>
+                                                <ul>
+                                                    <li><a href="#">English (US)</a></li>
+                                                    <li><a href="#">English (UK)</a></li>
+                                                    <li><a href="#">Spanish</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4>Account</h4>
+                                                <ul>
+                                                    <li><a href="login-register.html">Login</a></li>
+                                                    <li><a href="login-register.html">Creat Account</a></li>
+                                                    <li><a href="my-account.html">My Account</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div> -->
+                                <div class="cart-wrap cart-wrap-2">
+                                    <button class="cart-active">
+                                        <!-- <span class="mini-cart-price-2">$400.00</span> -->
+                                        <i class="la la-shopping-cart"></i>
+                                        <span class="count-style-2">01</span>
                                     </button>
                                     <div class="shopping-cart-content">
                                         <div class="shopping-cart-top">
@@ -220,12 +276,12 @@
                 </div>
             </div>
             <div class="header-small-mobile">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-6">
                             <div class="mobile-logo">
                                 <a href="index.html">
-                                    <img alt="" src="assets/images/logo/logo-1.png">
+                                    <img alt="" src="assets/images/logo/main_logo.png">
                                 </a>
                             </div>
                         </div>
@@ -234,7 +290,7 @@
                                 <div class="cart-wrap common-style">
                                     <button class="cart-active">
                                         <i class="la la-shopping-cart"></i>
-                                        <span class="count-style">2 Items</span>
+                                        <!-- <span class="count-style">2 Items</span> -->
                                     </button>
                                     <div class="shopping-cart-content">
                                         <div class="shopping-cart-top">
@@ -310,33 +366,32 @@
         <div class="mobile-off-canvas-active">
             <a class="mobile-aside-close"><i class="la la-close"></i></a>
             <div class="header-mobile-aside-wrap">
-                <div class="mobile-search">
+                <!-- <div class="mobile-search">
                     <form class="search-form" action="#">
                         <input type="text" placeholder="Search entire store…">
                         <button class="button-search"><i class="la la-search"></i></button>
                     </form>
-                </div>
+                </div> -->
                 <div class="mobile-menu-wrap">
                     <!-- mobile menu start -->
                     <div class="mobile-navigation">
                         <!-- mobile menu navigation start -->
                         <nav>
                             <ul class="mobile-menu">
-                                <li class="menu-item-has-children"><a href="index.html">Home</a>
+                                <li><a href="contact.html">Home</a></li>
+                                <li><a href="contact.html">About</a></li>
+                                <li><a href="contact.html">Shop</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+
+                                <!-- <li class="menu-item-has-children"><a href="index.html">Home</a>
                                     <ul class="dropdown">
-                                        <li><a href="index.html">Home version 1 </a></li>
-                                        <li><a href="index-2.html">Home version 2 </a></li>
-                                        <li><a href="index-3.html">Home version 3 </a></li>
-                                        <li><a href="index-4.html">Home version 4 </a></li>
-                                        <li><a href="index-5.html">Home version 5 </a></li>
-                                        <li><a href="index-6.html">Home version 6 </a></li>
-                                        <li><a href="index-7.html">Home version 7 </a></li>
-                                        <li><a href="index-8.html">Home version 8 </a></li>
-                                        <li><a href="index-9.html">Home version 9 </a></li>
-                                        <li><a href="index-10.html">Home version 10 </a></li>
+                                        <li><a href="contact.html">Home</a></li>
+                                        <li><a href="contact.html">About</a></li>
+                                        <li><a href="contact.html">Shop</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
-                                </li>
-                                <li class="menu-item-has-children "><a href="#">shop</a>
+                                </li> -->
+                                <!-- <li class="menu-item-has-children "><a href="#">shop</a>
                                     <ul class="dropdown">
                                         <li class="menu-item-has-children"><a href="#">shop layout</a>
                                             <ul class="dropdown">
@@ -390,7 +445,7 @@
                                         <li><a href="blog-details.html">blog details </a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contact us</a></li>
+                                <li><a href="contact.html">Contact us</a></li> -->
                             </ul>
                         </nav>
                         <!-- mobile menu navigation end -->
@@ -398,7 +453,7 @@
                     <!-- mobile menu end -->
                 </div>
                 <div class="mobile-curr-lang-wrap">
-                    <div class="single-mobile-curr-lang">
+                    <!-- <div class="single-mobile-curr-lang">
                         <a class="mobile-language-active" href="#">Language <i class="la la-angle-down"></i></a>
                         <div class="lang-curr-dropdown lang-dropdown-active">
                             <ul>
@@ -418,7 +473,7 @@
                                 <li><a href="#">BDT</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="single-mobile-curr-lang">
                         <a class="mobile-account-active" href="#">My Account <i class="la la-angle-down"></i></a>
                         <div class="lang-curr-dropdown account-dropdown-active">
@@ -439,336 +494,171 @@
                 </div>
             </div>
         </div>
-        <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/bg/breadcrumb.jpg);">
+        <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/slider/1.jpg);">
             <div class="container">
                 <div class="breadcrumb-content text-center">
-                    <h2>My account page</h2>
+                    <h2 class="text-white">login / register page</h2>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="index.html" class="text-white">Home</a>
                         </li>
-                        <li class="active">My account </li>
+                        <li class="active">login register </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <!-- my account wrapper start -->
-        <div class="my-account-wrapper pt-100 pb-100">
+        <div class="login-register-area pt-85 pb-90">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <!-- My Account Page Start -->
-                        <div class="myaccount-page-wrapper">
-                            <!-- My Account Tab Menu Start -->
-                            <div class="row">
-                                <div class="col-lg-3 col-md-4">
-                                    <div class="myaccount-tab-menu nav" role="tablist">
-                                        <a href="#dashboad" class="active" data-bs-toggle="tab"><i class="fa fa-dashboard"></i>
-                                            Dashboard</a>
-                                        <a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
-                                        <a href="#download" data-bs-toggle="tab"><i class="fa fa-cloud-download"></i> Download</a>
-                                        <a href="#payment-method" data-bs-toggle="tab"><i class="fa fa-credit-card"></i> Payment
-                                            Method</a>
-                                        <a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i> address</a>
-                                        <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Account Details</a>
-                                        <a href="login-register.html"><i class="fa fa-sign-out"></i> Logout</a>
+                    <div class="col-lg-7 col-md-12 ms-auto me-auto">
+                        <div class="login-register-wrapper">
+                            <div class="login-register-tab-list nav">
+                                <a class="active" data-bs-toggle="tab" href="#lg1">
+                                    <h4> login </h4>
+                                </a>
+                                <a data-bs-toggle="tab" href="#lg2">
+                                    <h4> register </h4>
+                                </a>
+                            </div>
+                            <div class="tab-content">
+                                <div id="lg1" class="tab-pane active">
+                                    <div class="login-form-container p-5">
+                                        <div class="login-register-form">
+                                            <form id="user-login">
+                                                <input type="text" name="loginEmail" placeholder="Email Address" class="">
+                                                <input type="password" name="loginPassword" placeholder="Password">
+                                                <div class="button-box">
+                                                    <div class="login-toggle-btn">
+                                                        <input type="checkbox">
+                                                        <label>Remember me</label>
+                                                        <a href="#">Forgot Password?</a>
+                                                    </div>
+                                                    <button type="submit">Login</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- My Account Tab Menu End -->
-                                <!-- My Account Tab Content Start -->
-                                <div class="col-lg-9 col-md-8">
-                                    <div class="tab-content" id="myaccountContent">
-                                        <!-- Single Tab Content Start -->
-                                        <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
-                                            <div class="myaccount-content">
-                                                <h3>Dashboard</h3>
-                                                <div class="welcome">
-                                                    <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.html" class="logout"> Logout</a>)</p>
+                                <div id="lg2" class="tab-pane">
+                                    <div class="login-form-container p-5">
+                                        <div class="login-register-form">
+                                            <form id="register-user">                                               
+                                                <div class="input-group">
+                                                    <input type="text" name="firstName" placeholder="First Name" class="col-6" required>
+                                                    <input type="text" name="lastName" placeholder="Last Name" class="col-6" required>
                                                 </div>
-
-                                                <p class="mb-0">From your account dashboard. you can easily check & view your recent orders, manage your shipping and billing addresses and edit your password and account details.</p>
-                                            </div>
-                                        </div>
-                                        <!-- Single Tab Content End -->
-                                        <!-- Single Tab Content Start -->
-                                        <div class="tab-pane fade" id="orders" role="tabpanel">
-                                            <div class="myaccount-content">
-                                                <h3>Orders</h3>
-                                                <div class="myaccount-table table-responsive text-center">
-                                                    <table class="table table-bordered">
-                                                        <thead class="thead-light">
-                                                            <tr>
-                                                                <th>Order</th>
-                                                                <th>Date</th>
-                                                                <th>Status</th>
-                                                                <th>Total</th>
-                                                                <th>Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Aug 22, 2018</td>
-                                                                <td>Pending</td>
-                                                                <td>$3000</td>
-                                                                <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>July 22, 2018</td>
-                                                                <td>Approved</td>
-                                                                <td>$200</td>
-                                                                <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>3</td>
-                                                                <td>June 12, 2017</td>
-                                                                <td>On Hold</td>
-                                                                <td>$990</td>
-                                                                <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                <input type="email" name="emailAddress" placeholder="E-Mail" required>
+                                                <input type="password" name="password" placeholder="Password" required>
+                                                <input type="password" name="confirm-password" placeholder="Confirm Password" required>
+                                                
+                                                <div class="button-box">
+                                                    <button id="btn-register" type="submit">Register</button>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
-                                        <!-- Single Tab Content End -->
-                                        <!-- Single Tab Content Start -->
-                                        <div class="tab-pane fade" id="download" role="tabpanel">
-                                            <div class="myaccount-content">
-                                                <h3>Downloads</h3>
-                                                <div class="myaccount-table table-responsive text-center">
-                                                    <table class="table table-bordered">
-                                                        <thead class="thead-light">
-                                                            <tr>
-                                                                <th>Product</th>
-                                                                <th>Date</th>
-                                                                <th>Expire</th>
-                                                                <th>Download</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Haven - Free Real Estate PSD Template</td>
-                                                                <td>Aug 22, 2018</td>
-                                                                <td>Yes</td>
-                                                                <td><a href="#" class="check-btn sqr-btn "><i class="fa fa-cloud-download"></i> Download File</a></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>HasTech - Profolio Business Template</td>
-                                                                <td>Sep 12, 2018</td>
-                                                                <td>Never</td>
-                                                                <td><a href="#" class="check-btn sqr-btn "><i class="fa fa-cloud-download"></i> Download File</a></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Tab Content End -->
-                                        <!-- Single Tab Content Start -->
-                                        <div class="tab-pane fade" id="payment-method" role="tabpanel">
-                                            <div class="myaccount-content">
-                                                <h3>Payment Method</h3>
-                                                <p class="saved-message">You Can't Saved Your Payment Method yet.</p>
-                                            </div>
-                                        </div>
-                                        <!-- Single Tab Content End -->
-                                        <!-- Single Tab Content Start -->
-                                        <div class="tab-pane fade" id="address-edit" role="tabpanel">
-                                            <div class="myaccount-content">
-                                                <h3>Billing Address</h3>
-                                                <address>
-                                                    <p><strong>Alex Tuntuni</strong></p>
-                                                    <p>1355 Market St, Suite 900 <br>
-                                                    San Francisco, CA 94103</p>
-                                                    <p>Mobile: (123) 456-7890</p>
-                                                </address>
-                                                <a href="#" class="check-btn sqr-btn "><i class="fa fa-edit"></i> Edit Address</a>
-                                            </div>
-                                        </div>
-                                        <!-- Single Tab Content End -->
-                                        <!-- Single Tab Content Start -->
-                                        <div class="tab-pane fade" id="account-info" role="tabpanel">
-                                            <div class="myaccount-content">
-                                                <h3>Account Details</h3>
-                                                <div class="account-details-form">
-                                                    <form action="#">
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="single-input-item">
-                                                                    <label for="first-name" class="required">First Name</label>
-                                                                    <input type="text" id="first-name" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="single-input-item">
-                                                                    <label for="last-name" class="required">Last Name</label>
-                                                                    <input type="text" id="last-name" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-input-item">
-                                                            <label for="display-name" class="required">Display Name</label>
-                                                            <input type="text" id="display-name" />
-                                                        </div>
-                                                        <div class="single-input-item">
-                                                            <label for="email" class="required">Email Addres</label>
-                                                            <input type="email" id="email" />
-                                                        </div>
-                                                        <fieldset>
-                                                            <legend>Password change</legend>
-                                                            <div class="single-input-item">
-                                                                <label for="current-pwd" class="required">Current Password</label>
-                                                                <input type="password" id="current-pwd" />
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-lg-6">
-                                                                    <div class="single-input-item">
-                                                                        <label for="new-pwd" class="required">New Password</label>
-                                                                        <input type="password" id="new-pwd" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="single-input-item">
-                                                                        <label for="confirm-pwd" class="required">Confirm Password</label>
-                                                                        <input type="password" id="confirm-pwd" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </fieldset>
-                                                        <div class="single-input-item">
-                                                            <button class="check-btn sqr-btn ">Save Changes</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div> <!-- Single Tab Content End -->
                                     </div>
-                                </div> <!-- My Account Tab Content End -->
+                                </div>
                             </div>
-                        </div> <!-- My Account Page End -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- my account wrapper end -->
-        <footer class="footer-area section-padding-2 bg-bluegray pt-80">
-            <div class="container-fluid">
-                <div class="footer-top pb-40">
+
+        
+
+        <footer class="footer-area">
+            <div class="footer-top bg-gray pt-120 pb-10">
+                <div class="container">
                     <div class="row">
-                        <div class="col-lg-3 col-md-8 col-12 col-sm-12">
+                        <div class="col-lg-3 col-md-3 col-12 col-sm-6">
                             <div class="footer-widget mb-30">
-                                <a href="#"><img src="assets/images/logo/logo-1.png" alt="logo"></a>
-                                <div class="footer-about">
-                                    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms. </p>
+                                <a href="#"><img src="assets/images/logo/main_logo.png" alt="logo"></a>
+
+                                <div class="footer-social">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                        Ipsum is dummy.</p>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-4 col-6 col-sm-6">
-                            <div class="footer-widget mb-30 ml-55">
-                                <div class="footer-title-3">
-                                    <h3>Company</h3>
+                        <div class="col-lg-3 col-md-3 col-12 col-sm-6">
+                            <div class="footer-widget mb-30 footer-mrg-hm1">
+                                <div class="footer-title">
+                                    <h3>Useful Link</h3>
                                 </div>
-                                <div class="footer-list-3">
+                                <div class="footer-list">
                                     <ul>
-                                        <li><a href="about-us.html">About US</a></li>
-                                        <li><a href="blog.html">Blogs</a></li>
-                                        <li><a href="#">Careers</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="cart.html">Shopping Cat</a></li>
+                                        <li><a href="wishlist.html">WIshlist</a></li>
+                                        <li><a href="checkout.html">Chekout</a></li>
+                                        <li><a href="contact.html">Support</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-6 col-sm-6">
-                            <div class="footer-widget mb-30 footer-ngtv-mrg1">
-                                <div class="footer-title-3">
-                                    <h3>Product</h3>
+                        <div class="col-lg-3 col-md-2 col-12 col-sm-6">
+                            <div class="footer-widget mb-30">
+                                <div class="footer-title">
+                                    <h3>About us</h3>
                                 </div>
-                                <div class="footer-list-3">
+                                <div class="footer-list">
                                     <ul>
-                                        <li><a href="#">Pricing</a></li>
-                                        <li><a href="#">Features</a></li>
-                                        <li><a href="#">Customers</a></li>
-                                        <li><a href="#">Demos</a></li>
+                                        <li><a href="cart.html">About</a></li>
+                                        <li><a href="wishlist.html">Products</a></li>
+                                        <li><a href="checkout.html">Terms and conditions</a></li>
+                                        <li><a href="contact.html">Help Center</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-6 col-sm-6">
-                            <div class="footer-widget mb-30 ml-35">
-                                <div class="footer-title-3">
-                                    <h3>Helps</h3>
+                        <div class="col-lg-3 col-md-2 col-12 col-sm-6">
+                            <div class="footer-widget mb-30">
+                                <div class="footer-title">
+                                    <h3>Contact</h3>
                                 </div>
-                                <div class="footer-list-3">
-                                    <ul>
-                                        <li><a href="#">Introduction</a></li>
-                                        <li><a href="#">Feedback</a></li>
-                                        <li><a href="#">Referrals</a></li>
-                                        <li><a href="#">Network Status</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-6 col-sm-6">
-                            <div class="footer-widget mb-30 ml-135">
-                                <div class="footer-title-3">
-                                    <h3>Social Netowrk</h3>
-                                </div>
-                                <div class="footer-list-3">
-                                    <ul>
-                                        <li><a href="#">Facebook</a></li>
-                                        <li><a href="#">Twitter</a></li>
-                                        <li><a href="#">Linkedin</a></li>
-                                        <li><a href="#">Google +</a></li>
-                                    </ul>
+                                <div class="footer-social">
+                                    <p><i class=" ti-location-pin "></i>77 Seventh avenue USA 12555. </p>
+                                    <p><i class=" ti-headphone-alt "></i>+88 (015) 609735 or +88 (012) 112266</p>
+                                    <div class="footer-social">
+                                        <ul>
+                                            <li><a href="#"><i class=" ti-facebook "></i></a></li>
+                                            <li><a href="#"><i class=" ti-twitter-alt "></i></a></li>
+                                            <li><a href="#"><i class=" ti-pinterest "></i></a></li>
+                                            <li><a href="#"><i class=" ti-vimeo-alt "></i></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="footer-bottom pt-40 border-top-1">
                     <div class="row">
-                        <div class="col-xl-7 col-lg-10 col-md-11 ms-auto me-auto">
-                            <div class="footer-tag-wrap">
-                                <div class="footer-tag-title">
-                                    <span>Tags :</span>
-                                </div>
-                                <div class="footer-tag-list">
-                                    <ul>
-                                        <li><a href="#">Minimal eCommerce</a></li>
-                                        <li><a href="#">Marketing</a></li>
-                                        <li><a href="#">User Exprience</a></li>
-                                        <li><a href="#">Ali Express</a></li>
-                                        <li><a href="#">Web </a></li>
-                                        <li><a href="#">Digital Expo</a></li>
-                                        <li><a href="#">Web Search</a></li>
-                                        <li><a href="#">Affiliate </a></li>
-                                        <li><a href="#">UCWeb </a></li>
-                                        <li><a href="#">Support </a></li>
-                                        <li><a href="#">Theme</a></li>
-                                        <li><a href="#">Best Queality </a></li>
-                                        <li><a href="#">Mobile </a></li>
-                                        <li><a href="#">24 Support</a></li>
-                                        <li><a href="#">Ali Express</a></li>
-                                        <li><a href="#">Web</a></li>
-                                        <li><a href="#"> Laptop</a></li>
-                                        <li><a href="#">Web Search</a></li>
-                                        <li><a href="#">Affiliate </a></li>
-                                        <li><a href="#">Photoshop </a></li>
-                                        <li><a href="#">Support </a></li>
-                                        <li><a href="#">Theme.</a></li>
-                                    </ul>
-                                </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="footer-widget footer-payment mb-30">
+                                <a href="#"><img src="assets/images/icon-img/payment-method.png" alt="logo"></a>
                             </div>
                         </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+
+                        </div>
                     </div>
-                    <div class="copyright-3 text-center pt-20 pb-20 border-top-1">
+
+                </div>
+            </div>
+
+            <div class="footer-bottom bg-gray-2 ptb-20">
+                <div class="container">
+                    <div class="copyright text-center">
                         <p>Copyright © <a href="#">Daxone</a>. All Right Reserved</p>
                     </div>
                 </div>
             </div>
+
         </footer>
+
     </div>
     <!-- JS
 ============================================ -->
@@ -779,6 +669,10 @@
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+    <!-- JQuery Validations -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
 
     <!-- Slick Slider JS -->
     <script src="assets/js/plugins/countdown.js"></script>
@@ -798,8 +692,13 @@
     <script src="assets/js/plugins/elevatezoom.js"></script>
     <script src="assets/js/plugins/sticky-sidebar.js"></script>
     <script src="assets/js/plugins/smoothscroll.js"></script>
+
+    <!-- izToast js -->
+    <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/pageScripts/login-register.js"></script>
+    
 </body>
 
 </html>
