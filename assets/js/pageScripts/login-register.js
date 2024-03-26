@@ -3,6 +3,12 @@ $(document).ready(function(){
         userRegister.call(this,e);
     });
 
+    $('#user-login').on('submit',function(e){
+        userLogin.call(this,e);
+    })
+
+
+
 });
 
 
@@ -47,5 +53,24 @@ function userRegister(e){
             position:'bottomRight'
         });
     }
+}
+
+
+//function for user login
+function userLogin(e){
+    e.preventDefault();
+    var formData=new FormData(this);
+    formData.append('action','login');
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/nobelcrmbackend/index.php",
+        data:formData,
+        processData:false,
+        contentType:false,
+        success:function(response){
+            console.log(response);
+        }
+    });
+   
 }
 
