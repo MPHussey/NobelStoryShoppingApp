@@ -15,10 +15,10 @@
                                         <li><a href="contact.html">About</a></li>
                                         <li><a href="contact.html">Shop</a></li>
                                         <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="login-register.php">Log In</a></li>
-                                        <li class="angle-shape"><a href="#">My Account</a>
+                                        <li><a class="login-link d-none" href="login-register.php">Log In</a></li>
+                                        <li class="angle-shape myAccount-link d-none"><a href="#">My Account</a>
                                             <ul class="submenu">
-                                                <li><a href="index.html">Dashboard</a></li>
+                                                <li><a href="my-account.html">Dashboard</a></li>
                                                 <li><a href="index-2.html">Log Out</a></li>
                                             </ul>
                                         </li>
@@ -111,7 +111,7 @@
                                 </div> -->
                                 <div style="border-right: 1px solid rgba(26, 26, 26, 0.5);display: flex;justify-content: center;align-items: center;" class="header-login ml-40">
                                     <!-- <a href="login-register.html"><i style="font-size: 35px;" class="la la-user"></i></a> -->
-                                    <span class="me-3" style="font-size: 1rem;"><i style="font-size: 25px;" class="la la-user"></i><span>Hasantha</span></span>
+                                    <span class="me-3" style="font-size: 1rem;"><i style="font-size: 25px;" class="la la-user"></i><span id="log-user"></span></span>
                                    
                                 </div>
                                 <!-- <div class="cart-wrap cart-wrap-2">

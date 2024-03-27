@@ -1,4 +1,6 @@
+var sessionCheckVal;
 $(document).ready(function(){
+    sessionCheck();
     $('#register-user').on('submit',function(e){
         userRegister.call(this,e);
     });
@@ -68,9 +70,22 @@ function userLogin(e){
         processData:false,
         contentType:false,
         success:function(response){
-            console.log(response);
+            console.log(response.data);
+            localStorage.setItem('userData',JSON.stringify(response.data));
+            
         }
     });
    
+}
+
+function sessionCheck(){
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/nobelcrmbackend/index.php",
+        data:{action:"sessionCheck"},
+        success:function(response){
+            console.log(response);
+        }
+    })
 }
 

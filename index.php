@@ -589,6 +589,7 @@
     <script src="assets/js/plugins/smoothscroll.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/pageScripts/navbar-scripts.js"></script>
     <script src="assets/js/pageScripts/index-4.js"></script>
     
 </body>
