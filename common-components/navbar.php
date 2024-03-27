@@ -19,7 +19,7 @@
                                         <li class="angle-shape myAccount-link d-none"><a href="#">My Account</a>
                                             <ul class="submenu">
                                                 <li><a href="my-account.html">Dashboard</a></li>
-                                                <li><a href="index-2.html">Log Out</a></li>
+                                                <li><a id="btn-logout" href="#">Log Out</a></li>
                                             </ul>
                                         </li>
                                         <!-- <li class="angle-shape"><a href="index.html">Home</a>
