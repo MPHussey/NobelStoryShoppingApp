@@ -23,6 +23,7 @@ function getAccountDetails(){
     $('#email').val(accountDetails.emailAddress);
     $('#resident-address').val(accountDetails.residentAddress);
     $('#phone-number').val(accountDetails.phoneNumber);
+    $('#user-id').val(accountDetails.userId);
 }
 
 function saveToggleButton(){
@@ -35,9 +36,74 @@ function saveToggleButton(){
 function accountDetailsUpdate(e){
     e.preventDefault();
     var formData=new FormData(this);
-    for(let [key,value] of formData.entries()){
-        console.log(key,value);
-    }
+    formData.append('action','updateAccount');
+    // for(let [key,value] of formData.entries()){
+    //     console.log(key,value);
+    // }
+
+    iziToast.question({
+        timeout: 20000,
+        close: false,
+        overlay: true,
+        displayMode: 'once',
+        id: 'question',
+        zindex: 2000,
+        title: 'Hey',
+        message: 'Are you sure about that?',
+        position: 'center',
+        buttons: [
+            ['<button><b>YES</b></button>', function (instance, toast) {
+                // User clicked YES, hide the toast and proceed with AJAX call
+                instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                
+                // Here, place your AJAX call
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost/nobelcrmbackend/index.php",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log(response);
+                        if (response.success == true) {
+                            localStorage.setItem('userData', JSON.stringify(response.data));
+                            getAccountDetails();
+                            saveToggleButton();
+                            iziToast.success({
+                                timeout:3000,
+                                title: 'OK',
+                                message: 'Successfully Updated !!',
+                                position: 'center',
+                                zindex: 2000,
+                                overlay: true,
+                            });
+                        }else{
+                            iziToast.error({
+                                timeout:3000,
+                                title: 'Error',
+                                message: 'Update Unsuccessfull !!',
+                                position: 'center',
+                                zindex: 2000,
+                                overlay: true,
+                            });
+                        }
+                    }
+                });
+    
+            }, true], // The true at the end means this button will close the dialog
+    
+            ['<button>NO</button>', function (instance, toast) {
+                // User clicked NO, just hide the toast
+                instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+            }],
+        ],
+        onClosing: function(instance, toast, closedBy){
+
+        },
+        onClosed: function(instance, toast, closedBy){
+            
+        }
+    });
 }
 
 function passwordChange(e){

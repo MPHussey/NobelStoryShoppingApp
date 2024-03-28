@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="assets/css/plugins/slick.css">
     <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
+     <!-- izToast styles -->
+     <link rel="stylesheet" href="assets/js/plugins/iziToast/dist/css/iziToast.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -303,7 +305,7 @@
                                         <!-- Single Tab Content Start -->
                                         <div class="tab-pane fade" id="address-edit" role="tabpanel">
                                             <div class="myaccount-content">
-                                                <h3>Password chnage</h3>
+                                                <h3>Password change</h3>
                                                 <div class="account-details-form">
                                                     <form id="form-password-reset">
                                                         <fieldset>
@@ -349,6 +351,7 @@
                                                                 <div class="single-input-item">
                                                                     <label for="first-name" class="required">First Name</label>
                                                                     <input name="firstName" class="account-common" type="text" id="first-name" disabled />
+                                                                    <input name="userId" class="account-common" type="hidden" id="user-id" disabled />
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
@@ -542,6 +545,8 @@
     <script src="assets/js/plugins/elevatezoom.js"></script>
     <script src="assets/js/plugins/sticky-sidebar.js"></script>
     <script src="assets/js/plugins/smoothscroll.js"></script>
+     <!-- izToast js -->
+     <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
     <!-- Main JS -->
 
     <script src="assets/js/main.js"></script>
