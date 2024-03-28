@@ -1,4 +1,6 @@
+var sessionCheckVal;
 $(document).ready(function(){
+    sessionCheck();
     $('#register-user').on('submit',function(e){
         userRegister.call(this,e);
     });
@@ -68,9 +70,26 @@ function userLogin(e){
         processData:false,
         contentType:false,
         success:function(response){
-            console.log(response);
+            //console.log(response.data);
+            if(response.success==true){
+                localStorage.setItem('userData',JSON.stringify(response.data));
+                window.location.href="my-account.php";
+            }
+            
+            
         }
     });
    
+}
+
+function sessionCheck(){
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/nobelcrmbackend/index.php",
+        data:{action:"sessionCheck"},
+        success:function(response){
+            console.log(response);
+        }
+    })
 }
 
