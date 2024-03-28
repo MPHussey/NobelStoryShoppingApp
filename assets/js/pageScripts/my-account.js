@@ -3,6 +3,16 @@ $(document).ready(function(){
 
     //toggle save chnages button
     $('.btn-account-details-update').on('click',saveToggleButton);
+
+    //account details submission
+    $('#form-account-details').on('submit',function(e){
+        accountDetailsUpdate.call(this,e);
+    })
+
+    //password reset
+    $('#form-password-reset').on('submit',function(e){
+        passwordChange.call(this,e);
+    })
 });
 
 function getAccountDetails(){
@@ -20,4 +30,17 @@ function saveToggleButton(){
     $('.account-common').prop('disabled', function(i, val) {
         return !val;
     });
+}
+
+function accountDetailsUpdate(e){
+    e.preventDefault();
+    var formData=new FormData(this);
+    for(let [key,value] of formData.entries()){
+        console.log(key,value);
+    }
+}
+
+function passwordChange(e){
+    e.preventDefault();
+    var formData=new FormData(this);
 }

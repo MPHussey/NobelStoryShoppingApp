@@ -305,30 +305,30 @@
                                             <div class="myaccount-content">
                                                 <h3>Password chnage</h3>
                                                 <div class="account-details-form">
-                                                    <form action="#">
+                                                    <form id="form-password-reset">
                                                         <fieldset>
                                                             <!-- <legend>Password change</legend> -->
-                                                            <div class="single-input-item">
+                                                            <!-- <div class="single-input-item">
                                                                 <label for="current-pwd" class="required">Current Password</label>
                                                                 <input type="password" id="current-pwd" />
-                                                            </div>
+                                                            </div> -->
                                                             <div class="row">
                                                                 <div class="col-lg-6">
                                                                     <div class="single-input-item">
                                                                         <label for="new-pwd" class="required">New Password</label>
-                                                                        <input type="password" id="new-pwd" />
+                                                                        <input name="newPassword" type="password" id="new-pwd" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div class="single-input-item">
                                                                         <label for="confirm-pwd" class="required">Confirm Password</label>
-                                                                        <input type="password" id="confirm-pwd" />
+                                                                        <input name="confirmNewPassword" type="password" id="confirm-pwd" />
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </fieldset>
                                                         <div class="single-input-item">
-                                                            <button class="check-btn sqr-btn ">Save Changes</button>
+                                                            <button id="btn-password-change" class="check-btn sqr-btn ">Reset</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -343,18 +343,18 @@
                                                     <h3>Account Details</h3>
                                                 </div>
                                                 <div class="account-details-form">
-                                                    <form action="#">
+                                                    <form id="form-account-details">
                                                         <div class="row">
                                                             <div class="col-lg-6">
                                                                 <div class="single-input-item">
                                                                     <label for="first-name" class="required">First Name</label>
-                                                                    <input class="account-common" type="text" id="first-name" disabled />
+                                                                    <input name="firstName" class="account-common" type="text" id="first-name" disabled />
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="single-input-item">
                                                                     <label for="last-name" class="required">Last Name</label>
-                                                                    <input class="account-common" type="text" id="last-name" disabled />
+                                                                    <input name="lastName" class="account-common" type="text" id="last-name" disabled />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -366,23 +366,23 @@
                                                             <div class="col-lg-6">
                                                                 <div class="single-input-item">
                                                                     <label for="email" class="required">Email Addres</label>
-                                                                    <input class="account-common" type="email" id="email" disabled />
+                                                                    <input name="email" class="account-common" type="email" id="email" disabled />
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="single-input-item">
                                                                     <label for="email" class="required">Phone Number</label>
-                                                                    <input class="account-common" type="number" id="phone-number" disabled />
+                                                                    <input name="phoneNumber" class="account-common" type="number" id="phone-number" disabled />
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="single-input-item">
                                                             <label for="resident-address" class="required">Resident Addres</label>
-                                                            <input class="account-common" type="text" id="resident-address" disabled />
+                                                            <input name="residentAddress" class="account-common" type="text" id="resident-address" disabled />
                                                         </div>
                                                         <div class="single-input-item">
-                                                            <button id="submit-account-details" class="check-btn sqr-btn d-none">Save Changes</button>
+                                                            <button type="submit" id="submit-account-details" class="check-btn sqr-btn d-none">Save Changes</button>
                                                         </div>
                                                     </form>
                                                 </div>
