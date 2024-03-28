@@ -281,6 +281,7 @@
     <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/pageScripts/navbar-scripts.js"></script>
     <script src="assets/js/pageScripts/login-register.js"></script>
     
 </body>

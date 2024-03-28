@@ -18,7 +18,7 @@
                                         <li><a class="login-link d-none" href="login-register.php">Log In</a></li>
                                         <li class="angle-shape myAccount-link d-none"><a href="#">My Account</a>
                                             <ul class="submenu">
-                                                <li><a href="my-account.html">Dashboard</a></li>
+                                                <li><a href="my-account.php">Dashboard</a></li>
                                                 <li><a id="btn-logout" href="#">Log Out</a></li>
                                             </ul>
                                         </li>

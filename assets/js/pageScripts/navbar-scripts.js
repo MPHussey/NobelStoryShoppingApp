@@ -40,7 +40,11 @@ function logOutUser(e){
         data:{action:"logout"},
         success:function(response){
             console.log(response);
-            sessionCheck();
+            if(response.success==true){
+                sessionCheck();
+                window.location.href='index.php';
+            }
+           
         }
     })
 }

@@ -70,8 +70,12 @@ function userLogin(e){
         processData:false,
         contentType:false,
         success:function(response){
-            console.log(response.data);
-            localStorage.setItem('userData',JSON.stringify(response.data));
+            //console.log(response.data);
+            if(response.success==true){
+                localStorage.setItem('userData',JSON.stringify(response.data));
+                window.location.href="my-account.php";
+            }
+            
             
         }
     });
