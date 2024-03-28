@@ -199,7 +199,7 @@
                                             Method</a> -->
                                         <a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i> password change</a>
 
-                                        <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
+                                        <!-- <a href="#"><i class="fa fa-sign-out"></i> Logout</a> -->
                                     </div>
                                 </div>
                                 <!-- My Account Tab Menu End -->
@@ -309,11 +309,6 @@
                                                 <div class="account-details-form">
                                                     <form id="form-password-reset">
                                                         <fieldset>
-                                                            <!-- <legend>Password change</legend> -->
-                                                            <!-- <div class="single-input-item">
-                                                                <label for="current-pwd" class="required">Current Password</label>
-                                                                <input type="password" id="current-pwd" />
-                                                            </div> -->
                                                             <div class="row">
                                                                 <div class="col-lg-6">
                                                                     <div class="single-input-item">
