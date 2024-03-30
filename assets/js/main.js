@@ -141,32 +141,32 @@
     });
     
     /* Product slider active 2 */
-    $('.product-slider-active-2').owlCarousel({
-        loop: true,
-        nav: false,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        item: 5,
-        responsive: {
-            0: {
-                items: 1
-            },
-            576: {
-                items: 2
-            },
-            768: {
-                items: 2
-            },
-            992: {
-                items: 3
-            },
-            1200: {
-                items: 5
-            }
-        }
-    });
+    // $('.product-slider-active-2').owlCarousel({
+    //     loop: true,
+    //     nav: false,
+    //     autoplay: false,
+    //     autoplayTimeout: 5000,
+    //     animateOut: 'fadeOut',
+    //     animateIn: 'fadeIn',
+    //     item: 5,
+    //     responsive: {
+    //         0: {
+    //             items: 1
+    //         },
+    //         576: {
+    //             items: 2
+    //         },
+    //         768: {
+    //             items: 2
+    //         },
+    //         992: {
+    //             items: 3
+    //         },
+    //         1200: {
+    //             items: 5
+    //         }
+    //     }
+    // });
     
     /* Product slider active 3 */
     $('.product-slider-active-3').owlCarousel({

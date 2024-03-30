@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   getFeaturedProducts();
   getAllProducts();
@@ -70,6 +71,7 @@ function getAllProducts() {
   });
 }
 
+var swiperFeatures;
 //fetch featured products onload
 function getFeaturedProducts() {
   $.ajax({
@@ -84,7 +86,7 @@ function getFeaturedProducts() {
       var producTemplate = "";
       receivedData.forEach((product, index) => {
         //console.log(baseUrl + product.images[0].image_url);
-        producTemplate += `<div class="product-wrap product-border-2 pro-hover-shadow mb-40">
+        producTemplate += `<div class="swiper-slide"><div class="product-wrap product-border-2 pro-hover-shadow mb-40">
         <div class="product-img mb-15">
             <a href="product-details.html"><img src="${
               baseUrl + product.images[0].image_url
@@ -105,34 +107,40 @@ function getFeaturedProducts() {
                 <span>$${product.price}</span>
             </div>
         </div>
-    </div>`;
+    </div></div>`;
       });
 
       $(".dynamic-dataset").html(producTemplate);
-      $(".dynamic-dataset").owlCarousel("destroy"); // Destroy any existing initialization
-      $(".dynamic-dataset").owlCarousel({
-        // Your Owl Carousel settings here
+      swiperFeatures = new Swiper(".mySwiper-feature", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        freeMode: true,
         loop: true,
-        margin: 10,
-        nav: true,
-        responsive: {
-          0: {
-            items: 1,
-          },
-          600: {
-            items: 3,
-          },
-          1000: {
-            items: 4,
-          },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
         },
       });
+      
     },
   });
 }
 
+
+function updateSwiper(){
+  var swiperA = document.querySelector('.mySwiper2').swiper;
+  var swiperB = document.querySelector('.mySwiper').swiper;
+  if(swiperA){
+    console.log("yes")
+    swiperA.destroy();
+    swiperB.destroy();
+  }else{
+    console.log("no")
+  }
+}
 //get modal details in featureed section
 function getFeaturedModalDetails() {
+  updateSwiper();
   var productId = $(this).data("productid");
 
   $.ajax({
@@ -149,40 +157,52 @@ function getFeaturedModalDetails() {
       var quickViewBigImg = "";
       var bigImageThumbnails = "";
 
-      $('#selected-item-category').text(receivedData.product_category);
-      $('#selected-item-name').text(receivedData.product_name);
-      $('#selected-item-price').text(receivedData.price);
+      $("#selected-item-category").text(receivedData.product_category);
+      $("#selected-item-name").text(receivedData.product_name);
+      $("#selected-item-price").text(receivedData.price);
       receivedData.images.forEach((eachImage, index) => {
-        //console.log(eachImage);
-        var activeStatus = index == 0 ? "active" : "";
+        
         quickViewBigImg += `
-                          <div id="pro-${index}" class="tab-pane fade show ${activeStatus}">
-                            <img src="${baseUrl + eachImage.image_url}" alt="${
-          eachImage.image_id
-        }">
-                          </div>
-                          `;
-
-        bigImageThumbnails += `
-          <a class="${activeStatus}" data-bs-toggle="tab" href="#pro-${index}"><img src="${
-          baseUrl + eachImage.image_url
-        }" alt="${eachImage.image_id}" loading="lazy"></a>
-          `;
+                      <div class="swiper-slide">
+                        <img src="${baseUrl + eachImage.image_url}" />
+                      </div>`;
+      
       });
 
       // Destroy the current Owl Carousel
       $("#modalslider-thumbnails").trigger("destroy.owl.carousel");
       $("#modalslider-thumbnails").html(bigImageThumbnails);
       $("#quickview-big-img").html(quickViewBigImg);
+      $('.main-viewer').html(quickViewBigImg);
+      $('.thumb-viewer').html(quickViewBigImg);
 
-      // Reinitialize Owl Carousel
-      $("#modalslider-thumbnails").owlCarousel({
-        // Your original initialization options here
+      var swiper = new Swiper(".mySwiper", {
         loop: true,
-        margin: 10,
-        nav: true,
-        // other options as needed
+        spaceBetween: 10,
+        slidesPerView: 2,
+        freeMode: true,
+        watchSlidesProgress: true,
       });
+      var swiperThumb = new Swiper(".mySwiper2", {
+        loop: true,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+      
+      // Reinitialize Owl Carousel
+      // $("#modalslider-thumbnails").owlCarousel({
+      //   // Your original initialization options here
+      //   loop: true,
+      //   margin: 10,
+      //   nav: true,
+      //   // other options as needed
+      // });
     },
   });
 }
