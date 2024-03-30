@@ -100,11 +100,11 @@ function getFeaturedProducts() {
                 <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
             </div>
         </div>
-        <div class="product-content-2">
+        <div class="product-content-2 text-start">
             <h4><a href="product-details.html">${product.product_name}</a></h4>
             <span>${product.product_category}</span>
             <div class="pro-price-2">
-                <span>$${product.price}</span>
+                <span>Rs.${product.price}</span>
             </div>
         </div>
     </div></div>`;
