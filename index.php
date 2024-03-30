@@ -27,8 +27,10 @@
     <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/myStyles.css">
+    <link rel="stylesheet" href="assets/css/pageStyles/index.css">
+
     <!-- <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css" > -->
 </head>
 
@@ -175,15 +177,13 @@
                             the majority have suffered alteration in some form, by injected humour, or randomised words
                             which don't look even slightly believable. </p>
                         <div class="slider-btn-4">
-                            <a class="wow fadeInLeft" href="product-details.html"><span>Shop Now</span> <i
-                                    class="la la-shopping-cart"></i></a>
+                            <a class="wow fadeInLeft" href="product-details.html"><span>Shop Now</span> <i class="la la-shopping-cart"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12 col-sm-12">
                     <div class="slider-sin-img-hm4 slider-sin-mrg4 bg-purple-light">
-                        <img class="wow fadeInRight" src="assets/images/slider/main_banner.png"
-                            style="filter: grayscale(1);" alt="">
+                        <img class="wow fadeInRight" src="assets/images/slider/main_banner.png" style="filter: grayscale(1);" alt="">
                     </div>
                 </div>
             </div>
@@ -191,63 +191,34 @@
 
 
         <div class="banner-area pt-20 pb-100">
-            <div class="banner-slider-active">
-                <!-- <div class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
-                    <a href="product-details.html"><img src="assets/images/slider/1.jpg" alt="banner"></a>
-                    <div class="banner-content-2 banner-position-1">
-                        <h3 class="text-white">Mystery Shine</h3>
-                        <p class="text-white">Best shoes collection for women</p>
-                    </div>
-                </div>
-                <div class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
-                    <a href="product-details.html"><img src="assets/images/slider/1.jpg" alt="banner"></a>
-                    <div class="banner-content-3 banner-position-2">
-                        <h3 class="text-white">The Rapid Shoes <br>Collection</h3>
-                    </div>
-                </div>
-                <div class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
-                    <a href="#"><img src="assets/images/slider/1.jpg" alt="banner"></a>
-                    <div class="banner-content-3 banner-position-3">
-                        <h3 class="text-white">Cotton T-Shirt <br>FOr Women</h3>
-                    </div>
-                </div>
-                <div class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
-                    <a href="product-details.html"><img src="assets/images/slider/1.jpg" alt="banner"></a>
-                    <div class="banner-content-3 banner-position-2">
-                        <h3 class="text-white">The Rapid Shoes <br>Collection</h3>
-                    </div>
-                </div> -->
+            <!-- Slider main container -->
 
-
-                <div
-                    class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
+            <!-- <div class="banner-slider-active">
+                <div class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
                     <a href="product-details.html"><img src="assets/images/slider/1.jpg" alt="banner"></a>
                     <div class="banner-content-3 banner-position-2">
                         <h3 class="text-white">The Rapid Shoes <br>Collection</h3>
                     </div>
                 </div>
-                <div
-                    class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
+                <div class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
                     <a href="product-details.html"><img src="assets/images/slider/1.jpg" alt="banner"></a>
                     <div class="banner-content-3 banner-position-2">
                         <h3 class="text-white">The Rapid Shoes <br>Collection</h3>
                     </div>
                 </div>
-                <div
-                    class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
+                <div class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
                     <a href="product-details.html"><img src="assets/images/slider/1.jpg" alt="banner"></a>
                     <div class="banner-content-3 banner-position-2">
                         <h3 class="text-white">The Rapid Shoes <br>Collection</h3>
                     </div>
                 </div>
-                <div
-                    class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
+                <div class="banner-wrap res-white-overly-xs res-white-overly-md res-white-overly-lg res-white-overly-xl">
                     <a href="product-details.html"><img src="assets/images/slider/1.jpg" alt="banner"></a>
                     <div class="banner-content-3 banner-position-2">
                         <h3 class="text-white">The Rapid Shoes <br>Collection</h3>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
 
@@ -295,7 +266,20 @@
                 <div class="section-title-4 text-center">
                     <h2>Featured Product</h2>
                 </div>
-                <div class="product-slider-active-2 owl-carousel dynamic-dataset">
+                <div class="swiper super-swiper-1 mySwiper-feature">
+                    <div class="swiper-wrapper product-slider-active-2 dynamic-dataset">
+                        <!-- <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div> -->
+
+
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="product-slider-active-2 ">
+
                     <!-- <div class="product-wrap product-border-2 pro-hover-shadow mb-40">
                         <div class="product-img mb-15">
                             <a href="product-details.html"><img src="assets/images/slider/5.jpg" alt="product"></a>
@@ -314,7 +298,7 @@
                             </div>
                         </div>
                     </div> -->
-                    
+
                 </div>
             </div>
         </div>
@@ -324,10 +308,8 @@
                     <h2>Our Best Works</h2>
                 </div> -->
                 <div class="banner-pattern-wrap">
-                    <img class="banner-pattern-1 wow fadeInDown" style="filter:brightness(0.5)"
-                        src="assets/images/icon-img/pattern-1.png" alt="banner">
-                    <img class="banner-pattern-2 wow fadeInUp" style="filter:brightness(0.5)"
-                        src="assets/images/icon-img/pattern-2.png" alt="banner">
+                    <img class="banner-pattern-1 wow fadeInDown" style="filter:brightness(0.5)" src="assets/images/icon-img/pattern-1.png" alt="banner">
+                    <img class="banner-pattern-2 wow fadeInUp" style="filter:brightness(0.5)" src="assets/images/icon-img/pattern-2.png" alt="banner">
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="banner-wrap mb-30">
@@ -357,8 +339,7 @@
                                 <p class="bright-color">It is a long established fact that a reader will be distracted
                                     by the readable content of a page when looking at its layout.</p>
                                 <div class="discount-btn default-btn btn-hover">
-                                    <a class="btn-color-theme btn-size-md btn-style-outline"
-                                        href="product-details.html">Shop Now</a>
+                                    <a class="btn-color-theme btn-size-md btn-style-outline" href="product-details.html">Shop Now</a>
                                 </div>
                             </div>
 
@@ -446,21 +427,32 @@
         </div>
         <?php include 'common-components/footer.php' ?>
 
-<!--  -->
+        <!--  -->
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true"></span></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-5 col-sm-12 col-xs-12">
-                                <div id="quickview-big-img" class="tab-content quickview-big-img">
-                                    <!-- <div id="pro-1" class="tab-pane fade show active">
+                                <div style="--swiper-navigation-color: #fff !important; --swiper-pagination-color: #fff" class="swiper super-swiper mySwiper2">
+                                    <div class="swiper-wrapper main-viewer">
+                                       
+                                    </div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                                <div thumbsSlider="" class="swiper super-swiper mySwiper">
+                                    <div class="swiper-wrapper thumb-viewer">
+                                        
+                                    </div>
+                                </div>
+                                <!-- <div id="quickview-big-img" class="tab-content quickview-big-img">
+                                    <div id="pro-1" class="tab-pane fade show active">
                                         <img src="assets/images/product/quickview-l1.jpg" alt="">
                                     </div>
                                     <div id="pro-2" class="tab-pane fade">
@@ -471,22 +463,22 @@
                                     </div>
                                     <div id="pro-4" class="tab-pane fade">
                                         <img src="assets/images/product/quickview-l2.jpg" alt="">
-                                    </div> -->
-                                </div>
+                                    </div>
+                                </div> -->
                                 <!-- Thumbnail Large Image End -->
                                 <!-- Thumbnail Image End -->
-                                <div class="quickview-wrap mt-15">
+                                <!-- <div class="quickview-wrap mt-15">
                                     <div id="modalslider-thumbnails" class="quickview-slide-active owl-carousel nav nav-style-2" role="tablist">
-                                        <!-- <a class="active" data-bs-toggle="tab" href="#pro-1"><img
+                                        <a class="active" data-bs-toggle="tab" href="#pro-1"><img
                                                 src="assets/images/product/quickview-s1.jpg" alt=""></a>
                                         <a data-bs-toggle="tab" href="#pro-2"><img
                                                 src="assets/images/product/quickview-s2.jpg" alt=""></a>
                                         <a data-bs-toggle="tab" href="#pro-3"><img
                                                 src="assets/images/product/quickview-s3.jpg" alt=""></a>
                                         <a data-bs-toggle="tab" href="#pro-4"><img
-                                                src="assets/images/product/quickview-s4.jpg" alt=""></a> -->
+                                                src="assets/images/product/quickview-s4.jpg" alt=""></a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-md-7 col-sm-12 col-xs-12">
                                 <div class="product-details-content quickview-content">
@@ -587,11 +579,12 @@
     <script src="assets/js/plugins/elevatezoom.js"></script>
     <script src="assets/js/plugins/sticky-sidebar.js"></script>
     <script src="assets/js/plugins/smoothscroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/pageScripts/navbar-scripts.js"></script>
     <script src="assets/js/pageScripts/index-4.js"></script>
-    
+
 </body>
 
 </html>
