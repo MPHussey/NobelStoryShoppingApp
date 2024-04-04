@@ -1,4 +1,5 @@
-
+var swiperFeatures;
+var defaultQyValue=0;
 $(document).ready(function () {
   getFeaturedProducts();
   getAllProducts();
@@ -19,6 +20,15 @@ $(document).ready(function () {
     $(".tab-pane").removeClass("active show");
     $(target).addClass("active show");
   });
+
+  //cart minus handler
+  $('.cart-plus-minus').on('click','.dec',quantityDecrement);
+
+  //cart plus handler
+  $('.cart-plus-minus').on('click','.inc',quantityIncreament);
+
+
+
 });
 
 //fetch all products on load
@@ -71,7 +81,7 @@ function getAllProducts() {
   });
 }
 
-var swiperFeatures;
+
 //fetch featured products onload
 function getFeaturedProducts() {
   $.ajax({
@@ -131,11 +141,9 @@ function updateSwiper(){
   var swiperA = document.querySelector('.mySwiper2').swiper;
   var swiperB = document.querySelector('.mySwiper').swiper;
   if(swiperA){
-    console.log("yes")
     swiperA.destroy();
     swiperB.destroy();
   }else{
-    console.log("no")
   }
 }
 //get modal details in featureed section
@@ -152,14 +160,15 @@ function getFeaturedModalDetails() {
     },
     success: function (response) {
       var receivedData = response.data[0];
-      console.log(receivedData);
       var baseUrl = "http://localhost/nobelcrmbackend/";
       var quickViewBigImg = "";
       var bigImageThumbnails = "";
 
+      defaultQyValue=0;
       $("#selected-item-category").text(receivedData.product_category);
       $("#selected-item-name").text(receivedData.product_name);
       $("#selected-item-price").text(receivedData.price);
+      $('.cart-plus-minus-box').val(defaultQyValue);
       receivedData.images.forEach((eachImage, index) => {
         
         quickViewBigImg += `
@@ -194,15 +203,33 @@ function getFeaturedModalDetails() {
           swiper: swiper,
         },
       });
-      
-      // Reinitialize Owl Carousel
-      // $("#modalslider-thumbnails").owlCarousel({
-      //   // Your original initialization options here
-      //   loop: true,
-      //   margin: 10,
-      //   nav: true,
-      //   // other options as needed
-      // });
+
     },
   });
+}
+
+//function for plus
+function quantityIncreament(){
+  var userDataCheck=JSON.parse(localStorage.getItem('userData'));
+  if(userDataCheck!=null){
+    console.log("woring");
+    defaultQyValue++;
+    $('.cart-plus-minus-box').val(defaultQyValue);
+  }else{
+    $('.cart-plus-minus-box').val(defaultQyValue);
+  }
+ 
+}
+
+//function for minus
+function quantityDecrement(){
+  if(localStorage.getItem('userData')!==null){
+    if(defaultQyValue!=0){
+      defaultQyValue--;
+    }
+    $('.cart-plus-minus-box').val(defaultQyValue);
+  }else{
+    $('.cart-plus-minus-box').val(defaultQyValue);
+  }
+
 }
