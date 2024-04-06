@@ -1,5 +1,5 @@
 var swiperFeatures;
-var defaultQyValue=0;
+var defaultQyValue = 0;
 $(document).ready(function () {
   getFeaturedProducts();
   getAllProducts();
@@ -22,13 +22,10 @@ $(document).ready(function () {
   });
 
   //cart minus handler
-  $('.cart-plus-minus').on('click','.dec',quantityDecrement);
+  $(".cart-plus-minus").on("click", ".dec", quantityDecrement);
 
   //cart plus handler
-  $('.cart-plus-minus').on('click','.inc',quantityIncreament);
-
-
-
+  $(".cart-plus-minus").on("click", ".inc", quantityIncreament);
 });
 
 //fetch all products on load
@@ -81,7 +78,6 @@ function getAllProducts() {
   });
 }
 
-
 //fetch featured products onload
 function getFeaturedProducts() {
   $.ajax({
@@ -131,19 +127,17 @@ function getFeaturedProducts() {
           clickable: true,
         },
       });
-      
     },
   });
 }
 
-
-function updateSwiper(){
-  var swiperA = document.querySelector('.mySwiper2').swiper;
-  var swiperB = document.querySelector('.mySwiper').swiper;
-  if(swiperA){
+function updateSwiper() {
+  var swiperA = document.querySelector(".mySwiper2").swiper;
+  var swiperB = document.querySelector(".mySwiper").swiper;
+  if (swiperA) {
     swiperA.destroy();
     swiperB.destroy();
-  }else{
+  } else {
   }
 }
 //get modal details in featureed section
@@ -160,30 +154,30 @@ function getFeaturedModalDetails() {
     },
     success: function (response) {
       var receivedData = response.data[0];
+      console.log(receivedData);
       var baseUrl = "http://localhost/nobelcrmbackend/";
       var quickViewBigImg = "";
       var bigImageThumbnails = "";
 
-      defaultQyValue=0;
+      defaultQyValue = 0;
+      $("#featured-product-id").val(receivedData.product_id);
       $("#selected-item-category").text(receivedData.product_category);
       $("#selected-item-name").text(receivedData.product_name);
       $("#selected-item-price").text(receivedData.price);
-      $('.cart-plus-minus-box').val(defaultQyValue);
+      $(".cart-plus-minus-box").val(defaultQyValue);
       receivedData.images.forEach((eachImage, index) => {
-        
         quickViewBigImg += `
                       <div class="swiper-slide">
                         <img src="${baseUrl + eachImage.image_url}" />
                       </div>`;
-      
       });
 
       // Destroy the current Owl Carousel
       $("#modalslider-thumbnails").trigger("destroy.owl.carousel");
       $("#modalslider-thumbnails").html(bigImageThumbnails);
       $("#quickview-big-img").html(quickViewBigImg);
-      $('.main-viewer').html(quickViewBigImg);
-      $('.thumb-viewer').html(quickViewBigImg);
+      $(".main-viewer").html(quickViewBigImg);
+      $(".thumb-viewer").html(quickViewBigImg);
 
       var swiper = new Swiper(".mySwiper", {
         loop: true,
@@ -203,33 +197,50 @@ function getFeaturedModalDetails() {
           swiper: swiper,
         },
       });
-
     },
   });
 }
 
 //function for plus
-function quantityIncreament(){
-  var userDataCheck=JSON.parse(localStorage.getItem('userData'));
-  if(userDataCheck!=null){
-    console.log("woring");
-    defaultQyValue++;
-    $('.cart-plus-minus-box').val(defaultQyValue);
-  }else{
-    $('.cart-plus-minus-box').val(defaultQyValue);
+function quantityIncreament() {
+  var userDataCheck = JSON.parse(localStorage.getItem("userData"));
+  if (userDataCheck != null) {
+    //check selected product quantity
+    var selectedProductId=$('#featured-product-id').val();
+    $.ajax({
+      type: "POST",
+      url: "http://localhost/nobelcrmbackend/index.php",
+      data: {
+        action: "selectedProduct",
+        product_id: selectedProductId,
+      },
+      success: function (response) {
+        var receivedData = response.data[0];
+        var productQuantity=receivedData.quantity;
+        if(productQuantity>0){
+          defaultQyValue++;
+          $(".cart-plus-minus-box").val(defaultQyValue);
+          // reduce inventory quantity
+        }else{
+          console.log("no products");
+        }
+      },
+    });
+    
+    
+  } else {
+    $(".cart-plus-minus-box").val(defaultQyValue);
   }
- 
 }
 
 //function for minus
-function quantityDecrement(){
-  if(localStorage.getItem('userData')!==null){
-    if(defaultQyValue!=0){
+function quantityDecrement() {
+  if (localStorage.getItem("userData") !== null) {
+    if (defaultQyValue != 0) {
       defaultQyValue--;
     }
-    $('.cart-plus-minus-box').val(defaultQyValue);
-  }else{
-    $('.cart-plus-minus-box').val(defaultQyValue);
+    $(".cart-plus-minus-box").val(defaultQyValue);
+  } else {
+    $(".cart-plus-minus-box").val(defaultQyValue);
   }
-
 }

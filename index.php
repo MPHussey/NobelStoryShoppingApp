@@ -482,6 +482,7 @@
                             </div>
                             <div class="col-md-7 col-sm-12 col-xs-12">
                                 <div class="product-details-content quickview-content">
+                                    <input type="hidden" id="featured-product-id">
                                     <span id="selected-item-category"></span>
                                     <h2 id="selected-item-name"></h2>
                                     <!-- <div class="product-ratting-review">
