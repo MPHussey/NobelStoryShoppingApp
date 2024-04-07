@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
+     <!-- izToast styles -->
+     <link rel="stylesheet" href="assets/js/plugins/iziToast/dist/css/iziToast.min.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/myStyles.css">
     <link rel="stylesheet" href="assets/css/pageStyles/index.css">
@@ -593,6 +596,9 @@
     <script src="assets/js/plugins/sticky-sidebar.js"></script>
     <script src="assets/js/plugins/smoothscroll.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+     <!-- izToast js -->
+     <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/pageScripts/navbar-scripts.js"></script>
