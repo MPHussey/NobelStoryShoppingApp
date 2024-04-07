@@ -557,7 +557,7 @@
                                         </div> -->
                                     </div>
                                     <div class="pro-details-buy-now btn-hover btn-hover-radious">
-                                        <a href="#">Add To Cart</a>
+                                        <a class="btn-add-cart">Add To Cart</a>
 
 
                                     </div>

@@ -30,6 +30,9 @@ $(document).ready(function () {
 
   //on close bootstrap modal
   $("#exampleModal").on("hidden.bs.modal", onCloseModalDetails);
+
+  //on click add to cart in modal (featured section)
+  $(".btn-add-cart").on("click", onClickaddToCart);
 });
 
 //fetch all products on load
@@ -146,6 +149,10 @@ function updateSwiper() {
 }
 //get modal details in featureed section
 function getFeaturedModalDetails() {
+  Notiflix.Loading.init({
+    svgColor: "#ffffff",
+  });
+  Notiflix.Loading.pulse();
   updateSwiper();
   var productId = $(this).data("productid");
 
@@ -157,6 +164,7 @@ function getFeaturedModalDetails() {
       product_id: productId,
     },
     success: function (response) {
+      Notiflix.Loading.remove();
       var receivedData = response.data[0];
       console.log(receivedData);
       var baseUrl = "http://localhost/nobelcrmbackend/";
@@ -207,10 +215,10 @@ function getFeaturedModalDetails() {
 
 //function for plus
 function quantityIncreament() {
-  $(".cart-plus-minus").addClass("d-none");
-  $(".awaiting-preloader").removeClass("d-none");
   var userDataCheck = JSON.parse(localStorage.getItem("userData"));
   if (userDataCheck != null) {
+    $(".cart-plus-minus").addClass("d-none");
+    $(".awaiting-preloader").removeClass("d-none");
     //check selected product quantity
     var selectedProductId = $("#featured-product-id").val();
     $.ajax({
@@ -256,14 +264,22 @@ function quantityIncreament() {
     });
   } else {
     $(".cart-plus-minus-box").val(defaultQyValue);
+    iziToast.warning({
+      title: "Caution",
+      message: "Please login to your account",
+      position: "center",
+      zindex: 2000,
+      overlay: true,
+      timeout: 3000,
+    });
   }
 }
 
 //function for minus
 function quantityDecrement() {
-  $(".cart-plus-minus").addClass("d-none");
-  $(".awaiting-preloader").removeClass("d-none");
   if (localStorage.getItem("userData") !== null) {
+    $(".cart-plus-minus").addClass("d-none");
+    $(".awaiting-preloader").removeClass("d-none");
     if (defaultQyValue != 0) {
       var selectedProductId = $("#featured-product-id").val();
       $.ajax({
@@ -301,6 +317,14 @@ function quantityDecrement() {
     }
   } else {
     $(".cart-plus-minus-box").val(defaultQyValue);
+    iziToast.warning({
+      title: "Caution",
+      message: "Please login to your account",
+      position: "center",
+      zindex: 2000,
+      overlay: true,
+      timeout: 3000,
+    });
   }
 }
 
@@ -325,15 +349,15 @@ function onCloseModalDetails() {
     success: function (response) {
       var receivedData = response.data[0];
       var productQuantity = receivedData.quantity;
-      var resetAmount=parseInt(selectedQuantity)+productQuantity;
-      
+      var resetAmount = parseInt(selectedQuantity) + productQuantity;
+
       $.ajax({
         type: "POST",
         url: apiLink,
         data: {
           action: "updateInventory",
           product_id: productId,
-          updated_quantity:resetAmount
+          updated_quantity: resetAmount,
         },
         success: function (response) {
           Notiflix.Loading.remove();
@@ -342,4 +366,29 @@ function onCloseModalDetails() {
       });
     },
   });
+}
+
+//add to cart button on modal (featured section)
+function onClickaddToCart() {
+  console.log("click");
+  var selectedItemQuantity = $(".cart-plus-minus-box").val();
+  if (selectedItemQuantity > 0) {
+    if (localStorage.getItem("userData") !== null) {
+      var userData=JSON.parse(localStorage.getItem("userData"));
+      console.log(userData);
+      var userId=userData.userId;
+      var productId=$("#featured-product-id").val();
+      
+    } else {
+    }
+  } else {
+    iziToast.warning({
+      title: "Caution",
+      message: "Select the item amount",
+      position: "center",
+      zindex: 2000,
+      overlay: true,
+      timeout: 3000,
+    });
+  }
 }
