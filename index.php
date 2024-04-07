@@ -30,6 +30,9 @@
      <!-- izToast styles -->
      <link rel="stylesheet" href="assets/js/plugins/iziToast/dist/css/iziToast.min.css">
 
+     <!-- notiflix styles -->
+     <link rel="stylesheet" href="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/myStyles.css">
     <link rel="stylesheet" href="assets/css/pageStyles/index.css">
@@ -599,6 +602,8 @@
 
      <!-- izToast js -->
      <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
+     <!-- notiflix js -->
+     <script src="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/pageScripts/navbar-scripts.js"></script>

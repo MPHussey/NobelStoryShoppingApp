@@ -306,6 +306,10 @@ function quantityDecrement() {
 
 //on close modal get details
 function onCloseModalDetails() {
+  Notiflix.Loading.init({
+    svgColor: "#ffffff",
+  });
+  Notiflix.Loading.pulse();
   var productId = $("#featured-product-id").val();
   var selectedQuantity = $(".cart-plus-minus-box").val();
   console.log(selectedQuantity);
@@ -332,6 +336,7 @@ function onCloseModalDetails() {
           updated_quantity:resetAmount
         },
         success: function (response) {
+          Notiflix.Loading.remove();
           console.log(response);
         },
       });
