@@ -441,14 +441,14 @@
                             <div class="col-md-5 col-sm-12 col-xs-12">
                                 <div style="--swiper-navigation-color: #fff !important; --swiper-pagination-color: #fff" class="swiper super-swiper mySwiper2">
                                     <div class="swiper-wrapper main-viewer">
-                                       
+
                                     </div>
                                     <div class="swiper-button-next"></div>
                                     <div class="swiper-button-prev"></div>
                                 </div>
                                 <div thumbsSlider="" class="swiper super-swiper mySwiper">
                                     <div class="swiper-wrapper thumb-viewer">
-                                        
+
                                     </div>
                                 </div>
                                 <!-- <div id="quickview-big-img" class="tab-content quickview-big-img">
@@ -530,6 +530,16 @@
                                         <div class="cart-plus-minus">
                                             <input class="cart-plus-minus-box" type="text" name="qtybutton" readonly>
                                         </div>
+                                        <div class="awaiting-preloader d-flex align-items-center d-none" style="width:141px;height:50px">
+                                            <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                                                <path fill="#black" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                                                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                                                </path>
+                                            </svg>
+                                            <p style="width: 367px;font-weight:500;margin-bottom:-1px">Please Wait</p>
+
+
+                                        </div>
                                     </div>
                                     <div class="pro-details-compare-wishlist">
                                         <!-- <div class="pro-details-compare">
@@ -542,6 +552,8 @@
                                     </div>
                                     <div class="pro-details-buy-now btn-hover btn-hover-radious">
                                         <a href="#">Add To Cart</a>
+
+
                                     </div>
                                 </div>
                             </div>

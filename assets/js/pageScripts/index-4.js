@@ -1,3 +1,4 @@
+var apiLink="http://localhost/nobelcrmbackend/index.php";
 var swiperFeatures;
 var defaultQyValue = 0;
 $(document).ready(function () {
@@ -32,7 +33,7 @@ $(document).ready(function () {
 function getAllProducts() {
   $.ajax({
     type: "POST",
-    url: "http://localhost/nobelcrmbackend/index.php",
+    url: apiLink,
     data: {
       action: "fetchProducts",
     },
@@ -81,7 +82,7 @@ function getAllProducts() {
 //fetch featured products onload
 function getFeaturedProducts() {
   $.ajax({
-    url: "http://localhost/nobelcrmbackend/index.php",
+    url: apiLink,
     type: "POST",
     data: {
       action: "featuredProducts",
@@ -147,7 +148,7 @@ function getFeaturedModalDetails() {
 
   $.ajax({
     type: "POST",
-    url: "http://localhost/nobelcrmbackend/index.php",
+    url:apiLink,
     data: {
       action: "selectedProduct",
       product_id: productId,
@@ -203,24 +204,40 @@ function getFeaturedModalDetails() {
 
 //function for plus
 function quantityIncreament() {
+  $('.cart-plus-minus').addClass('d-none');
+  $('.awaiting-preloader').removeClass('d-none');
   var userDataCheck = JSON.parse(localStorage.getItem("userData"));
   if (userDataCheck != null) {
     //check selected product quantity
     var selectedProductId=$('#featured-product-id').val();
     $.ajax({
       type: "POST",
-      url: "http://localhost/nobelcrmbackend/index.php",
+      url:apiLink,
       data: {
         action: "selectedProduct",
         product_id: selectedProductId,
       },
       success: function (response) {
+        $('.cart-plus-minus').removeClass('d-none');
+        $('.awaiting-preloader').addClass('d-none');
         var receivedData = response.data[0];
         var productQuantity=receivedData.quantity;
         if(productQuantity>0){
           defaultQyValue++;
           $(".cart-plus-minus-box").val(defaultQyValue);
           // reduce inventory quantity
+          $.ajax({
+            type:"POST",
+            url:apiLink,
+            data:{
+              action:"updateInventory",
+              product_id:selectedProductId,
+              updated_quantity:productQuantity-1
+            },
+            success:function(response){
+              console.log(response);
+            }
+          })
         }else{
           console.log("no products");
         }
