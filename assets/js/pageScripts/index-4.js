@@ -28,8 +28,6 @@ $(document).ready(function () {
   //cart plus handler
   $(".cart-plus-minus").on("click", ".inc", quantityIncreament);
 
-  //on close bootstrap modal
-  $("#exampleModal").on("hidden.bs.modal", onCloseModalDetails);
 
   //on click add to cart in modal (featured section)
   $(".btn-add-cart").on("click", onClickaddToCart);
@@ -172,14 +170,16 @@ function getFeaturedModalDetails() {
       var bigImageThumbnails = "";
 
       defaultQyValue = 0;
-      var productPrice="Rs."+receivedData.price;
+      var productPrice = "Rs." + receivedData.price;
       $("#featured-product-id").val(receivedData.product_id);
       $("#selected-item-category").text(receivedData.product_category);
       $("#selected-item-name").text(receivedData.product_name);
       $("#selected-item-price").text(productPrice);
       $(".cart-plus-minus-box").val(defaultQyValue);
-      $('#product-desc-txt').text(receivedData.description);
-      $('#remaining-quantity').text(receivedData.quantity!=0?receivedData.quantity:"Out Of Stock");
+      $("#product-desc-txt").text(receivedData.description);
+      $("#remaining-quantity").text(
+        receivedData.quantity != 0 ? receivedData.quantity : "Out Of Stock"
+      );
       receivedData.images.forEach((eachImage, index) => {
         quickViewBigImg += `
                       <div class="swiper-slide">
@@ -218,53 +218,31 @@ function getFeaturedModalDetails() {
 
 //function for plus
 function quantityIncreament() {
+  //get user data to check weather user is available
   var userDataCheck = JSON.parse(localStorage.getItem("userData"));
+  //if user is available
   if (userDataCheck != null) {
-    $(".cart-plus-minus").addClass("d-none");
-    $(".awaiting-preloader").removeClass("d-none");
-    //check selected product quantity
-    var selectedProductId = $("#featured-product-id").val();
-    $.ajax({
-      type: "POST",
-      url: apiLink,
-      data: {
-        action: "selectedProduct",
-        product_id: selectedProductId,
-      },
-      success: function (response) {
-        $(".cart-plus-minus").removeClass("d-none");
-        $(".awaiting-preloader").addClass("d-none");
-        var receivedData = response.data[0];
-        var productQuantity = receivedData.quantity;
-        if (productQuantity > 0) {
-          defaultQyValue++;
-          $(".cart-plus-minus-box").val(defaultQyValue);
-          // reduce inventory quantity
-          $.ajax({
-            type: "POST",
-            url: apiLink,
-            data: {
-              action: "updateInventory",
-              product_id: selectedProductId,
-              updated_quantity: productQuantity - 1,
-            },
-            success: function (response) {
-              console.log(response);
-            },
-          });
-        } else {
-          $(".cart-plus-minus-box").val(defaultQyValue);
-          iziToast.warning({
-            title: "Caution",
-            message: "You have reach the maximum quantity for the product.",
-            position: "center",
-            zindex: 2000,
-            overlay: true,
-            timeout: 3000,
-          });
-        }
-      },
-    });
+    //get the remaining quantity
+    var remainingQuantity = $("#remaining-quantity").text();
+    console.log(remainingQuantity);
+    if (
+      remainingQuantity != "Out Of Stock" &&
+      defaultQyValue < remainingQuantity
+    ) {
+      defaultQyValue++;
+      $(".cart-plus-minus-box").val(defaultQyValue);
+    } else {
+      $(".cart-plus-minus-box").val(defaultQyValue);
+      iziToast.warning({
+        title: "Contact Seller",
+        message:
+          "You have reach the maximum quantity for the product or Out of Stock",
+        position: "center",
+        zindex: 2000,
+        overlay: true,
+        timeout: 3000,
+      });
+    }
   } else {
     $(".cart-plus-minus-box").val(defaultQyValue);
     iziToast.warning({
@@ -280,39 +258,14 @@ function quantityIncreament() {
 
 //function for minus
 function quantityDecrement() {
+  //check user logedin or not
   if (localStorage.getItem("userData") !== null) {
-    $(".cart-plus-minus").addClass("d-none");
-    $(".awaiting-preloader").removeClass("d-none");
+    // $(".cart-plus-minus").addClass("d-none");
+    // $(".awaiting-preloader").removeClass("d-none");
     if (defaultQyValue != 0) {
-      var selectedProductId = $("#featured-product-id").val();
-      $.ajax({
-        type: "POST",
-        url: apiLink,
-        data: {
-          action: "selectedProduct",
-          product_id: selectedProductId,
-        },
-        success: function (response) {
-          $(".cart-plus-minus").removeClass("d-none");
-          $(".awaiting-preloader").addClass("d-none");
-          var receivedData = response.data[0];
-          var productQuantity = receivedData.quantity;
-          defaultQyValue--;
-          $(".cart-plus-minus-box").val(defaultQyValue);
-          $.ajax({
-            type: "POST",
-            url: apiLink,
-            data: {
-              action: "updateInventory",
-              product_id: selectedProductId,
-              updated_quantity: productQuantity + 1,
-            },
-            success: function (response) {
-              console.log(response);
-            },
-          });
-        },
-      });
+      defaultQyValue--;
+      $(".cart-plus-minus-box").val(defaultQyValue);
+      
     } else {
       $(".cart-plus-minus-box").val(defaultQyValue);
       $(".cart-plus-minus").removeClass("d-none");
@@ -331,83 +284,44 @@ function quantityDecrement() {
   }
 }
 
-//on close modal get details
-function onCloseModalDetails() {
-  Notiflix.Loading.init({
-    svgColor: "#ffffff",
-  });
-  Notiflix.Loading.pulse();
-  var productId = $("#featured-product-id").val();
-  var selectedQuantity = $(".cart-plus-minus-box").val();
-  console.log(selectedQuantity);
-
-  // reset product quantity
-  $.ajax({
-    type: "POST",
-    url: apiLink,
-    data: {
-      action: "selectedProduct",
-      product_id: productId,
-    },
-    success: function (response) {
-      var receivedData = response.data[0];
-      var productQuantity = receivedData.quantity;
-      var resetAmount = parseInt(selectedQuantity) + productQuantity;
-
-      $.ajax({
-        type: "POST",
-        url: apiLink,
-        data: {
-          action: "updateInventory",
-          product_id: productId,
-          updated_quantity: resetAmount,
-        },
-        success: function (response) {
-          Notiflix.Loading.remove();
-          console.log(response);
-        },
-      });
-    },
-  });
-}
 
 //add to cart button on modal (featured section)
 function onClickaddToCart() {
   var selectedItemQuantity = $(".cart-plus-minus-box").val();
   if (selectedItemQuantity > 0) {
     if (localStorage.getItem("userData") !== null) {
-      var userData=JSON.parse(localStorage.getItem("userData"));
-      var userId=userData.userId;
-      var productId=$("#featured-product-id").val();
+      var userData = JSON.parse(localStorage.getItem("userData"));
+      var userId = userData.userId;
+      var productId = $("#featured-product-id").val();
       //check already have a cart assigned
       $.ajax({
-        type:"POST",
-        url:apiLink,
-        data:{
-          action:"getCartItemOfUser",
-          user_id:userId,
-          product_id:productId
+        type: "POST",
+        url: apiLink,
+        data: {
+          action: "getCartItemOfUser",
+          user_id: userId,
+          product_id: productId,
         },
-        success:function(response){
+        success: function (response) {
           console.log(response);
           //if there is no cart assign to the user
-          if(response.success==false){
+          if (response.success == false) {
             $.ajax({
-              type:"POST",
-              url:apiLink,
-              data:{
-                action:"addToCart",
-                user_id:userId,
-                product_id:productId,
-                product_quantity:selectedItemQuantity
+              type: "POST",
+              url: apiLink,
+              data: {
+                action: "addToCart",
+                user_id: userId,
+                product_id: productId,
+                product_quantity: selectedItemQuantity,
               },
-              success:function(response){
+              success: function (response) {
                 console.log(response);
-              }
-            })
-          }else{
+              },
+            });
+          } else {
             console.log(response.data.quantity);
-            
+
             // $.ajax({
             //   type:"POST",
             //   url:apiLink,
@@ -421,9 +335,8 @@ function onClickaddToCart() {
             //   }
             // })
           }
-        }
-      })
-      
+        },
+      });
     } else {
     }
   } else {
