@@ -27,6 +27,12 @@
     <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- izToast styles -->
+    <link rel="stylesheet" href="assets/js/plugins/iziToast/dist/css/iziToast.min.css">
+
+    <!-- notiflix styles -->
+    <link rel="stylesheet" href="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/myStyles.css">
     <link rel="stylesheet" href="assets/css/pageStyles/index.css">
@@ -441,14 +447,14 @@
                             <div class="col-md-5 col-sm-12 col-xs-12">
                                 <div style="--swiper-navigation-color: #fff !important; --swiper-pagination-color: #fff" class="swiper super-swiper mySwiper2">
                                     <div class="swiper-wrapper main-viewer">
-                                       
+
                                     </div>
                                     <div class="swiper-button-next"></div>
                                     <div class="swiper-button-prev"></div>
                                 </div>
                                 <div thumbsSlider="" class="swiper super-swiper mySwiper">
                                     <div class="swiper-wrapper thumb-viewer">
-                                        
+
                                     </div>
                                 </div>
                                 <!-- <div id="quickview-big-img" class="tab-content quickview-big-img">
@@ -482,8 +488,10 @@
                             </div>
                             <div class="col-md-7 col-sm-12 col-xs-12">
                                 <div class="product-details-content quickview-content">
+                                    <input type="hidden" id="featured-product-id">
                                     <span id="selected-item-category"></span>
-                                    <h2 id="selected-item-name"></h2>
+                                    <h2 style="margin-top: 0.2rem;" id="selected-item-name"></h2>
+
                                     <!-- <div class="product-ratting-review">
                                         <div class="product-ratting">
                                             <i class="la la-star"></i>
@@ -518,17 +526,32 @@
                                             </ul>
                                         </div>
                                     </div> -->
-                                    <div class="pro-details-price-wrap">
+                                    <div style="margin-bottom: 11px;" class="pro-details-price-wrap">
                                         <div class="product-price">
-                                            <span id="selected-item-price">$</span>
+                                            <span style="font-size: 1.3rem;" id="selected-item-price">$</span>
+                                            <h5 style="margin-top: 1rem;">Remaining Quantity : <span style="font-size: 1rem;" id="remaining-quantity"></span></h5>
                                             <!-- <span class="old">$230.00</span> -->
                                         </div>
                                         <!-- <div class="dec-rang"><span>- 30%</span></div> -->
                                     </div>
-                                    <div class="pro-details-quality">
+
+                                    <div style="margin-bottom: 1rem;" class="pro-details-quality">
                                         <div class="cart-plus-minus">
                                             <input class="cart-plus-minus-box" type="text" name="qtybutton" readonly>
                                         </div>
+                                        <div class="awaiting-preloader d-flex align-items-center d-none" style="width:141px;height:50px">
+                                            <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                                                <path fill="#black" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                                                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                                                </path>
+                                            </svg>
+                                            <p style="width: 367px;font-weight:500;margin-bottom:-1px">Please Wait</p>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="product-desc">
+                                        <p style="white-space:pre-wrap;" id="product-desc-txt"></p>
                                     </div>
                                     <div class="pro-details-compare-wishlist">
                                         <!-- <div class="pro-details-compare">
@@ -540,7 +563,9 @@
                                         </div> -->
                                     </div>
                                     <div class="pro-details-buy-now btn-hover btn-hover-radious">
-                                        <a href="#">Add To Cart</a>
+                                        <a class="btn-add-cart">Add To Cart</a>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -580,6 +605,11 @@
     <script src="assets/js/plugins/sticky-sidebar.js"></script>
     <script src="assets/js/plugins/smoothscroll.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- izToast js -->
+    <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
+    <!-- notiflix js -->
+    <script src="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/pageScripts/navbar-scripts.js"></script>
