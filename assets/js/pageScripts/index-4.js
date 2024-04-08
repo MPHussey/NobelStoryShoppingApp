@@ -172,11 +172,14 @@ function getFeaturedModalDetails() {
       var bigImageThumbnails = "";
 
       defaultQyValue = 0;
+      var productPrice="Rs."+receivedData.price;
       $("#featured-product-id").val(receivedData.product_id);
       $("#selected-item-category").text(receivedData.product_category);
       $("#selected-item-name").text(receivedData.product_name);
-      $("#selected-item-price").text(receivedData.price);
+      $("#selected-item-price").text(productPrice);
       $(".cart-plus-minus-box").val(defaultQyValue);
+      $('#product-desc-txt').text(receivedData.description);
+      $('#remaining-quantity').text(receivedData.quantity!=0?receivedData.quantity:"Out Of Stock");
       receivedData.images.forEach((eachImage, index) => {
         quickViewBigImg += `
                       <div class="swiper-slide">
@@ -370,14 +373,56 @@ function onCloseModalDetails() {
 
 //add to cart button on modal (featured section)
 function onClickaddToCart() {
-  console.log("click");
   var selectedItemQuantity = $(".cart-plus-minus-box").val();
   if (selectedItemQuantity > 0) {
     if (localStorage.getItem("userData") !== null) {
       var userData=JSON.parse(localStorage.getItem("userData"));
-      console.log(userData);
       var userId=userData.userId;
       var productId=$("#featured-product-id").val();
+      //check already have a cart assigned
+      $.ajax({
+        type:"POST",
+        url:apiLink,
+        data:{
+          action:"getCartItemOfUser",
+          user_id:userId,
+          product_id:productId
+        },
+        success:function(response){
+          console.log(response);
+          //if there is no cart assign to the user
+          if(response.success==false){
+            $.ajax({
+              type:"POST",
+              url:apiLink,
+              data:{
+                action:"addToCart",
+                user_id:userId,
+                product_id:productId,
+                product_quantity:selectedItemQuantity
+              },
+              success:function(response){
+                console.log(response);
+              }
+            })
+          }else{
+            console.log(response.data.quantity);
+            
+            // $.ajax({
+            //   type:"POST",
+            //   url:apiLink,
+            //   data:{
+            //     action:"addToCart",
+            //     user_id:userId,
+            //     product_id:productId,
+            //   },
+            //   success:function(response){
+            //     console.log(response);
+            //   }
+            // })
+          }
+        }
+      })
       
     } else {
     }
