@@ -28,7 +28,6 @@ $(document).ready(function () {
   //cart plus handler
   $(".cart-plus-minus").on("click", ".inc", quantityIncreament);
 
-
   //on click add to cart in modal (featured section)
   $(".btn-add-cart").on("click", onClickaddToCart);
 });
@@ -265,7 +264,6 @@ function quantityDecrement() {
     if (defaultQyValue != 0) {
       defaultQyValue--;
       $(".cart-plus-minus-box").val(defaultQyValue);
-      
     } else {
       $(".cart-plus-minus-box").val(defaultQyValue);
       $(".cart-plus-minus").removeClass("d-none");
@@ -284,59 +282,102 @@ function quantityDecrement() {
   }
 }
 
-
 //add to cart button on modal (featured section)
 function onClickaddToCart() {
+  //get the quantity that is coming from plus minus
   var selectedItemQuantity = $(".cart-plus-minus-box").val();
+  //check if the quantity is not equal to zero
   if (selectedItemQuantity > 0) {
+    //check the user login or not
     if (localStorage.getItem("userData") !== null) {
       var userData = JSON.parse(localStorage.getItem("userData"));
       var userId = userData.userId;
       var productId = $("#featured-product-id").val();
-      //check already have a cart assigned
+
+      //double check enough inventory
       $.ajax({
         type: "POST",
         url: apiLink,
         data: {
-          action: "getCartItemOfUser",
-          user_id: userId,
+          action: "selectedProduct",
           product_id: productId,
         },
         success: function (response) {
-          console.log(response);
-          //if there is no cart assign to the user
-          if (response.success == false) {
+          //console.log(response);
+          var finalConfirmProductquantity = response.data[0].quantity;
+          //console.log(finalConfirmProductquantity);
+          if (selectedItemQuantity <= finalConfirmProductquantity) {
+            //check the user already has a cart
             $.ajax({
               type: "POST",
               url: apiLink,
               data: {
-                action: "addToCart",
+                action: "getCartItemOfUser",
                 user_id: userId,
                 product_id: productId,
-                product_quantity: selectedItemQuantity,
               },
-              success: function (response) {
+              success:function(response){
                 console.log(response);
-              },
+              }
             });
           } else {
-            console.log(response.data.quantity);
-
-            // $.ajax({
-            //   type:"POST",
-            //   url:apiLink,
-            //   data:{
-            //     action:"addToCart",
-            //     user_id:userId,
-            //     product_id:productId,
-            //   },
-            //   success:function(response){
-            //     console.log(response);
-            //   }
-            // })
+            iziToast.warning({
+              title: "Caution",
+              message:
+                "Another Customer also purchasing & please update the prduct quantity.",
+              position: "center",
+              zindex: 2000,
+              overlay: true,
+              timeout: 3000,
+            });
           }
         },
       });
+
+      // //check already have a cart assigned
+      // $.ajax({
+      //   type: "POST",
+      //   url: apiLink,
+      //   data: {
+      //     action: "getCartItemOfUser",
+      //     user_id: userId,
+      //     product_id: productId,
+      //   },
+      //   success: function (response) {
+      //     console.log(response);
+      //     //if there is no cart assign to the user
+      //     if (response.success == false) {
+      //       $.ajax({
+      //         type: "POST",
+      //         url: apiLink,
+      //         data: {
+      //           action: "addToCart",
+      //           user_id: userId,
+      //           product_id: productId,
+      //           product_quantity: selectedItemQuantity,
+      //         },
+      //         success: function (response) {
+      //           console.log(response);
+      //         },
+      //       });
+      //     } else {
+      //       console.log(response.data.quantity);
+
+      //       // $.ajax({
+      //       //   type:"POST",
+      //       //   url:apiLink,
+      //       //   data:{
+      //       //     action:"addToCart",
+      //       //     user_id:userId,
+      //       //     product_id:productId,
+      //       //   },
+      //       //   success:function(response){
+      //       //     console.log(response);
+      //       //   }
+      //       // })
+      //     }
+      //   },
+      // });
     } else {
     }
   } else {
