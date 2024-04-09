@@ -284,10 +284,14 @@ function quantityDecrement() {
 
 //add to cart button on modal (featured section)
 function onClickaddToCart() {
+  Notiflix.Loading.init({
+    svgColor: "#ffffff",
+  });
+  Notiflix.Loading.pulse();
   //get the quantity that is coming from plus minus
   var selectedItemQuantity = $(".cart-plus-minus-box").val();
   //check if the quantity is not equal to zero
-  if (selectedItemQuantity > 0) {
+  if (selectedItemQuantity != "Out Of Stock" && selectedItemQuantity > 0) {
     //check the user login or not
     if (localStorage.getItem("userData") !== null) {
       var userData = JSON.parse(localStorage.getItem("userData"));
@@ -307,7 +311,7 @@ function onClickaddToCart() {
           var finalConfirmProductquantity = response.data[0].quantity;
           //console.log(finalConfirmProductquantity);
           if (selectedItemQuantity <= finalConfirmProductquantity) {
-            //check the user already has a cart
+            //check the item is already there in users cart to get current quantiy
             $.ajax({
               type: "POST",
               url: apiLink,
@@ -316,11 +320,70 @@ function onClickaddToCart() {
                 user_id: userId,
                 product_id: productId,
               },
-              success:function(response){
+              success: function (response) {
                 console.log(response);
-              }
+                var currenlyAvailableQuantity = 0;
+                var totalQuantity;
+                if (response.success == false) {
+                  totalQuantity = parseInt(selectedItemQuantity);
+                } else {
+                  currenlyAvailableQuantity = response.data[0].quantity;
+                  totalQuantity =
+                    currenlyAvailableQuantity + parseInt(selectedItemQuantity);
+                  //console.log(totalQuantity);
+                }
+                //console.log(totalQuantity);
+
+                //reduce added quantity from inventory
+                $.ajax({
+                  type: "POST",
+                  url: apiLink,
+                  data: {
+                    action: "updateInventory",
+                    product_id: productId,
+                    updated_quantity:
+                      finalConfirmProductquantity - selectedItemQuantity,
+                  },
+                  success: function (response) {
+                    console.log(response);
+                    console.log(totalQuantity);
+                    if (response.success == true) {
+                      $.ajax({
+                        type: "POST",
+                        url: apiLink,
+                        data: {
+                          action: "addToCart",
+                          user_id: userId,
+                          product_id: productId,
+                          product_quantity: totalQuantity,
+                        },
+                        success: function (response) {
+                        
+                          console.log(response);
+                          $.ajax({
+                            type: "POST",
+                            url: apiLink,
+                            data: {
+                              action: "selectedProduct",
+                              product_id: productId,
+                            },
+                            success:function(response){
+                              var newUpdatedQuantity=response.data[0].quantity;
+                              $('#remaining-quantity').text(newUpdatedQuantity);
+                              $('.cart-plus-minus-box').val("0");
+                              Notiflix.Loading.remove();
+
+                            }
+                          });
+                        },
+                      });
+                    }
+                  },
+                });
+              },
             });
           } else {
+            Notiflix.Loading.remove();
             iziToast.warning({
               title: "Caution",
               message:
@@ -381,6 +444,7 @@ function onClickaddToCart() {
     } else {
     }
   } else {
+    Notiflix.Loading.remove();
     iziToast.warning({
       title: "Caution",
       message: "Select the item amount",
