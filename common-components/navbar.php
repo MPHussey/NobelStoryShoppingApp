@@ -158,15 +158,15 @@
                                     <button class="cart-active ms-2">
                                         <!-- <span class="mini-cart-price-2">$400.00</span> -->
                                         <i class="la la-shopping-cart"></i>
-                                        <span class="count-style-2">01</span>
+                                        <span class="count-style-2 user-item-count">0</span>
                                     </button>
                                     <div class="shopping-cart-content">
                                         <div class="shopping-cart-top">
                                             <h4>Your Cart</h4>
                                             <a class="cart-close" href="#"><i class="la la-close"></i></a>
                                         </div>
-                                        <ul>
-                                            <li class="single-shopping-cart">
+                                        <ul id="added-cart-item-list">
+                                            <!-- <li class="single-shopping-cart">
                                                 <div class="shopping-cart-img">
                                                     <a href="#"><img alt="" src="assets/images/cart/cart-1.jpg"></a>
                                                     <div class="item-close">
@@ -180,8 +180,8 @@
                                                 <div class="shopping-cart-delete">
                                                     <a href="#"><i class="la la-trash"></i></a>
                                                 </div>
-                                            </li>
-                                            <li class="single-shopping-cart">
+                                            </li> -->
+                                            <!-- <li class="single-shopping-cart">
                                                 <div class="shopping-cart-img">
                                                     <a href="#"><img alt="" src="assets/images/cart/cart-2.jpg"></a>
                                                     <div class="item-close">
@@ -210,7 +210,7 @@
                                                 <div class="shopping-cart-delete">
                                                     <a href="#"><i class="la la-trash"></i></a>
                                                 </div>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                         <div class="shopping-cart-bottom">
                                             <div class="shopping-cart-total">

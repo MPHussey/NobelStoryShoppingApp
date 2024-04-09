@@ -1,10 +1,8 @@
-var apiLink = "http://localhost/nobelcrmbackend/index.php";
 var swiperFeatures;
 var defaultQyValue = 0;
 $(document).ready(function () {
   getFeaturedProducts();
   getAllProducts();
-
   //quick view modal get more details
   $(".dynamic-dataset").on(
     "click",
@@ -371,6 +369,7 @@ function onClickaddToCart() {
                               var newUpdatedQuantity=response.data[0].quantity;
                               $('#remaining-quantity').text(newUpdatedQuantity);
                               $('.cart-plus-minus-box').val("0");
+                              defaultQyValue=0;
                               Notiflix.Loading.remove();
 
                             }
