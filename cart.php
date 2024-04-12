@@ -27,6 +27,12 @@
     <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- izToast styles -->
+    <link rel="stylesheet" href="assets/js/plugins/iziToast/dist/css/iziToast.min.css">
+
+    <!-- notiflix styles -->
+    <link rel="stylesheet" href="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.css">
+
 </head>
 
 <body>
@@ -272,10 +278,10 @@
                                     <div class="cart-shiping-update-wrapper">
                                         <div class="cart-clear">
                                             <button>Continue Shopping</button>
-                                            <a href="#">Clear Shopping Cart</a>
+                                            <!-- <a href="#">Clear Shopping Cart</a> -->
                                         </div>
                                         <div class="cart-shiping-update">
-                                            <a href="#">Proceed to checkout</a>
+                                            <a href="checkout.html">Proceed to checkout</a>
                                         </div>
 
                                     </div>
@@ -392,6 +398,11 @@
     <script src="assets/js/plugins/elevatezoom.js"></script>
     <script src="assets/js/plugins/sticky-sidebar.js"></script>
     <script src="assets/js/plugins/smoothscroll.js"></script>
+
+    <!-- izToast js -->
+    <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
+    <!-- notiflix js -->
+    <script src="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/pageScripts/navbar-scripts.js"></script>
