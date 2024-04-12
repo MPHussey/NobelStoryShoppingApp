@@ -1,10 +1,8 @@
-var apiLink = "http://localhost/nobelcrmbackend/index.php";
 var swiperFeatures;
 var defaultQyValue = 0;
 $(document).ready(function () {
   getFeaturedProducts();
   getAllProducts();
-
   //quick view modal get more details
   $(".dynamic-dataset").on(
     "click",
@@ -358,7 +356,6 @@ function onClickaddToCart() {
                           product_quantity: totalQuantity,
                         },
                         success: function (response) {
-                        
                           console.log(response);
                           $.ajax({
                             type: "POST",
@@ -367,13 +364,16 @@ function onClickaddToCart() {
                               action: "selectedProduct",
                               product_id: productId,
                             },
-                            success:function(response){
-                              var newUpdatedQuantity=response.data[0].quantity;
-                              $('#remaining-quantity').text(newUpdatedQuantity);
-                              $('.cart-plus-minus-box').val("0");
+                            success: function (response) {
+                              var newUpdatedQuantity =
+                                response.data[0].quantity;
+                              $("#remaining-quantity").text(newUpdatedQuantity);
+                              $(".cart-plus-minus-box").val("0");
+                              defaultQyValue = 0;
+                              //update the shopping cart
+                              viewShoppingCart();
                               Notiflix.Loading.remove();
-
-                            }
+                            },
                           });
                         },
                       });
