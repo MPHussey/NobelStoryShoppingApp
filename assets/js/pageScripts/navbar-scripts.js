@@ -1,4 +1,5 @@
 var apiLink = "http://localhost/nobelcrmbackend/index.php";
+//shopping cart items for global use
 $(document).ready(function () {
   sessionCheck();
   viewShoppingCart();
@@ -14,12 +15,12 @@ function sessionCheck() {
     url: apiLink,
     data: { action: "sessionCheck" },
     success: function (response) {
-      console.log(response);
+      //console.log(response);
       if (response.success == true) {
         $(".login-link").addClass("d-none");
         $(".myAccount-link").removeClass("d-none");
         var userData = JSON.parse(localStorage.getItem("userData"));
-        console.log(userData);
+        //console.log(userData);
         $("#log-user").text(userData.userName);
       } else {
         localStorage.removeItem("userData");
@@ -33,13 +34,12 @@ function sessionCheck() {
 //logout trigger
 function logOutUser(e) {
   e.preventDefault();
-  console.log("click");
   $.ajax({
     type: "POST",
     url: apiLink,
     data: { action: "logout" },
     success: function (response) {
-      console.log(response);
+      //console.log(response);
       if (response.success == true) {
         sessionCheck();
         window.location.href = "index.php";
@@ -62,12 +62,13 @@ function viewShoppingCart() {
         user_id: userId,
       },
       success: function (response) {
-        console.log(response.data);
+        //console.log(response.data);
         var productItemCount = 0;
         if (response.data) {
+          shoppingcartItems=response.data;
           productItemCount = response.data.length;
         }
-        console.log(productItemCount);
+        //console.log(productItemCount);
         $(".user-item-count").text(productItemCount);
         var template = "";
         var baseUrl = "http://localhost/nobelcrmbackend/";

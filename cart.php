@@ -189,14 +189,14 @@
                                         <tr>
                                             <th>Image</th>
                                             <th>Product Name</th>
-                                            <th>Until Price</th>
+                                            <th>Unit Price</th>
                                             <th>Qty</th>
                                             <th>Subtotal</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
+                                    <tbody class="cart-item-list">
+                                        <!-- <tr>
                                             <td class="product-thumbnail">
                                                 <a href="#"><img src="assets/images/cart/cart-4.jpg" alt=""></a>
                                             </td>
@@ -212,8 +212,8 @@
                                                 <a href="#"><i class="la la-pencil"></i></a>
                                                 <a href="#"><i class="la la-close"></i></a>
                                             </td>
-                                        </tr>
-                                        <tr>
+                                        </tr> -->
+                                        <!-- <tr>
                                             <td class="product-thumbnail">
                                                 <a href="#"><img src="assets/images/cart/cart-5.jpg" alt=""></a>
                                             </td>
@@ -263,25 +263,26 @@
                                                 <a href="#"><i class="la la-pencil"></i></a>
                                                 <a href="#"><i class="la la-close"></i></a>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="cart-shiping-update-wrapper">
-                                        <div class="cart-shiping-update">
-                                            <a href="#">Continue Shopping</a>
-                                        </div>
                                         <div class="cart-clear">
-                                            <button>Update Shopping Cart</button>
+                                            <button>Continue Shopping</button>
                                             <a href="#">Clear Shopping Cart</a>
                                         </div>
+                                        <div class="cart-shiping-update">
+                                            <a href="#">Proceed to checkout</a>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </form>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-lg-4 col-md-6">
                                 <div class="cart-tax">
                                     <div class="title-wrap">
@@ -356,7 +357,7 @@
                                     <a href="#">Proceed to Checkout</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -394,6 +395,7 @@
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/pageScripts/navbar-scripts.js"></script>
+    <script src="assets/js/pageScripts/cart-page.js"></script>
 </body>
 
 </html>
