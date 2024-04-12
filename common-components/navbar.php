@@ -226,7 +226,7 @@
                                         <h4>Subtotal <span class="shop-total">$290.00</span></h4>
                                     </div>
                                     <div class="shopping-cart-btn btn-hover default-btn text-center">
-                                        <a class="black-color" href="checkout.html">View Cart</a>
+                                        <a class="black-color" href="cart.php">View Cart</a>
                                     </div>
                                 </div>
                             </div>
