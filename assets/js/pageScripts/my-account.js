@@ -17,13 +17,19 @@ $(document).ready(function () {
 
 function getAccountDetails() {
   var accountDetails = JSON.parse(localStorage.getItem("userData"));
-  //console.log(accountDetails);
+  console.log(accountDetails);
   $("#first-name").val(accountDetails.userName);
   $("#last-name").val(accountDetails.lastName);
   $("#email").val(accountDetails.emailAddress);
   $("#resident-address").val(accountDetails.residentAddress);
   $("#phone-number").val(accountDetails.phoneNumber);
   $("#user-id").val(accountDetails.userId);
+  $("#house-number").val(accountDetails.houseNumber);
+  $("#town-city").val(accountDetails.townCity);
+  $("#state-province").val(accountDetails.stateProvince);
+  $("#postal-zip").val(accountDetails.postalZip);
+  $("#country").val(accountDetails.country);
+
 }
 
 function saveToggleButton() {
@@ -38,9 +44,9 @@ function accountDetailsUpdate(e) {
   e.preventDefault();
   var formData = new FormData(this);
   formData.append("action", "updateAccount");
-  // for(let [key,value] of formData.entries()){
-  //     console.log(key,value);
-  // }
+  for(let [key,value] of formData.entries()){
+      console.log(key,value);
+  }
 
   iziToast.question({
     timeout: 20000,
