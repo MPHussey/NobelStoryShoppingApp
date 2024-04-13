@@ -55,8 +55,6 @@
         .active-text-fields {
             border: 1px solid #000 !important;
         }
-
-        
     </style>
 
 
@@ -348,77 +346,72 @@
                                     <label class="ms-3 w-700" for="check-ship-different">Ship to a different address?</label>
                                 </div>
                                 <div class="different-address open-toggle mt-30">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="billing-info mb-20">
-                                                <label>First Name</label>
-                                                <input type="text">
+                                    <form id="form-different-shipping">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="billing-info mb-20">
+                                                    <label>First Name</label>
+                                                    <input name="userId" class="billing-common" type="hidden" id="user-id-other" disabled />
+                                                    <input required type="text" name="firstName">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="billing-info mb-20">
-                                                <label>Last Name</label>
-                                                <input type="text">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="billing-info mb-20">
+                                                    <label>Last Name</label>
+                                                    <input required name="lastName" type="text">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- <div class="col-lg-12">
+                                            <!-- <div class="col-lg-12">
                                             <div class="billing-info mb-20">
                                                 <label>Company Name</label>
                                                 <input type="text">
                                             </div>
                                         </div> -->
 
-                                        <div class="col-lg-12">
-                                            <div class="billing-info mb-20">
-                                                <label>Street Address</label>
-                                                <input class="billing-address" placeholder="House number and street name" type="text">
-                                                <input placeholder="Apartment, suite, unit etc." type="text">
+                                            <div class="col-lg-12">
+                                                <div class="billing-info mb-20">
+                                                    <label>House Number/Street Number</label>
+                                                    <input required name="houseNumber" class="billing-address" placeholder="House number and street name" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="billing-info mb-20">
+                                                    <label>Town / City</label>
+                                                    <input required name="townCity" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="billing-info mb-20">
+                                                    <label>State / Province</label>
+                                                    <input required name="stateProvince" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="billing-info mb-20">
+                                                    <label>Postcode / ZIP</label>
+                                                    <input required name="postalZip" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="billing-select mb-20">
+                                                    <label>Country</label>
+                                                    <input required name="country" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="billing-info mb-20">
+                                                    <label>Phone</label>
+                                                    <input required name="phoneNumber" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="billing-info mb-20">
+                                                    <label>Email Address</label>
+                                                    <input required name="email" type="text">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="billing-info mb-20">
-                                                <label>Town / City</label>
-                                                <input type="text">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="billing-info mb-20">
-                                                <label>State / County</label>
-                                                <input type="text">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="billing-info mb-20">
-                                                <label>Postcode / ZIP</label>
-                                                <input type="text">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="billing-select mb-20">
-                                                <label>Country</label>
-                                                <select>
-                                                    <option>Select a country</option>
-                                                    <option>Azerbaijan</option>
-                                                    <option>Bahamas</option>
-                                                    <option>Bahrain</option>
-                                                    <option>Bangladesh</option>
-                                                    <option>Barbados</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="billing-info mb-20">
-                                                <label>Phone</label>
-                                                <input type="text">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="billing-info mb-20">
-                                                <label>Email Address</label>
-                                                <input type="text">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                                 <div class="additional-info-wrap">
                                     <label>Order notes</label>
@@ -491,7 +484,7 @@
                                     </div>
                                 </div>
                                 <div class="Place-order mt-40">
-                                    <a href="#">Place Order</a>
+                                    <a id="btn-place-order" href="">Place Order</a>
                                 </div>
                             </div>
                         </div>

@@ -10,6 +10,11 @@ $(document).ready(function(){
         updateBillingDetails.call(this,e);
     })
 
+    //onclick place order button
+    $('#btn-place-order').on('click',function(e){
+        placeOrder.call(this,e);
+    });
+
 
 })
 
@@ -112,4 +117,51 @@ function updateBillingDetails(e){
       });
 
     
+}
+
+
+//onclick place order button function
+function placeOrder(e){
+    e.preventDefault();
+    //check shipping method
+    var checkBoxStatus=$('#check-ship-different').prop('checked');
+    //if check box is not checked
+    if(!checkBoxStatus){
+        //make this true if found any of empty objects
+        var userDataStatus=false;
+        var userDataCheck = JSON.parse(localStorage.getItem("userData"));
+        for (var key in userDataCheck) {
+            if (userDataCheck.hasOwnProperty(key)) { // This checks if the key is actually a property of data, not inherited
+                if (userDataCheck[key] === "") {     // Checks if the property is an empty string
+                    console.log("Empty attribute found: " + key); // Output the key of the empty attribute
+                    userDataStatus=true;
+                }
+            }
+        }
+        console.log(userDataStatus);
+        if(userDataStatus){
+            iziToast.warning({
+                title: "Caution",
+                message: "One or More fields re missing on Billing information. Please fill out.",
+                position: "center",
+                zindex: 2000,
+                overlay: true,
+                timeout: 3000,
+              });
+        }else{
+           //service call 
+        }
+    }else{
+        var differentShippingDetails=$('#form-different-shipping')[0];
+        if(differentShippingDetails.checkValidity()===false){
+            differentShippingDetails.reportValidity();
+            return false;
+        }else{
+            var formData=new FormData(differentShippingDetails);
+            for(let [key,value] of formData.entries()){
+                console.log(key,value);
+            }
+        }
+        
+    }
 }
