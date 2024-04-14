@@ -119,6 +119,10 @@ function updateBillingDetails(e) {
 
 //onclick place order button function
 function placeOrder(e) {
+  Notiflix.Loading.init({
+    svgColor: "#ffffff",
+  });
+  Notiflix.Loading.pulse();
   e.preventDefault();
   //check shipping method
   var checkBoxStatus = $("#check-ship-different").prop("checked");
@@ -139,6 +143,7 @@ function placeOrder(e) {
     }
     console.log(userDataStatus);
     if (userDataStatus) {
+      Notiflix.Loading.remove();
       iziToast.warning({
         title: "Caution",
         message:
@@ -159,8 +164,9 @@ function placeOrder(e) {
         },
         success: function (response) {
           var allCartItems=response.data;
-          //console.log(JSON.stringify(allCartItems));
+          console.log(JSON.stringify(allCartItems));
           console.log(JSON.stringify(userDataCheck));
+          
           $.ajax({
             type:"POST",
             url:apiLink,
@@ -171,6 +177,42 @@ function placeOrder(e) {
             },
             success:function(response){
               console.log(response);
+              if(response.success==true){
+                $.ajax({
+                  type:"POST",
+                  url:apiLink,
+                  data:{
+                    action:"deleteCart",
+                    user_id:userDataCheck.userId
+                  },
+                  success:function(response){
+                    console.log(response);
+                    if(response.success==true){
+                      Notiflix.Loading.remove();
+                      iziToast.success({
+                        timeout: 3000,
+                        title: "OK",
+                        message: "Order Placed Successfully !!",
+                        position: "center",
+                        zindex: 2000,
+                        overlay: true,
+                      });
+                      window.location.reload();
+                    }else{
+                      Notiflix.Loading.remove();
+                      iziToast.warning({
+                        title: "Caution",
+                        message: "Order Placing Failed !! Try again or Contact Us",
+                        position: "center",
+                        zindex: 2000,
+                        overlay: true,
+                        timeout: 3000,
+                      });
+                    }
+                  }
+                })
+              }
+
             }
           });
         },
@@ -183,15 +225,89 @@ function placeOrder(e) {
       return false;
     } else {
       var formData = new FormData(differentShippingDetails);
-      for (let [key, value] of formData.entries()) {
-        console.log(key, value);
-      }
+      var optionalUserDetails={
+        "userId":userDataCheck.userId,
+        "emailAddress":formData.get('email'),
+        "userName":formData.get('firstName'),
+        "lastName":formData.get('lastName'),
+        "phoneNumber":formData.get('phoneNumber'),
+        "houseNumber":formData.get('houseNumber'),
+        "townCity":formData.get('townCity'),
+        "stateProvince":formData.get('stateProvince'),
+        "postalZip":formData.get('postalZip'),
+        "country":formData.get('country'),
+      };
+      //console.log(JSON.stringify(optionalUserDetails));
+
+      $.ajax({
+        type: "POST",
+        url: apiLink,
+        data: {
+          action: "getUserCartDetails",
+          user_id: userDataCheck.userId,
+        },
+        success:function(response){
+          var allCartItems=response.data;
+          $.ajax({
+            type:"POST",
+            url:apiLink,
+            data:{
+              action:"purchase",
+              user_details:JSON.stringify(optionalUserDetails),
+              cart_items:JSON.stringify(allCartItems)
+            },
+            success:function(response){
+              console.log(response);
+              if(response.success==true){
+                $.ajax({
+                  type:"POST",
+                  url:apiLink,
+                  data:{
+                    action:"deleteCart",
+                    user_id:userDataCheck.userId
+                  },
+                  success:function(response){
+                    if(response.success==true){
+                      Notiflix.Loading.remove();
+                      iziToast.success({
+                        timeout: 3000,
+                        title: "OK",
+                        message: "Order Placed Successfully !!",
+                        position: "center",
+                        zindex: 2000,
+                        overlay: true,
+                      });
+                      window.location.reload();
+                    }else{
+                      Notiflix.Loading.remove();
+                      iziToast.warning({
+                        title: "Caution",
+                        message: "Order Placing Failed !! Try again or Contact Us",
+                        position: "center",
+                        zindex: 2000,
+                        overlay: true,
+                        timeout: 3000,
+                      });
+                    }
+                  }
+                })
+              }
+            }
+          });
+        }
+      })
+
+      
     }
   }
 }
 
 //get all cart items for checkout page
 function getAllCartItems() {
+  Notiflix.Loading.init({
+    svgColor: "#ffffff",
+  });
+  Notiflix.Loading.pulse();
   var userDataCheck = JSON.parse(localStorage.getItem("userData"));
   if (userDataCheck != null) {
     var userId = userDataCheck.userId;
@@ -239,7 +355,8 @@ function getAllCartItems() {
         }
         $("#place-order-shipping-status").html(shippingOrderAddress);
         $(".place-order-total-amount").text(subtotal.toFixed(2));
-      },
+        Notiflix.Loading.remove();
+      }
     });
   } else {
     window.location.href = "index.php";
