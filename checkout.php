@@ -415,7 +415,7 @@
                                 </div>
                                 <div class="additional-info-wrap">
                                     <label>Order notes</label>
-                                    <textarea placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
+                                    <textarea id="optional-message" placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -426,29 +426,28 @@
                                     <div class="your-order-info-wrap">
                                         <div class="your-order-info">
                                             <ul>
-                                                <li>Product <span>Total</span></li>
+                                                <li>Product <span>(lkr) Total</span></li>
                                             </ul>
                                         </div>
                                         <div class="your-order-middle">
-                                            <ul>
-                                                <li>Product Name X 1 <span>$329 </span></li>
-                                                <li>Product Name X 1 <span>$329 </span></li>
+                                            <ul class="place-order-product-list">
+                                                <!-- <li>Product Name X 1 <span>$329 </span></li>
+                                                <li>Product Name X 1 <span>$329 </span></li> -->
                                             </ul>
                                         </div>
                                         <div class="your-order-info order-subtotal">
                                             <ul>
-                                                <li>Subtotal <span>$329 </span></li>
+                                                <li>Subtotal <span id="place-order-subtotal"></span></li>
                                             </ul>
                                         </div>
                                         <div class="your-order-info order-shipping">
-                                            <ul>
-                                                <li>Shipping <p>Enter your full address </p>
-                                                </li>
+                                            <ul id="place-order-shipping-status">
+                                                
                                             </ul>
                                         </div>
                                         <div class="your-order-info order-total">
                                             <ul>
-                                                <li>Total <span>$273.00 </span></li>
+                                                <li>Total <span class="place-order-total-amount"></span></li>
                                             </ul>
                                         </div>
                                     </div>
