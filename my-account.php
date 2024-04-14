@@ -374,10 +374,27 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <div class="single-input-item">
-                                                            <label for="resident-address" class="required">Resident Addres</label>
-                                                            <input name="residentAddress" class="account-common" type="text" id="resident-address" disabled />
+                                                            <label for="resident-address" class="required">House Number/Street Number</label>
+                                                            <input placeholder="House Number and Street Address" name="houseNumber" class="account-common" type="text" id="house-number" disabled />
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <label for="resident-address" class="required">Town/City</label>
+                                                            <!-- <input name="residentAddress" class="account-common" type="text" id="resident-address" disabled /> -->
+                                                            <input placeholder="Town or City" name="townCity" class="account-common" type="text" id="town-city" disabled />
+                                                        </div>
+                                                        
+                                                        <div class="single-input-item">
+                                                            <label for="resident-address" class="required">State/Province</label>
+                                                            <input placeholder="State or Province" name="stateProvince" class="account-common" type="text" id="state-province" disabled />
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <label for="resident-address" class="required">Postal Code / Zip</label>
+                                                            <input placeholder="Postal Code or Zip" name="postalZip" class="account-common" type="text" id="postal-zip" disabled />
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <label for="resident-address" class="required">Country</label>
+                                                            <input placeholder="Country" name="country" class="account-common" type="text" id="country" disabled />
                                                         </div>
                                                         <div class="single-input-item">
                                                             <button type="submit" id="submit-account-details" class="check-btn sqr-btn d-none">Save Changes</button>

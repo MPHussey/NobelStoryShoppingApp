@@ -281,7 +281,7 @@
                                             <!-- <a href="#">Clear Shopping Cart</a> -->
                                         </div>
                                         <div class="cart-shiping-update">
-                                            <a href="checkout.html">Proceed to checkout</a>
+                                            <a href="checkout.php">Proceed to checkout</a>
                                         </div>
 
                                     </div>
