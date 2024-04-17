@@ -323,7 +323,7 @@
                                 </ul>
                                 <div class="shopping-cart-bottom">
                                     <div class="shopping-cart-total">
-                                        <h4>Subtotal <span class="shop-total">$290.00</span></h4>
+                                        <!-- <h4>Subtotal <span class="shop-total">$290.00</span></h4> -->
                                     </div>
                                     <div class="shopping-cart-btn btn-hover default-btn text-center">
                                         <a class="black-color" href="checkout.html">Continue to Chackout</a>

@@ -3,12 +3,15 @@ var defaultQyValue = 0;
 $(document).ready(function () {
   getFeaturedProducts();
   getAllProducts();
-  //quick view modal get more details
+  //quick view modal get more details for featured section
   $(".dynamic-dataset").on(
     "click",
     ".product-modal-trigger",
     getFeaturedModalDetails
   );
+
+  //view product details for all products
+  $('#all-products-home').on('click','.product-modal-trigger',getFeaturedModalDetails);
 
   $("#modalslider-thumbnails").on("click", "a", function (e) {
     e.preventDefault(); // Prevent default anchor behavior
@@ -28,6 +31,8 @@ $(document).ready(function () {
 
   //on click add to cart in modal (featured section)
   $(".btn-add-cart").on("click", onClickaddToCart);
+
+  
 });
 
 //fetch all products on load
@@ -52,7 +57,7 @@ function getAllProducts() {
                                 <img src="${baseUrl + item.images[0].image_url}"
                                 alt="product">
                                 <div class="product-action-3">
-                                    <a data-bs-toggle="modal" data-bs-target="#exampleModal" title="Quick View"
+                                    <a class="product-modal-trigger" data-productid=${item.product_id} data-bs-toggle="modal" data-bs-target="#exampleModal" title="Quick View"
                                         href="#"><i class="la la-arrows"></i></a>
                                     <a title="Wishlist" href="#"><i class="la la-heart-o"></i></a>
                                     <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
@@ -150,7 +155,7 @@ function getFeaturedModalDetails() {
   Notiflix.Loading.pulse();
   updateSwiper();
   var productId = $(this).data("productid");
-
+  console.log(productId);
   $.ajax({
     type: "POST",
     url: apiLink,
