@@ -27,9 +27,11 @@
     <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
-      <!-- izToast styles -->
-      <link rel="stylesheet" href="assets/js/plugins/iziToast/dist/css/iziToast.min.css">
+    <!-- izToast styles -->
+    <link rel="stylesheet" href="assets/js/plugins/iziToast/dist/css/iziToast.min.css">
 
+    <!-- notiflix styles -->
+    <link rel="stylesheet" href="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.css">
 
     <link rel="stylesheet" href="assets/css/myStyles.css">
     <!-- <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css" > -->
@@ -37,7 +39,7 @@
 
 <body>
     <div class="main-wrapper">
-    <?php include 'common-components/navbar.php' ?>
+        <?php include 'common-components/navbar.php' ?>
         <div class="mobile-off-canvas-active">
             <a class="mobile-aside-close"><i class="la la-close"></i></a>
             <div class="header-mobile-aside-wrap">
@@ -200,12 +202,12 @@
                                     <div class="login-form-container p-5">
                                         <div class="login-register-form">
                                             <form id="user-login">
-                                                <input type="text" name="loginEmail" placeholder="Email Address" class="">
-                                                <input type="password" name="loginPassword" placeholder="Password">
+                                                <input type="text" name="loginEmail" placeholder="Email Address" class="" required>
+                                                <input type="password" name="loginPassword" placeholder="Password" required>
                                                 <div class="button-box">
                                                     <div class="login-toggle-btn">
-                                                        <input type="checkbox">
-                                                        <label>Remember me</label>
+                                                        <!-- <input type="checkbox">
+                                                        <label>Remember me</label> -->
                                                         <a href="#">Forgot Password?</a>
                                                     </div>
                                                     <button type="submit">Login</button>
@@ -217,7 +219,7 @@
                                 <div id="lg2" class="tab-pane">
                                     <div class="login-form-container p-5">
                                         <div class="login-register-form">
-                                            <form id="register-user">                                               
+                                            <form id="register-user">
                                                 <div class="input-group">
                                                     <input type="text" name="firstName" placeholder="First Name" class="col-6" required>
                                                     <input type="text" name="lastName" placeholder="Last Name" class="col-6" required>
@@ -225,7 +227,7 @@
                                                 <input type="email" name="emailAddress" placeholder="E-Mail" required>
                                                 <input type="password" name="password" placeholder="Password" required>
                                                 <input type="password" name="confirm-password" placeholder="Confirm Password" required>
-                                                
+
                                                 <div class="button-box">
                                                     <button id="btn-register" type="submit">Register</button>
                                                 </div>
@@ -240,7 +242,7 @@
             </div>
         </div>
 
-        
+
 
         <?php include 'common-components/footer.php' ?>
     </div>
@@ -277,13 +279,15 @@
     <script src="assets/js/plugins/sticky-sidebar.js"></script>
     <script src="assets/js/plugins/smoothscroll.js"></script>
 
-    <!-- izToast js -->
-    <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
+     <!-- izToast js -->
+     <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
+    <!-- notiflix js -->
+    <script src="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/pageScripts/navbar-scripts.js"></script>
     <script src="assets/js/pageScripts/login-register.js"></script>
-    
+
 </body>
 
 </html>
