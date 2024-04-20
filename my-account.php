@@ -174,6 +174,10 @@
         .align-bottom {
             vertical-align: bottom !important;
         }
+
+        .update-detais-highlight{
+            border: 2px solid black !important;
+        }
     </style>
 
 </head>

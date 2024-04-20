@@ -38,6 +38,7 @@ function getAccountDetails() {
 
 function saveToggleButton() {
   $("#submit-account-details").toggleClass("d-none");
+  $(".account-common").toggleClass("update-detais-highlight");
   $(".account-common").prop("disabled", function (i, val) {
     return !val;
   });
