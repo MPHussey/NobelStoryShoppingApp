@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
     <!-- izToast styles -->
     <link rel="stylesheet" href="assets/js/plugins/iziToast/dist/css/iziToast.min.css">
+    <!-- notiflix styles -->
+    <link rel="stylesheet" href="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
@@ -110,9 +112,11 @@
         .py-25 {
             padding-top: .75rem !important;
         }
+
         .bgc-default-tp1 {
             background-color: rgb(255 67 67) !important;
         }
+
         /* .bgc-default-tp1 {
             background-color: rgba(121, 169, 197, .92) !important;
         } */
@@ -155,7 +159,7 @@
 
         .text-150 {
             /* font-size: 150% !important; */
-            font-size: 1.5rem;
+            font-size: 1rem;
             font-weight: bold;
         }
 
@@ -170,8 +174,6 @@
         .align-bottom {
             vertical-align: bottom !important;
         }
-
-        
     </style>
 
 </head>
@@ -378,12 +380,12 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody class="order-list">
-                                                            <tr>
+                                                            <!-- <tr>
                                                                 <td>1</td>
                                                                 <td>Aug 22, 2018</td>
                                                                 <td>Pending</td>
                                                                 <td><a class="check-btn sqr-btn view-invoice">View</a></td>
-                                                            </tr>
+                                                            </tr> -->
 
                                                         </tbody>
                                                     </table>
@@ -667,8 +669,11 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">My Order</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 style="font-size: 1.2rem;font-weight:600;" class="modal-title" id="exampleModalLongTitle">Order Details</h5>
+                    <button style="border: none;
+    background: white;
+    font-size: 2rem;
+" id="btn-modal-close" type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -703,16 +708,16 @@
                                         <div class="col-sm-6">
                                             <div>
                                                 <span class="text-sm text-grey-m2 align-middle">To:</span>
-                                                <span class="text-600 text-110 text-blue align-middle">Alex Doe</span>
+                                                <span id="order-to" class="text-600 text-110 text-blue align-middle">Alex Doe</span>
                                             </div>
                                             <div class="text-grey-m2">
-                                                <div class="my-1">
-                                                    Street, City
+                                                <div id="address-one" class="my-1">
+
                                                 </div>
-                                                <div class="my-1">
-                                                    State, Country
+                                                <div id="address-two" class="my-1">
+
                                                 </div>
-                                                <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> <b class="text-600">111-111-111</b></div>
+                                                <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> <b id="zip-code" class="text-600"></b></div>
                                             </div>
                                         </div>
                                         <!-- /.col -->
@@ -720,15 +725,15 @@
                                         <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
                                             <hr class="d-sm-none" />
                                             <div class="text-grey-m2">
-                                                <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
+                                                <!-- <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
                                                     Invoice
-                                                </div>
+                                                </div> -->
 
-                                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">ID:</span> #111-222</div>
+                                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">ID:</span> # <span id="purchase-id-invoice"></span></div>
 
-                                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Issue Date:</span> Oct 12, 2019</div>
+                                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Issue Date:</span> <span id="purchased-date"></span></div>
 
-                                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span> <span class="badge badge-warning badge-pill px-25">Unpaid</span></div>
+                                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span> <span id="order-status"></span></div>
                                             </div>
                                         </div>
                                         <!-- /.col -->
@@ -743,8 +748,8 @@
                                             <div class="col-2">Amount</div>
                                         </div>
 
-                                        <div class="text-95 text-secondary-d3">
-                                            <div class="row mb-2 mb-sm-0 py-25">
+                                        <div class="text-95 text-secondary-d3 invoice-each-items">
+                                            <!-- <div class="row mb-2 mb-sm-0 py-25">
                                                 <div class="d-none d-sm-block col-1">1</div>
                                                 <div class="col-9 col-sm-5">Domain registration</div>
                                                 <div class="d-none d-sm-block col-2">2</div>
@@ -774,7 +779,7 @@
                                                 <div class="d-none d-sm-block col-2">1 Year</div>
                                                 <div class="d-none d-sm-block col-2 text-95">$500</div>
                                                 <div class="col-2 text-secondary-d2">$500</div>
-                                            </div>
+                                            </div> -->
                                         </div>
 
                                         <div class="row border-b-2 brc-default-l2"></div>
@@ -815,10 +820,10 @@
                                             <div class="col-12 col-sm-5 text-grey text-90 order-first order-sm-last">
                                                 <div class="row my-2">
                                                     <div style="text-align: end;" class="col-7">
-                                                        SubTotal
+                                                        SubTotal (Rs)
                                                     </div>
                                                     <div class="col-5">
-                                                        <span class="text-120 text-secondary-d1">$2,250</span>
+                                                        <span id="invoice-sub-total" class="text-120 text-secondary-d1"></span>
                                                     </div>
                                                 </div>
 
@@ -833,10 +838,10 @@
 
                                                 <div class="row my-2 align-items-center bgc-primary-l3 p-2">
                                                     <div style="text-align: end;" class="col-7 ">
-                                                        Total Amount
+                                                        Total Amount (Rs)
                                                     </div>
                                                     <div class="col-5">
-                                                        <span class="text-150 text-success-d3 opacity-2">$2,475</span>
+                                                        <span id="invoice-total" class="text-150 text-success-d3 opacity-2"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -885,6 +890,10 @@
     <script src="assets/js/plugins/smoothscroll.js"></script>
     <!-- izToast js -->
     <script src="assets/js/plugins/iziToast/dist/js/iziToast.min.js"></script>
+    <!-- notiflix js -->
+    <script src="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
     <!-- Main JS -->
 
     <script src="assets/js/main.js"></script>
