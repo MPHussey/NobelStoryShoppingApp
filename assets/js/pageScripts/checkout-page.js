@@ -221,7 +221,9 @@ function placeOrder(e) {
   } else {
     var differentShippingDetails = $("#form-different-shipping")[0];
     if (differentShippingDetails.checkValidity() === false) {
+      Notiflix.Loading.remove();
       differentShippingDetails.reportValidity();
+      
       return false;
     } else {
       var formData = new FormData(differentShippingDetails);

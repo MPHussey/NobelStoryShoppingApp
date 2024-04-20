@@ -13,7 +13,7 @@
                             <ul>
                                 <li><a href="index.php">Home</a></li>
                                 <li><a href="contact.html">About</a></li>
-                                <li><a href="contact.html">Shop</a></li>
+                                <li><a href="shop.php">Shop</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                                 <li><a class="login-link d-none" href="login-register.php">Log In</a></li>
                                 <li class="angle-shape myAccount-link d-none"><a href="#">My Account</a>
@@ -222,9 +222,9 @@
                                             </li> -->
                                 </ul>
                                 <div class="shopping-cart-bottom">
-                                    <div class="shopping-cart-total">
+                                    <!-- <div class="shopping-cart-total">
                                         <h4>Subtotal <span class="shop-total">$290.00</span></h4>
-                                    </div>
+                                    </div> -->
                                     <div class="shopping-cart-btn btn-hover default-btn text-center">
                                         <a class="black-color" href="cart.php">View Cart</a>
                                     </div>
