@@ -13,6 +13,9 @@ $(document).ready(function () {
   $("#form-password-reset").on("submit", function (e) {
     passwordChange.call(this, e);
   });
+
+  //open view order details
+  $('.order-list').on('click','.view-invoice',viewInvoice);
 });
 
 function getAccountDetails() {
@@ -160,4 +163,9 @@ function passwordChange(e) {
       timeout:3000
     });
   }
+}
+
+function viewInvoice(){
+  console.log("click");
+  $('#invoice-modal').modal("show");
 }
