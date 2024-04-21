@@ -195,16 +195,16 @@
                 </div>
             </div>
         </div>
-        <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/bg/breadcrumb.jpg);">
+        <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/slider/1.jpg);">
             <div class="container">
                 <div class="breadcrumb-content text-center">
-                    <h2>checkout page</h2>
-                    <ul>
+                    <h2 style="color:white">checkout page</h2>
+                    <!-- <ul>
                         <li>
                             <a href="index.html">Home</a>
                         </li>
                         <li class="active">checkout </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>

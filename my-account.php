@@ -317,16 +317,16 @@
                 </div>
             </div>
         </div>
-        <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/bg/breadcrumb.jpg);">
+        <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/slider/1.jpg);">
             <div class="container">
                 <div class="breadcrumb-content text-center">
-                    <h2>My account page</h2>
-                    <ul>
+                    <h2 style="color:white">My account page</h2>
+                    <!-- <ul>
                         <li>
                             <a href="index.html">Home</a>
                         </li>
                         <li class="active">My account </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
