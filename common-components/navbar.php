@@ -12,7 +12,7 @@
                         <nav>
                             <ul>
                                 <li><a href="index.php">Home</a></li>
-                                <li><a href="">About</a></li>
+                                <li><a href="about-us.php">About</a></li>
                                 <li><a href="">Shop</a></li>
                                 <li><a href="">Contact</a></li>
                                 <li><a class="login-link d-none" href="login-register.php">Log In</a></li>
