@@ -193,13 +193,13 @@
         <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/slider/1.jpg);">
             <div class="container">
                 <div class="breadcrumb-content text-center">
-                    <h2 class="text-white">login / register page</h2>
-                    <ul>
+                    <h2 class="text-white">Password reset page</h2>
+                    <!-- <ul>
                         <li>
                             <a href="index.html" class="text-white">Home</a>
                         </li>
                         <li class="active">login register </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
@@ -210,32 +210,32 @@
                         <div class="login-register-wrapper">
                             <div class="login-register-tab-list nav">
                                 <a class="active" data-bs-toggle="tab" href="#lg1">
-                                    <h4> login </h4>
+                                    <h4> Reset Password </h4>
                                 </a>
-                                <a data-bs-toggle="tab" href="#lg2">
+                                <!-- <a data-bs-toggle="tab" href="#lg2">
                                     <h4> register </h4>
-                                </a>
+                                </a> -->
                             </div>
                             <div class="tab-content">
                                 <div id="lg1" class="tab-pane active">
                                     <div class="login-form-container p-5">
                                         <div class="login-register-form">
-                                            <form id="user-login">
-                                                <input type="text" name="loginEmail" placeholder="Email Address" class="" required>
-                                                <input type="password" name="loginPassword" placeholder="Password" required>
+                                            <form id="form-password-reset">
+                                                <input type="password" name="newPassword" placeholder="New Password"  required>
+                                                <input type="password" name="confirmPassword" placeholder="Confirm Password"  required>
                                                 <div class="button-box">
                                                     <div class="login-toggle-btn">
                                                         <!-- <input type="checkbox">
                                                         <label>Remember me</label> -->
-                                                        <a class="btn-forgot-password">Forgot Password?</a>
+                                                        <!-- <a class="btn-forgot-password">Forgot Password?</a> -->
                                                     </div>
-                                                    <button type="submit">Login</button>
+                                                    <button type="submit">Reset</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="lg2" class="tab-pane">
+                                <!-- <div id="lg2" class="tab-pane">
                                     <div class="login-form-container p-5">
                                         <div class="login-register-form">
                                             <form id="register-user">
@@ -253,7 +253,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -304,8 +304,9 @@
     <script src="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/utility/notifications.js"></script>
     <script src="assets/js/pageScripts/navbar-scripts.js"></script>
-    <script src="assets/js/pageScripts/login-register.js"></script>
+    <script src="assets/js/pageScripts/password-reset.js"></script>
 
     <!-- Modal view -->
     <div class="modal fade" id="modal-forgot-password" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
