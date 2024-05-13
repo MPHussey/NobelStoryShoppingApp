@@ -1,4 +1,5 @@
 var apiLink = "http://localhost/nobelcrmbackend/index.php";
+var imageBaseUrl = "http://localhost/nobelcrmbackend/";
 //shopping cart items for global use
 $(document).ready(function () {
   sessionCheck();

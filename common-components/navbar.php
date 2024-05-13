@@ -13,7 +13,7 @@
                             <ul>
                                 <li><a href="index.php">Home</a></li>
                                 <li><a href="about-us.php">About</a></li>
-                                <li><a href="">Shop</a></li>
+                                <li><a href="shop.php">Shop</a></li>
                                 <li><a href="contact.php">Contact</a></li>
                                 <li><a class="login-link d-none" href="login-register.php">Log In</a></li>
                                 <li class="angle-shape myAccount-link d-none"><a href="#">My Account</a>
