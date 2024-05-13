@@ -603,7 +603,7 @@
                                         <div class="label-input">
                                             <input readonly type="text" id="amount" name="price" placeholder="Add Your Price" />
                                         </div>
-                                        <button type="button">Filter</button>
+                                        <button id="btn-filter-price" type="button">Filter</button>
                                     </div>
                                 </div>
                             </div>
