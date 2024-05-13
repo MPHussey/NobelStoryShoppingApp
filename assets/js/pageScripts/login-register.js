@@ -8,6 +8,12 @@ $(document).ready(function () {
   $("#user-login").on("submit", function (e) {
     userLogin.call(this, e);
   });
+
+  //btn forgot password
+  $('.btn-forgot-password').on('click',forgotPassword);
+
+  //btn reset
+  $('.btn-reset').on('click',onClickReset);
 });
 
 //User Register Submit function
@@ -25,33 +31,33 @@ function userRegister(e) {
   if (password == confirmPassword) {
     $.ajax({
       type: "POST",
-      url: "http://localhost/nobelcrmbackend/index.php",
+      url: apiLink,
       data: formData,
       processData: false,
       contentType: false,
       success: function (response) {
         console.log(response);
         if (response.success == true) {
-            Notiflix.Loading.remove();
+          Notiflix.Loading.remove();
           iziToast.success({
             title: "Registration",
             message: "Registered Successfully",
             position: "center",
             zindex: 2000,
-            overlay: true, 
+            overlay: true,
             timeout: 3000,
           });
           $("#register-user")[0].reset();
         } else {
-            Notiflix.Loading.remove();
-            iziToast.warning({
-                title: "Caution",
-                message: "Already have an account !!",
-                position: "center",
-                zindex: 2000,
-                overlay: true,
-                timeout: 3000,
-              });
+          Notiflix.Loading.remove();
+          iziToast.warning({
+            title: "Caution",
+            message: "Already have an account !!",
+            position: "center",
+            zindex: 2000,
+            overlay: true,
+            timeout: 3000,
+          });
         }
       },
     });
@@ -79,7 +85,7 @@ function userLogin(e) {
   formData.append("action", "login");
   $.ajax({
     type: "POST",
-    url: "http://localhost/nobelcrmbackend/index.php",
+    url: apiLink,
     data: formData,
     processData: false,
     contentType: false,
@@ -107,10 +113,57 @@ function userLogin(e) {
 function sessionCheck() {
   $.ajax({
     type: "POST",
-    url: "http://localhost/nobelcrmbackend/index.php",
+    url: apiLink,
     data: { action: "sessionCheck" },
     success: function (response) {
       console.log(response);
     },
   });
+}
+
+// forgot password modal open function
+function forgotPassword() {
+  $('#modal-forgot-password').modal("show");
+}
+
+function onClickReset(){
+  Notiflix.Loading.init({
+    svgColor: "#ffffff",
+  });
+  Notiflix.Loading.pulse();
+  var resetEmailAddress=$('#resetEmail').val();
+  //console.log(resetEmailAddress);
+  $.ajax({
+    type:"POST",
+    url:apiLink,
+    data:{
+      action:"passwordResetEmail",
+      resetEmailAddress:resetEmailAddress
+    },
+    success:function(response){
+      $('#resetEmail').val("");
+      Notiflix.Loading.remove();
+      console.log(response)
+      if(response.success==true){
+        iziToast.success({
+          title: "Email",
+          message: "Password Reset email has sent to your email if already registered.",
+          position: "center",
+          zindex: 2000,
+          overlay: true, 
+          timeout: 3000,
+        });
+      }else{
+        iziToast.warning({
+          title: "Caution",
+          message: "Email Sending Failure",
+          position: "center",
+          zindex: 2000,
+          overlay: true,
+          timeout: 3000,
+        });  
+      }
+    }
+  })
+  
 }

@@ -101,7 +101,7 @@ function getFeaturedProducts() {
         //console.log(baseUrl + product.images[0].image_url);
         producTemplate += `<div class="swiper-slide"><div class="product-wrap product-border-2 pro-hover-shadow mb-40">
         <div class="product-img mb-15">
-            <a href="product-details.html"><img src="${
+            <a ><img src="${
               baseUrl + product.images[0].image_url
             }" alt="product"></a>
             <div class="product-action-3">
@@ -114,7 +114,7 @@ function getFeaturedProducts() {
             </div>
         </div>
         <div class="product-content-2 text-start">
-            <h4><a href="product-details.html">${product.product_name}</a></h4>
+            <h4><a>${product.product_name}</a></h4>
             <span>${product.product_category}</span>
             <div class="pro-price-2">
                 <span>Rs.${product.price}</span>
@@ -199,7 +199,7 @@ function getFeaturedModalDetails() {
       var swiper = new Swiper(".mySwiper", {
         loop: true,
         spaceBetween: 10,
-        slidesPerView: 2,
+        slidesPerView: 3,
         freeMode: true,
         watchSlidesProgress: true,
       });
