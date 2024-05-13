@@ -1,27 +1,47 @@
+//price ranger
+var sliderrange = $('#slider-range');
+var amountprice = $('#amount');
+var global_maxPrice;
 $(document).ready(function(){
+    //get price ranges
+    
     if(!window.localStorage.getItem('pageNumber')){
         window.localStorage.setItem('pageNumber','1');
     }
 
     if(!window.localStorage.getItem('sortBy')){
-        window.localStorage.setItem('sortBy','all');
+        window.localStorage.setItem('sortBy','default');
     }
 
     if(!window.localStorage.getItem('category')){
-        window.localStorage.setItem('category','category');
+        window.localStorage.setItem('category','all');
     }
+
+    if(!window.localStorage.getItem('valueLow')){
+        window.localStorage.setItem('valueLow','0');
+    }
+
+    if(!window.localStorage.getItem('valueHigh')){
+        window.localStorage.setItem('valueHigh','0');
+    }
+
+    getPriceRange();
     
     //get all categories
-    getAllCatgories()
+    getAllCatgories();
     //check url hash
-    checkUrlHash();
+    //checkUrlHash();
     // onload get all products
-    //getAllProducts();
+    getAllProducts();
     //default set the page items to 1
 
 
-    //events
+    /*---EVENTS---*/
+
+    //sortby event
     $('.sort-by-val').on('change',updateSortBy);
+    //shop by category
+    $('#product-category').on('click','.shop-category-list',shopCategory);
 });
 
 
@@ -35,10 +55,10 @@ function getAllCatgories(){
         },
         success:function(response){
             console.log(response);
-            var template=`<li><a data-category="all">All</a></li>`;
+            var template=`<li><a class="shop-category-list" data-category="all">All</a></li>`;
             if(response.success==true){
                 response.data.forEach((category,index)=>{
-                    template+=`<li><a data-category="${category.product_category}">${category.product_category}</a></li>`;
+                    template+=`<li><a class="shop-category-list" data-category="${category.product_category}">${category.product_category}</a></li>`;
                 });
             }
 
@@ -46,21 +66,19 @@ function getAllCatgories(){
         }
     })
 }
-function checkPageNumber(){
-    
-}
 
 function updateSortBy(){
     var sortValue=$(this).val();
-    var subStringPatterens=['\\+all', '\\+asc', '\\+desc'];
-    var regexPattern = new RegExp(subStringPatterens.join('|'), 'gi');
-    var currentHash=window.location.hash;
-    var replacedValue=currentHash.replace(regexPattern,"");
-    console.log(currentHash);
-    window.location.hash=replacedValue+'+'+sortValue;
-
+    localStorage.setItem('sortBy',sortValue);
+    console.log(sortValue);
+    //update product view
+    getAllProducts();
+    
 }
 function getAllProducts(){
+    var sortBy=localStorage.getItem('sortBy');
+    var category=localStorage.getItem('category');
+    console.log(sortBy);
     $('#pagination-container').pagination({
         dataSource:function(done){
             $.ajax({
@@ -68,6 +86,8 @@ function getAllProducts(){
                 url:apiLink,
                 data:{
                     action:"productsShopPage",
+                    sortby:sortBy,
+                    category:category
                 },
                 success:function(response){
                     done(response.data);
@@ -77,10 +97,10 @@ function getAllProducts(){
         pageSize: 4,
         pageNumber:1,
         callback: function(data, pagination) {
-            console.log(data);
+            //console.log(data);
             var template="";
             data.forEach((eachItem,index)=>{
-                console.log(eachItem);
+                //console.log(eachItem);
                 template+=`<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
                 <div class="product-wrap mb-35">
                     <div class="product-img mb-15">
@@ -109,24 +129,52 @@ function getAllProducts(){
             // dataContainer.html(html);
         }
     })
-    // $('#pagination-container').pagination({
-    //     dataSource:function(done){
-    //         $.ajax({
-    //             type:"POST",
-    //             url:apiLink,
-    //             data:{
-    //                 action:"productsShopPage",
-    //                 itemsPerPage:2,
-    //                 pageNumber:1
-    //             },
-    //             success:function(response){
-    //                 console.log(response);
-    //                 done(response.data);
-    //             },
-    //             error: function(xhr, status, error) {
-    //                 console.error("Error: " + error);
-    //             }
-    //         });
-    //     }
-    // });
 }
+
+
+
+//get min and max prices for the price ranger
+function getPriceRange(){
+    $.ajax({
+        type:"POST",
+        url:apiLink,
+        data:{
+            action:"minMaxPrice"
+        },
+        success:function(response){
+            console.log(response);
+            if(response.success==true){
+                console.log(response.data[1].maxPrice);
+                $('#display-price-range').text(`Range: $0 - $${response.data[1].maxPrice}`);
+                global_maxPrice=response.data[1].maxPrice;
+                priceRange(global_maxPrice,0,global_maxPrice)
+            }
+        }
+    })
+}
+//price ranger
+function priceRange(maxPrice,valueLow,valueHigh){
+
+    var actualValueHigh=parseInt(JSON.parse(localStorage.getItem('valueHigh')))==0?parseInt(valueHigh):parseInt(JSON.parse(localStorage.getItem('valueHigh')));
+    console.log(actualValueHigh);
+    sliderrange.slider({
+        range: true,
+        min: 0,
+        max: parseInt(maxPrice),
+        values: [parseInt(valueLow),actualValueHigh],
+        slide: function(event, ui) {
+            amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
+        }
+    });
+    amountprice.val("$" + sliderrange.slider("values", 0) +
+        " - $" + sliderrange.slider("values", 1));
+}
+
+
+function shopCategory(){
+    var selectedCategory=$(this).data('category');
+    localStorage.setItem('category',selectedCategory);
+    getAllProducts();
+}
+
+

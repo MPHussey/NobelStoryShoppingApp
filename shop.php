@@ -207,7 +207,7 @@
                                 <div class="product-show shorting-style">
                                     <label>Sort by:</label>
                                     <select class="sort-by-val">
-                                        <option value="all">Default</option>
+                                        <option value="default">Default</option>
                                         <option value="desc"> price (High - Low)</option>
                                         <option value="asc"> price (Low - High)</option>
                                     </select>
@@ -597,11 +597,11 @@
                             <div class="shop-price-filter mt-35 shop-sidebar-border pt-40 sidebar-widget">
                                 <h4 class="sidebar-title">Price Filter</h4>
                                 <div class="price-filter mt-20">
-                                    <span>Range: $100.00 - 1.300.00 </span>
+                                    <span id="display-price-range"> </span>
                                     <div id="slider-range"></div>
                                     <div class="price-slider-amount">
                                         <div class="label-input">
-                                            <input type="text" id="amount" name="price" placeholder="Add Your Price" />
+                                            <input readonly type="text" id="amount" name="price" placeholder="Add Your Price" />
                                         </div>
                                         <button type="button">Filter</button>
                                     </div>
