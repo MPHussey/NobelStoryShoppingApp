@@ -376,6 +376,7 @@ function onClickaddToCart() {
                               $(".cart-plus-minus-box").val("0");
                               defaultQyValue = 0;
                               //update the shopping cart
+                              showNotification("success", "Success", "Item Added Successfully");
                               viewShoppingCart();
                               Notiflix.Loading.remove();
                             },

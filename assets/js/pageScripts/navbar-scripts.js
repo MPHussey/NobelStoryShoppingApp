@@ -51,6 +51,7 @@ function logOutUser(e) {
 
 //view shopping cart
 function viewShoppingCart() {
+  console.log('working');
   //check whether user singned in
   var userDataCheck = JSON.parse(localStorage.getItem("userData"));
   if (userDataCheck != null) {
@@ -63,7 +64,7 @@ function viewShoppingCart() {
         user_id: userId,
       },
       success: function (response) {
-        //console.log(response.data);
+        console.log(response);
         var productItemCount = 0;
         if(response.success==true){
           if (response.data) {
@@ -107,6 +108,9 @@ function viewShoppingCart() {
                       `;
           });
           $("#added-cart-item-list").html(template);
+        }else{
+          $(".user-item-count").text(productItemCount);
+          $("#added-cart-item-list").html('');
         }
       },
     });

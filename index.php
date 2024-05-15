@@ -611,6 +611,7 @@
     <!-- notiflix js -->
     <script src="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.js"></script>
     <!-- Main JS -->
+    <script src="assets/js/utility/notifications.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/pageScripts/navbar-scripts.js"></script>
     <script src="assets/js/pageScripts/index-4.js"></script>

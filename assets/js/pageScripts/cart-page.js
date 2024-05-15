@@ -76,6 +76,7 @@ function viewCartItems() {
                   </tr>
                   `;
           });
+          viewShoppingCart();
         }
 
         $(".cart-item-list").html(cartItemTemplate);

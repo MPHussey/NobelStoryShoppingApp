@@ -204,12 +204,14 @@ function onClickaddToCart() {
                               product_id: productId,
                             },
                             success: function (response) {
+                              viewShoppingCart();
                               var newUpdatedQuantity =
                                 response.data[0].quantity;
                               $("#remaining-quantity").text(newUpdatedQuantity);
                               $(".cart-plus-minus-box").val("0");
                               defaultQyValue = 0;
                               showNotification("success", "Success", "Item Added Successfully");
+                              
                               stopLoading();
                             },
                           });
