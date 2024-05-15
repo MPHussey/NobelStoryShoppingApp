@@ -61,6 +61,7 @@ function viewSelectedItemDetails() {
         });
         $(".main-viewer").html(quickViewBigImg);
         $(".thumb-viewer").html(quickViewBigImg);
+        //getRelatedProducts(productDetails.product_category,productDetails.product_id);
       }
 
       var swiper = new Swiper(".mySwiper", {
@@ -81,6 +82,7 @@ function viewSelectedItemDetails() {
           swiper: swiper,
         },
       });
+      
     },
   });
 }
@@ -238,3 +240,48 @@ function onClickaddToCart() {
     showNotification("warning", "Caution", "Select the item amount");
   }
 }
+
+
+// function getRelatedProducts(productCategory,productId){
+//   console.log(productCategory);
+//   $.ajax({
+//     type:"POST",
+//     url:apiLink,
+//     data:{
+//       action:"getRelatedProducts",
+//       product_id:productId,
+//       product_category:productCategory
+//     },
+//     success:function(response){
+//       console.log(response);
+//       var template="";
+//       if(response.success==true){
+//         var dataset=response.data;
+//         console.log(dataset);
+//         dataset.forEach((eachItem,index)=>{
+//           console.log(eachItem);
+//           template+=`
+//           <div class="product-wrap">
+//               <div class="product-img mb-15">
+//                   <a href="product-details.html"><img src="${imageBaseUrl + eachItem.images[0]['image_url']}" alt="product"></a>
+//               </div>
+//               <div class="product-content">
+//                   <span>${eachItem.product_category}</span>
+//                   <h4><a>${eachItem.product_name}</a></h4>
+//                   <div class="price-addtocart">
+//                       <div class="product-price">
+//                           <span>Rs ${eachItem.product_price}</span>
+//                       </div>
+//                   </div>
+//               </div>
+//           </div>
+//           `;
+
+//         });
+      
+        
+//       $('#view-related-products').html(template);
+//       }
+//     }
+//   })
+// }

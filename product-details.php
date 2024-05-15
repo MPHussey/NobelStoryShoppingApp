@@ -178,7 +178,7 @@
                     <h2 class="text-white">Product Details page</h2>
                     <ul>
                         <li>
-                            <a href="index.html" class="text-white">Home</a>
+                            <a href="shop.php" class="text-white">Shop</a>
                         </li>
                         <li class="active">Product Details</li>
                     </ul>
@@ -457,20 +457,15 @@
                 </div>
             </div>
         </div>
-        <div class="product-area pb-85">
+        <!-- <div class="product-area pb-85">
             <div class="container">
                 <div class="section-title-6 mb-50 text-center">
                     <h2>Related Product</h2>
                 </div>
-                <div class="product-slider-active owl-carousel">
+                <div id="view-related-products" class="product-slider-active owl-carousel">
                     <div class="product-wrap">
                         <div class="product-img mb-15">
                             <a href="product-details.html"><img src="assets/images/product/pro-hm1-5.jpg" alt="product"></a>
-                            <div class="product-action">
-                                <a data-bs-toggle="modal" data-bs-target="#exampleModal" title="Quick View" href="#"><i class="la la-plus"></i></a>
-                                <a title="Wishlist" href="#"><i class="la la-heart-o"></i></a>
-                                <a title="Compare" href="#"><i class="la la-retweet"></i></a>
-                            </div>
                         </div>
                         <div class="product-content">
                             <span>Chair</span>
@@ -478,9 +473,6 @@
                             <div class="price-addtocart">
                                 <div class="product-price">
                                     <span>$210.00</span>
-                                </div>
-                                <div class="product-addtocart">
-                                    <a title="Add To Cart" href="#">+ Add To Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -579,7 +571,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <?php include 'common-components/footer.php' ?>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">

@@ -390,15 +390,8 @@ function onClickaddToCart() {
             });
           } else {
             Notiflix.Loading.remove();
-            iziToast.warning({
-              title: "Caution",
-              message:
-                "Another Customer also purchasing & please update the prduct quantity.",
-              position: "center",
-              zindex: 2000,
-              overlay: true,
-              timeout: 3000,
-            });
+            showNotification("warning", "Caution", "Another Customer also purchasing & please update the prduct quantity.");
+           
           }
         },
       });

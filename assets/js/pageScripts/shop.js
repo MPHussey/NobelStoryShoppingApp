@@ -115,7 +115,7 @@ function getAllProducts(){
         pageSize: 4,
         pageNumber:1,
         callback: function(data, pagination) {
-            //console.log(data);
+            console.log(data);
             var template="";
             data.forEach((eachItem,index)=>{
                 //console.log(eachItem);
@@ -217,5 +217,7 @@ function viewMoreDetails(){
     localStorage.setItem('selectedItemNumber',product_id);
     window.location.href="product-details.php";
 }
+
+
 
 
