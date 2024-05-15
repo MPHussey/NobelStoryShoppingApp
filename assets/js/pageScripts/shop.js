@@ -24,19 +24,19 @@ $(document).ready(function(){
     if(!window.localStorage.getItem('valueHigh')){
         window.localStorage.setItem('valueHigh','0');
     }
-
+    onloadSetFiltersToState();
     getPriceRange();
     
     //get all categories
     getAllCatgories();
-    //check url hash
-    //checkUrlHash();
     // onload get all products
     getAllProducts();
     //default set the page items to 1
 
 
     /*---EVENTS---*/
+    //onload et sortby drop down
+
 
     //sortby event
     $('.sort-by-val').on('change',updateSortBy);
@@ -44,8 +44,14 @@ $(document).ready(function(){
     $('#product-category').on('click','.shop-category-list',shopCategory);
     //filter prices
     $('#btn-filter-price').on('click',filterByPrice);
+    //view more details of selected product
+    $('#items-template').on('click','.product-detail-link',viewMoreDetails);
 });
 
+function onloadSetFiltersToState(){
+    var  sortByTempVal=localStorage.getItem('sortBy');
+    $('.sort-by-val').val(sortByTempVal);
+}
 
 //get all categories function
 function getAllCatgories(){
@@ -56,11 +62,12 @@ function getAllCatgories(){
             action:"categories"
         },
         success:function(response){
-            console.log(response);
-            var template=`<li><a class="shop-category-list" data-category="all">All</a></li>`;
+            //console.log(response);
+            var selectedCategory=localStorage.getItem('category');
+            var template=`<li><a class="shop-category-list ${selectedCategory=='all'?'selected-color':''}" data-category="all">All</a></li>`;
             if(response.success==true){
                 response.data.forEach((category,index)=>{
-                    template+=`<li><a class="shop-category-list" data-category="${category.product_category}">${category.product_category}</a></li>`;
+                    template+=`<li><a class="shop-category-list ${selectedCategory==category.product_category?'selected-color':''}" data-category="${category.product_category}">${category.product_category}</a></li>`;
                 });
             }
 
@@ -72,17 +79,19 @@ function getAllCatgories(){
 function updateSortBy(){
     var sortValue=$(this).val();
     localStorage.setItem('sortBy',sortValue);
-    console.log(sortValue);
+    //console.log(sortValue);
     //update product view
     getAllProducts();
     
 }
+
 function getAllProducts(){
+    startLoading();
     var sortBy=localStorage.getItem('sortBy');
     var category=localStorage.getItem('category');
     var priceSetHigh=localStorage.getItem('valueHigh');
     var priceSetLow=localStorage.getItem('valueLow');
-    console.log(sortBy);
+    //console.log(sortBy);
     $('#pagination-container').pagination({
         dataSource:function(done){
             $.ajax({
@@ -96,7 +105,10 @@ function getAllProducts(){
                     priceLow:priceSetLow
                 },
                 success:function(response){
-                    done(response.data);
+                    stopLoading();
+                    if(response.success==true){
+                        done(response.data);
+                    }
                 }
             })
         },
@@ -110,7 +122,7 @@ function getAllProducts(){
                 template+=`<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
                 <div class="product-wrap mb-35">
                     <div class="product-img mb-15">
-                        <a href="product-details.html"><img src="${imageBaseUrl + eachItem.images[0].image_url}" alt="product"></a>
+                        <a data-productId="${eachItem.product_id}" class="product-detail-link"><img src="${imageBaseUrl + eachItem.images[0].image_url}" alt="product"></a>
                         ${eachItem.product_quantity==0 ?`<span class="new-stock"><span>Stock <br>Out</span></span>`:``}
                     </div>
                     <div class="product-content">
@@ -148,9 +160,9 @@ function getPriceRange(){
             action:"minMaxPrice"
         },
         success:function(response){
-            console.log(response);
+            //console.log(response);
             if(response.success==true){
-                console.log(response.data[1].maxPrice);
+                //console.log(response.data[1].maxPrice);
                 $('#display-price-range').text(`Range: $0 - $${response.data[1].maxPrice}`);
                 global_maxPrice=response.data[1].maxPrice;
                 priceRange(global_maxPrice,0,global_maxPrice)
@@ -162,12 +174,13 @@ function getPriceRange(){
 function priceRange(maxPrice,valueLow,valueHigh){
 
     var actualValueHigh=parseInt(JSON.parse(localStorage.getItem('valueHigh')))==0?parseInt(valueHigh):parseInt(JSON.parse(localStorage.getItem('valueHigh')));
-    console.log(actualValueHigh);
+    var actualValueLow=parseInt(JSON.parse(localStorage.getItem('valueLow')))==0?parseInt(valueLow):parseInt(JSON.parse(localStorage.getItem('valueLow')));
+    //console.log(actualValueHigh);
     sliderrange.slider({
         range: true,
         min: 0,
         max: parseInt(maxPrice),
-        values: [parseInt(valueLow),actualValueHigh],
+        values: [actualValueLow,actualValueHigh],
         slide: function(event, ui) {
             amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
         }
@@ -179,6 +192,8 @@ function priceRange(maxPrice,valueLow,valueHigh){
 //filter by category function
 function shopCategory(){
     var selectedCategory=$(this).data('category');
+    $('.shop-category-list').removeClass('selected-color');
+    $(this).addClass('selected-color');
     localStorage.setItem('category',selectedCategory);
     getAllProducts();
 }
@@ -187,9 +202,20 @@ function shopCategory(){
 function filterByPrice(){
     var amount=$('#amount').val();
     var numbers = amount.match(/\d+/g).map(String); 
-    console.log(numbers);
+    //console.log(numbers);
 
     localStorage.setItem('valueHigh',numbers[1]);
     localStorage.setItem('valueLow',numbers[0]);
     getAllProducts();
 }
+
+
+//view more details of selected item
+function viewMoreDetails(){
+    
+    var product_id=$(this).data('productid').toString();
+    localStorage.setItem('selectedItemNumber',product_id);
+    window.location.href="product-details.php";
+}
+
+

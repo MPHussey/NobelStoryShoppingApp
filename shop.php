@@ -32,7 +32,11 @@
 
     <!-- notiflix styles -->
     <link rel="stylesheet" href="assets/js/plugins/notiflix/dist/notiflix-3.2.7.min.css">
-
+    <style>
+        .selected-color{
+            color: #ff5151;
+        }
+    </style>
 </head>
 
 <body>
