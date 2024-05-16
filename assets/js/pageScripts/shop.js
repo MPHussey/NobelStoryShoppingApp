@@ -132,9 +132,6 @@ function getAllProducts(){
                             <div class="product-price">
                                 <span>Rs ${eachItem.product_price}</span>
                             </div>
-                            <div class="product-addtocart">
-                                <a title="Add To Cart" href="#">+ Add To Cart</a>
-                            </div>
                         </div>
                     </div>
                 </div>

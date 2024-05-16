@@ -109,8 +109,7 @@ function getFeaturedProducts() {
                   product.product_id
                 } data-bs-toggle="modal" data-bs-target="#exampleModal" title="Quick View" href="#"><i
                         class="la la-arrows"></i></a>
-                <!--<a title="Wishlist" href="#"><i class="la la-heart-o"></i></a> -->
-                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
+                
             </div>
         </div>
         <div class="product-content-2 text-start">
@@ -324,7 +323,7 @@ function onClickaddToCart() {
                 product_id: productId,
               },
               success: function (response) {
-                console.log(response);
+                //console.log(response);
                 var currenlyAvailableQuantity = 0;
                 var totalQuantity;
                 if (response.success == false) {
@@ -348,8 +347,8 @@ function onClickaddToCart() {
                       finalConfirmProductquantity - selectedItemQuantity,
                   },
                   success: function (response) {
-                    console.log(response);
-                    console.log(totalQuantity);
+                    //console.log(response);
+                    //console.log(totalQuantity);
                     if (response.success == true) {
                       $.ajax({
                         type: "POST",
@@ -361,7 +360,7 @@ function onClickaddToCart() {
                           product_quantity: totalQuantity,
                         },
                         success: function (response) {
-                          console.log(response);
+                          //console.log(response);
                           $.ajax({
                             type: "POST",
                             url: apiLink,
@@ -372,7 +371,8 @@ function onClickaddToCart() {
                             success: function (response) {
                               var newUpdatedQuantity =
                                 response.data[0].quantity;
-                              $("#remaining-quantity").text(newUpdatedQuantity);
+                                console.log(newUpdatedQuantity);
+                              $("#remaining-quantity").text(`${newUpdatedQuantity==0?'Out Of Stock':newUpdatedQuantity}`);
                               $(".cart-plus-minus-box").val("0");
                               defaultQyValue = 0;
                               //update the shopping cart
