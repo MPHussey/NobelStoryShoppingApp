@@ -209,7 +209,8 @@ function onClickaddToCart() {
                               viewShoppingCart();
                               var newUpdatedQuantity =
                                 response.data[0].quantity;
-                              $("#remaining-quantity").text(newUpdatedQuantity);
+                                $("#remaining-quantity").text(`${newUpdatedQuantity==0?'Out Of Stock':newUpdatedQuantity}`);
+                             
                               $(".cart-plus-minus-box").val("0");
                               defaultQyValue = 0;
                               showNotification("success", "Success", "Item Added Successfully");

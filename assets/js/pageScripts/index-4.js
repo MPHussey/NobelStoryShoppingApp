@@ -59,8 +59,6 @@ function getAllProducts() {
                                 <div class="product-action-3">
                                     <a class="product-modal-trigger" data-productid=${item.product_id} data-bs-toggle="modal" data-bs-target="#exampleModal" title="Quick View"
                                         href="#"><i class="la la-arrows"></i></a>
-                                    <a title="Wishlist" href="#"><i class="la la-heart-o"></i></a>
-                                    <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
                                    
                                 </div>
                             </div>
