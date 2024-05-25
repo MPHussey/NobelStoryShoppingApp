@@ -82,17 +82,17 @@
                                 <div class="col-lg-12">
                                     <div class="cart-shiping-update-wrapper">
                                         <div class="cart-clear">
-                                            <button>Continue Shopping</button>
+                                            <a href="shop.php">Continue Shopping</a>
                                             <!-- <a href="#">Clear Shopping Cart</a> -->
                                         </div>
                                         <div class="cart-shiping-update">
-                                            <a href="checkout.php">Proceed to checkout</a>
+                                            <a id="btn-proceed-checkout" >Proceed to checkout</a>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </form>  
                     </div>
                 </div>
             </div>
