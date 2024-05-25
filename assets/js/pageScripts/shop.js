@@ -112,7 +112,7 @@ function getAllProducts(){
                 }
             })
         },
-        pageSize: 4,
+        pageSize: 6,
         pageNumber:1,
         callback: function(data, pagination) {
             console.log(data);

@@ -78,6 +78,7 @@ function viewShoppingCart() {
           }
           //console.log(productItemCount);
           $(".user-item-count").text(productItemCount);
+          $('#num-items-mobile').text(productItemCount);
           var template = "";
           var baseUrl = "http://localhost/nobelcrmbackend/";
           response.data.forEach((item, index) => {
@@ -115,6 +116,7 @@ function viewShoppingCart() {
           $("#added-cart-item-list").html(template);
         }else{
           $(".user-item-count").text(productItemCount);
+          $('#num-items-mobile').text(productItemCount);
           $("#added-cart-item-list").html('');
         }
       },
