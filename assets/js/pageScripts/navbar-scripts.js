@@ -4,7 +4,7 @@ var imageBaseUrl = "http://localhost/nobelcrmbackend/";
 $(document).ready(function () {
   sessionCheck();
   viewShoppingCart();
-  $("#btn-logout").on("click", function (e) {
+  $(".btn-logout").on("click", function (e) {
     logOutUser.call(this, e);
   });
 });
@@ -19,14 +19,19 @@ function sessionCheck() {
       //console.log(response);
       if (response.success == true) {
         $(".login-link").addClass("d-none");
+        $('.login-link-mobile').addClass("d-none");
         $(".myAccount-link").removeClass("d-none");
+        $(".my-account-mobile-common").removeClass("d-none");
         var userData = JSON.parse(localStorage.getItem("userData"));
         //console.log(userData);
         $("#log-user").text(userData.userName);
+        $('.user-name-mobile').text(userData.userName);
       } else {
         localStorage.removeItem("userData");
         $(".login-link").removeClass("d-none");
+        $('.login-link-mobile').removeClass("d-none");
         $(".myAccount-link").addClass("d-none");
+        $(".my-account-mobile-common").addClass("d-none");
       }
     },
   });

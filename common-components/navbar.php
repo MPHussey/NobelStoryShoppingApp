@@ -19,7 +19,7 @@
                                 <li class="angle-shape myAccount-link d-none"><a href="#">My Account</a>
                                     <ul class="submenu">
                                         <li><a href="my-account.php">Dashboard</a></li>
-                                        <li><a id="btn-logout" href="#">Log Out</a></li>
+                                        <li><a class="btn-logout" id="btn-logout" href="#">Log Out</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -261,12 +261,12 @@
                     <!-- mobile menu start -->
                     <div class="mobile-navigation">
                         <!-- mobile menu navigation start -->
-                        <h4 style="font-weight:600">Hasantha Pathirana</h4>
+                        <h4 class="user-name-mobile" style="font-weight:600"></h4>
                         <nav>
                             <ul class="mobile-menu">
-                                <li><a href="my-account.php">My Account</a></li>
-                                <li><a href="login-register.php">Log In</a></li>
-                                <li><a href="contact.html">Log Out</a></li>
+                                <li class="my-account-mobile-common d-none"><a href="my-account.php">My Account</a></li>
+                                <li class="login-link-mobile d-none"><a href="login-register.php">Log In</a></li>
+                                <li class="my-account-mobile-common d-none"><a class="btn-logout">Log Out</a></li>
                             </ul>
                         </nav>
                         <!-- mobile menu navigation end -->
