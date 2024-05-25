@@ -130,6 +130,21 @@ function getFeaturedProducts() {
           el: ".swiper-pagination",
           clickable: true,
         },
+        breakpoints:{
+          320:{
+            slidesPerView:1,
+            spaceBetween:40
+          },
+          768:{
+            slidesPerView:3,
+            spaceBetween:40
+          },
+          1024:{
+            slidesPerView:4,
+            spaceBetween:40
+          },
+
+        }
       });
     },
   });
@@ -393,51 +408,6 @@ function onClickaddToCart() {
           }
         },
       });
-
-      // //check already have a cart assigned
-      // $.ajax({
-      //   type: "POST",
-      //   url: apiLink,
-      //   data: {
-      //     action: "getCartItemOfUser",
-      //     user_id: userId,
-      //     product_id: productId,
-      //   },
-      //   success: function (response) {
-      //     console.log(response);
-      //     //if there is no cart assign to the user
-      //     if (response.success == false) {
-      //       $.ajax({
-      //         type: "POST",
-      //         url: apiLink,
-      //         data: {
-      //           action: "addToCart",
-      //           user_id: userId,
-      //           product_id: productId,
-      //           product_quantity: selectedItemQuantity,
-      //         },
-      //         success: function (response) {
-      //           console.log(response);
-      //         },
-      //       });
-      //     } else {
-      //       console.log(response.data.quantity);
-
-      //       // $.ajax({
-      //       //   type:"POST",
-      //       //   url:apiLink,
-      //       //   data:{
-      //       //     action:"addToCart",
-      //       //     user_id:userId,
-      //       //     product_id:productId,
-      //       //   },
-      //       //   success:function(response){
-      //       //     console.log(response);
-      //       //   }
-      //       // })
-      //     }
-      //   },
-      // });
     } else {
     }
   } else {
