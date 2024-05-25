@@ -56,7 +56,7 @@
                             the majority have suffered alteration in some form, by injected humour, or randomised words
                             which don't look even slightly believable. </p>
                         <div class="slider-btn-4">
-                            <a class="wow fadeInLeft" href="product-details.html"><span>Shop Now</span> <i class="la la-shopping-cart"></i></a>
+                            <a class="wow fadeInLeft" href="shop.php"><span>Shop Now</span> <i class="la la-shopping-cart"></i></a>
                         </div>
                     </div>
                 </div>

@@ -83,7 +83,7 @@
             <div class="footer-bottom bg-gray-2 ptb-20">
                 <div class="container">
                     <div class="copyright text-center">
-                        <p>Copyright © <a href="#">Daxone</a>. All Right Reserved</p>
+                        <p>Copyright © <a href="#">Nobel Story</a>. All Right Reserved</p>
                     </div>
                 </div>
             </div>
