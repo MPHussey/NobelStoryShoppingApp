@@ -73,7 +73,7 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="single-contact-info text-center mb-30">
                                 <i class=" ti-alarm-clock"></i>
-                                <h4>openning hour</h4>
+                                <h4>Office hours</h4>
                                 <p>Monday - Friday. 9:00am - 5:00pm </p>
                             </div>
                         </div>

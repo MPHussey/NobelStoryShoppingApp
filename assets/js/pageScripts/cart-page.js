@@ -40,7 +40,7 @@ function viewCartItems() {
           CART_ITEMS=response.data.length;
           response.data.forEach((item, index) => {
             //console.log(item);
-            var baseUrl = "http://localhost/nobelcrmbackend/";
+            var baseUrl = imageBaseUrl;
             cartItemTemplate += `
                   <tr>
                       <td class="product-thumbnail">

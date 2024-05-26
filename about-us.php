@@ -65,11 +65,11 @@
                     </div>
                     <div class="col-lg-6 col-md-6 align-self-center">
                         <div class="about-us-content">
-                            <h2>Welcome To <span>Daxone</span> Store !</h2>
-                            <p class="peragraph-blog">Daxone Shop is a premium HTML template designed and develoved from the ground up with the sole purpose of helping you create an astonishing, the beautiful and user friendly website that will boost your product’s sales.</p>
-                            <p>The theme design package provides a complete Magento theme set for your online store according to your desired theme. This includes all Magento themes that are required for your online store's successful implementation.</p>
+                            <h2>Welcome To <span>Nobel Story</span> Store !</h2>
+                            <p class="peragraph-blog">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at magna ac sem lobortis consequat. Quisque sit amet dapibus nibh, in vehicula sapien. Etiam lobortis erat malesuada enim sagittis eleifend. Curabitur euismod erat urna, et ultrices arcu </p>
+                            <p>Curabitur quis pharetra eros. Maecenas efficitur volutpat neque id lobortis. Nunc lacinia fringilla ex, quis pharetra sem lacinia a. Mauris ac sem nulla. </p>
                             <div class="about-us-btn btn-hover hover-border-none">
-                                <a class="btn-color-white btn-color-theme-bg black-color" href="shop.html">Shop now!</a>
+                                <a class="btn-color-white btn-color-theme-bg black-color" href="shop.php">Shop now!</a>
                             </div>
                         </div>
                     </div>

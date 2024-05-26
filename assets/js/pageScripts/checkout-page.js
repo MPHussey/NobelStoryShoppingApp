@@ -70,7 +70,7 @@ function updateBillingDetails(e) {
           // Here, place your AJAX call
           $.ajax({
             type: "POST",
-            url: "http://localhost/nobelcrmbackend/index.php",
+            url: apiLink,
             data: formData,
             processData: false,
             contentType: false,

@@ -45,7 +45,7 @@ function getAllProducts() {
     },
     success: function (response) {
       var receivedData = response.data;
-      var baseUrl = "http://localhost/nobelcrmbackend/";
+      var baseUrl = imageBaseUrl;
       var producTemplate = "";
 
       receivedData.forEach((item, index) => {
@@ -93,7 +93,7 @@ function getFeaturedProducts() {
     },
     success: function (response) {
       var receivedData = response.data;
-      var baseUrl = "http://localhost/nobelcrmbackend/";
+      var baseUrl = imageBaseUrl;
       var producTemplate = "";
       receivedData.forEach((product, index) => {
         //console.log(baseUrl + product.images[0].image_url);
@@ -179,7 +179,7 @@ function getFeaturedModalDetails() {
       Notiflix.Loading.remove();
       var receivedData = response.data[0];
       console.log(receivedData);
-      var baseUrl = "http://localhost/nobelcrmbackend/";
+      var baseUrl = imageBaseUrl;
       var quickViewBigImg = "";
       var bigImageThumbnails = "";
 

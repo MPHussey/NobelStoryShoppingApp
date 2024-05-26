@@ -15,10 +15,7 @@ function btnResetPassword(e) {
   var emailAddress = urlParams.get("email");
 
   console.log(emailAddress);
-  if (newpassword != confirmPassword) {
-    stopLoading();
-    showNotification("warning", "Caution", "Password doesn't match.");
-  } else {
+  if (newpassword == confirmPassword && newpassword!="" && newpassword.length>5) {
     if (emailAddress) {
       $.ajax({
         type: "POST",
@@ -43,7 +40,7 @@ function btnResetPassword(e) {
             showNotification(
               "warning",
               "Caution",
-              "Password update failed, try again !"
+              "Password update expired, try again !"
             );
           }
         },
@@ -52,5 +49,8 @@ function btnResetPassword(e) {
       stopLoading();
       showNotification("warning", "Caution", "Password reset unsuccessful");
     }
+  } else {
+    stopLoading();
+    showNotification("warning", "Caution", "Password must contains atleast 5 characters");
   }
 }
