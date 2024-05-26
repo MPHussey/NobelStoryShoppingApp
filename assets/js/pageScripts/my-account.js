@@ -73,7 +73,7 @@ function accountDetailsUpdate(e) {
           // Here, place your AJAX call
           $.ajax({
             type: "POST",
-            url: "http://localhost/nobelcrmbackend/index.php",
+            url: apiLink,
             data: formData,
             processData: false,
             contentType: false,
@@ -130,10 +130,10 @@ function passwordChange(e) {
   formData.append("action", "passwordReset");
 
   console.log(userId);
-  if (password == confirmPassword) {
+  if (password == confirmPassword && password!="" && password.length>5) {
     $.ajax({
       type: "POST",
-      url: "http://localhost/nobelcrmbackend/index.php",
+      url: apiLink,
       data: formData,
       contentType: false,
       processData: false,
@@ -156,7 +156,7 @@ function passwordChange(e) {
   } else {
     iziToast.warning({
       title: "Caution",
-      message: "Password Mismatch !!",
+      message: "Both fields need to be equal and need to have atleast 5 characters",
       position: "center",
       zindex: 2000,
       overlay: true,

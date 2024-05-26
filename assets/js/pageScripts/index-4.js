@@ -45,7 +45,7 @@ function getAllProducts() {
     },
     success: function (response) {
       var receivedData = response.data;
-      var baseUrl = "http://localhost/nobelcrmbackend/";
+      var baseUrl = imageBaseUrl;
       var producTemplate = "";
 
       receivedData.forEach((item, index) => {
@@ -59,8 +59,6 @@ function getAllProducts() {
                                 <div class="product-action-3">
                                     <a class="product-modal-trigger" data-productid=${item.product_id} data-bs-toggle="modal" data-bs-target="#exampleModal" title="Quick View"
                                         href="#"><i class="la la-arrows"></i></a>
-                                    <a title="Wishlist" href="#"><i class="la la-heart-o"></i></a>
-                                    <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
                                    
                                 </div>
                             </div>
@@ -95,7 +93,7 @@ function getFeaturedProducts() {
     },
     success: function (response) {
       var receivedData = response.data;
-      var baseUrl = "http://localhost/nobelcrmbackend/";
+      var baseUrl = imageBaseUrl;
       var producTemplate = "";
       receivedData.forEach((product, index) => {
         //console.log(baseUrl + product.images[0].image_url);
@@ -109,8 +107,7 @@ function getFeaturedProducts() {
                   product.product_id
                 } data-bs-toggle="modal" data-bs-target="#exampleModal" title="Quick View" href="#"><i
                         class="la la-arrows"></i></a>
-                <!--<a title="Wishlist" href="#"><i class="la la-heart-o"></i></a> -->
-                <a title="Add To Cart" href="#"><i class="la la-cart-plus"></i></a>
+                
             </div>
         </div>
         <div class="product-content-2 text-start">
@@ -133,6 +130,21 @@ function getFeaturedProducts() {
           el: ".swiper-pagination",
           clickable: true,
         },
+        breakpoints:{
+          320:{
+            slidesPerView:1,
+            spaceBetween:40
+          },
+          768:{
+            slidesPerView:3,
+            spaceBetween:40
+          },
+          1024:{
+            slidesPerView:4,
+            spaceBetween:40
+          },
+
+        }
       });
     },
   });
@@ -167,7 +179,7 @@ function getFeaturedModalDetails() {
       Notiflix.Loading.remove();
       var receivedData = response.data[0];
       console.log(receivedData);
-      var baseUrl = "http://localhost/nobelcrmbackend/";
+      var baseUrl = imageBaseUrl;
       var quickViewBigImg = "";
       var bigImageThumbnails = "";
 
@@ -324,7 +336,7 @@ function onClickaddToCart() {
                 product_id: productId,
               },
               success: function (response) {
-                console.log(response);
+                //console.log(response);
                 var currenlyAvailableQuantity = 0;
                 var totalQuantity;
                 if (response.success == false) {
@@ -348,8 +360,8 @@ function onClickaddToCart() {
                       finalConfirmProductquantity - selectedItemQuantity,
                   },
                   success: function (response) {
-                    console.log(response);
-                    console.log(totalQuantity);
+                    //console.log(response);
+                    //console.log(totalQuantity);
                     if (response.success == true) {
                       $.ajax({
                         type: "POST",
@@ -361,7 +373,7 @@ function onClickaddToCart() {
                           product_quantity: totalQuantity,
                         },
                         success: function (response) {
-                          console.log(response);
+                          //console.log(response);
                           $.ajax({
                             type: "POST",
                             url: apiLink,
@@ -372,10 +384,12 @@ function onClickaddToCart() {
                             success: function (response) {
                               var newUpdatedQuantity =
                                 response.data[0].quantity;
-                              $("#remaining-quantity").text(newUpdatedQuantity);
+                                console.log(newUpdatedQuantity);
+                              $("#remaining-quantity").text(`${newUpdatedQuantity==0?'Out Of Stock':newUpdatedQuantity}`);
                               $(".cart-plus-minus-box").val("0");
                               defaultQyValue = 0;
                               //update the shopping cart
+                              showNotification("success", "Success", "Item Added Successfully");
                               viewShoppingCart();
                               Notiflix.Loading.remove();
                             },
@@ -389,63 +403,11 @@ function onClickaddToCart() {
             });
           } else {
             Notiflix.Loading.remove();
-            iziToast.warning({
-              title: "Caution",
-              message:
-                "Another Customer also purchasing & please update the prduct quantity.",
-              position: "center",
-              zindex: 2000,
-              overlay: true,
-              timeout: 3000,
-            });
+            showNotification("warning", "Caution", "Another Customer also purchasing & please update the prduct quantity.");
+           
           }
         },
       });
-
-      // //check already have a cart assigned
-      // $.ajax({
-      //   type: "POST",
-      //   url: apiLink,
-      //   data: {
-      //     action: "getCartItemOfUser",
-      //     user_id: userId,
-      //     product_id: productId,
-      //   },
-      //   success: function (response) {
-      //     console.log(response);
-      //     //if there is no cart assign to the user
-      //     if (response.success == false) {
-      //       $.ajax({
-      //         type: "POST",
-      //         url: apiLink,
-      //         data: {
-      //           action: "addToCart",
-      //           user_id: userId,
-      //           product_id: productId,
-      //           product_quantity: selectedItemQuantity,
-      //         },
-      //         success: function (response) {
-      //           console.log(response);
-      //         },
-      //       });
-      //     } else {
-      //       console.log(response.data.quantity);
-
-      //       // $.ajax({
-      //       //   type:"POST",
-      //       //   url:apiLink,
-      //       //   data:{
-      //       //     action:"addToCart",
-      //       //     user_id:userId,
-      //       //     product_id:productId,
-      //       //   },
-      //       //   success:function(response){
-      //       //     console.log(response);
-      //       //   }
-      //       // })
-      //     }
-      //   },
-      // });
     } else {
     }
   } else {

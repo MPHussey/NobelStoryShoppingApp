@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Nobel Story</title>
+    <title>Nobel Story | Product Details</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,144 +41,14 @@
 <body>
     <div class="main-wrapper">
         <?php include 'common-components/navbar.php' ?>
-        <div class="mobile-off-canvas-active">
-            <a class="mobile-aside-close"><i class="la la-close"></i></a>
-            <div class="header-mobile-aside-wrap">
-                <!-- <div class="mobile-search">
-                    <form class="search-form" action="#">
-                        <input type="text" placeholder="Search entire store…">
-                        <button class="button-search"><i class="la la-search"></i></button>
-                    </form>
-                </div> -->
-                <div class="mobile-menu-wrap">
-                    <!-- mobile menu start -->
-                    <div class="mobile-navigation">
-                        <!-- mobile menu navigation start -->
-                        <nav>
-                            <ul class="mobile-menu">
-                                <li><a href="contact.html">Home</a></li>
-                                <li><a href="contact.html">About</a></li>
-                                <li><a href="contact.html">Shop</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-
-                                <!-- <li class="menu-item-has-children"><a href="index.html">Home</a>
-                                    <ul class="dropdown">
-                                        <li><a href="contact.html">Home</a></li>
-                                        <li><a href="contact.html">About</a></li>
-                                        <li><a href="contact.html">Shop</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </li> -->
-                                <!-- <li class="menu-item-has-children "><a href="#">shop</a>
-                                    <ul class="dropdown">
-                                        <li class="menu-item-has-children"><a href="#">shop layout</a>
-                                            <ul class="dropdown">
-                                                <li><a href="shop.html">standard grid style</a></li>
-                                                <li><a href="shop-2.html">standard style 2</a></li>
-                                                <li><a href="shop-2-col.html">shop 2 column</a></li>
-                                                <li><a href="shop-no-sidebar.html">shop no sidebar</a></li>
-                                                <li><a href="shop-fullwide.html">shop fullwide</a></li>
-                                                <li><a href="shop-fullwide-no-sidebar.html">fullwide no sidebar </a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">shop list layout</a>
-                                            <ul class="dropdown">
-                                                <li><a href="shop-list.html">list style</a></li>
-                                                <li><a href="shop-list-2col.html">list 2 column</a></li>
-                                                <li><a href="shop-list-no-sidebar.html">list no sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">product details</a>
-                                            <ul class="dropdown">
-                                                <li><a href="product-details.html">standard style</a></li>
-                                                <li><a href="product-details-2.html">standard style 2</a></li>
-                                                <li><a href="product-details-tab1.html">tab style 1</a></li>
-                                                <li><a href="product-details-tab2.html">tab style 2</a></li>
-                                                <li><a href="product-details-tab3.html">tab style 3 </a></li>
-                                                <li><a href="product-details-gallery.html">gallery style </a></li>
-                                                <li><a href="product-details-sticky.html">sticky style</a></li>
-                                                <li><a href="product-details-slider.html">slider style</a></li>
-                                                <li><a href="product-details-affiliate.html">Affiliate style</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children"><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="about-us.html">about us </a></li>
-                                        <li><a href="cart.html">cart page </a></li>
-                                        <li><a href="checkout.html">checkout </a></li>
-                                        <li><a href="compare.html">compare </a></li>
-                                        <li><a href="wishlist.html">wishlist </a></li>
-                                        <li><a href="my-account.html">my account </a></li>
-                                        <li><a href="contact.html">contact us </a></li>
-                                        <li><a href="login-register.html">login/register </a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children "><a href="#">Blog</a>
-                                    <ul class="dropdown">
-                                        <li><a href="blog.html">standard style </a></li>
-                                        <li><a href="blog-2col.html">blog 2 column </a></li>
-                                        <li><a href="blog-sidebar.html">blog sidebar </a></li>
-                                        <li><a href="blog-details.html">blog details </a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact us</a></li> -->
-                            </ul>
-                        </nav>
-                        <!-- mobile menu navigation end -->
-                    </div>
-                    <!-- mobile menu end -->
-                </div>
-                <div class="mobile-curr-lang-wrap">
-                    <!-- <div class="single-mobile-curr-lang">
-                        <a class="mobile-language-active" href="#">Language <i class="la la-angle-down"></i></a>
-                        <div class="lang-curr-dropdown lang-dropdown-active">
-                            <ul>
-                                <li><a href="#">English (US)</a></li>
-                                <li><a href="#">English (UK)</a></li>
-                                <li><a href="#">Spanish</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="single-mobile-curr-lang">
-                        <a class="mobile-currency-active" href="#">Currency <i class="la la-angle-down"></i></a>
-                        <div class="lang-curr-dropdown curr-dropdown-active">
-                            <ul>
-                                <li><a href="#">USD</a></li>
-                                <li><a href="#">EUR</a></li>
-                                <li><a href="#">Real</a></li>
-                                <li><a href="#">BDT</a></li>
-                            </ul>
-                        </div>
-                    </div> -->
-                    <div class="single-mobile-curr-lang">
-                        <a class="mobile-account-active" href="#">My Account <i class="la la-angle-down"></i></a>
-                        <div class="lang-curr-dropdown account-dropdown-active">
-                            <ul>
-                                <li><a href="#">Login</a></li>
-                                <li><a href="#">Creat Account</a></li>
-                                <li><a href="#">My Account</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="mobile-social-wrap">
-                    <a class="facebook" href="#"><i class="ti-facebook"></i></a>
-                    <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
-                    <a class="pinterest" href="#"><i class="ti-pinterest"></i></a>
-                    <a class="instagram" href="#"><i class="ti-instagram"></i></a>
-                    <a class="google" href="#"><i class="ti-google"></i></a>
-                </div>
-            </div>
-        </div>
+        
         <div class="breadcrumb-area bg-img" style="background-image:url(assets/images/slider/1.jpg);">
             <div class="container">
                 <div class="breadcrumb-content text-center">
                     <h2 class="text-white">Product Details page</h2>
                     <ul>
                         <li>
-                            <a href="index.html" class="text-white">Home</a>
+                            <a href="shop.php" class="text-white">Shop</a>
                         </li>
                         <li class="active">Product Details</li>
                     </ul>
@@ -457,20 +327,15 @@
                 </div>
             </div>
         </div>
-        <div class="product-area pb-85">
+        <!-- <div class="product-area pb-85">
             <div class="container">
                 <div class="section-title-6 mb-50 text-center">
                     <h2>Related Product</h2>
                 </div>
-                <div class="product-slider-active owl-carousel">
+                <div id="view-related-products" class="product-slider-active owl-carousel">
                     <div class="product-wrap">
                         <div class="product-img mb-15">
                             <a href="product-details.html"><img src="assets/images/product/pro-hm1-5.jpg" alt="product"></a>
-                            <div class="product-action">
-                                <a data-bs-toggle="modal" data-bs-target="#exampleModal" title="Quick View" href="#"><i class="la la-plus"></i></a>
-                                <a title="Wishlist" href="#"><i class="la la-heart-o"></i></a>
-                                <a title="Compare" href="#"><i class="la la-retweet"></i></a>
-                            </div>
                         </div>
                         <div class="product-content">
                             <span>Chair</span>
@@ -478,9 +343,6 @@
                             <div class="price-addtocart">
                                 <div class="product-price">
                                     <span>$210.00</span>
-                                </div>
-                                <div class="product-addtocart">
-                                    <a title="Add To Cart" href="#">+ Add To Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -579,7 +441,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <?php include 'common-components/footer.php' ?>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">

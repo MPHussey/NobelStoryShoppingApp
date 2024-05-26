@@ -112,10 +112,10 @@ function getAllProducts(){
                 }
             })
         },
-        pageSize: 4,
+        pageSize: 6,
         pageNumber:1,
         callback: function(data, pagination) {
-            //console.log(data);
+            console.log(data);
             var template="";
             data.forEach((eachItem,index)=>{
                 //console.log(eachItem);
@@ -131,9 +131,6 @@ function getAllProducts(){
                         <div class="price-addtocart">
                             <div class="product-price">
                                 <span>Rs ${eachItem.product_price}</span>
-                            </div>
-                            <div class="product-addtocart">
-                                <a title="Add To Cart" href="#">+ Add To Cart</a>
                             </div>
                         </div>
                     </div>
@@ -217,5 +214,7 @@ function viewMoreDetails(){
     localStorage.setItem('selectedItemNumber',product_id);
     window.location.href="product-details.php";
 }
+
+
 
 

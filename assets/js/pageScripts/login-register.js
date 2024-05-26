@@ -28,7 +28,7 @@ function userRegister(e) {
 
   var password = formData.get("password");
   var confirmPassword = formData.get("confirm-password");
-  if (password == confirmPassword) {
+  if (password == confirmPassword && password!="" && password.length>5) {
     $.ajax({
       type: "POST",
       url: apiLink,
@@ -65,7 +65,7 @@ function userRegister(e) {
     Notiflix.Loading.remove();
     iziToast.warning({
       title: "Caution",
-      message: "Password missmatchd",
+      message: "Passsword must contain ayleast 5 characters.",
       position: "center",
       zindex: 2000,
       overlay: true,

@@ -1,3 +1,6 @@
+//By default have zero cart items
+var CART_ITEMS=0;
+
 $(document).ready(function () {
   viewCartItems();
 
@@ -7,6 +10,8 @@ $(document).ready(function () {
   $(".cart-item-list").on("click", ".item-minus", quantityDecement);
   //remove item remove cart
   $(".cart-item-list").on("click", ".item-remove", deleteProductCart);
+  //onclick proceed checkout
+  $('#btn-proceed-checkout').on('click',checkItemsInCart);
 });
 
 //shopping cart page - view items
@@ -29,10 +34,13 @@ function viewCartItems() {
       success: function (response) {
         //console.log(response);
         var cartItemTemplate = "";
+        //BY DEFAULT MAKE THE CART ITEMS ZERO
+        CART_ITEMS=0;
         if (response.data) {
+          CART_ITEMS=response.data.length;
           response.data.forEach((item, index) => {
             //console.log(item);
-            var baseUrl = "http://localhost/nobelcrmbackend/";
+            var baseUrl = imageBaseUrl;
             cartItemTemplate += `
                   <tr>
                       <td class="product-thumbnail">
@@ -76,6 +84,7 @@ function viewCartItems() {
                   </tr>
                   `;
           });
+          viewShoppingCart();
         }
 
         $(".cart-item-list").html(cartItemTemplate);
@@ -359,4 +368,20 @@ function deleteItem(cartId, productId, currentQuantity, deleteType) {
       });
     },
   });
+}
+
+//onclick proceed checkout
+function checkItemsInCart(){
+  if(CART_ITEMS != 0){
+    window.location.href="checkout.php";
+  }else{
+    iziToast.warning({
+      title: "Caution",
+      message: "Cart is empty",
+      position: "center",
+      zindex: 2000,
+      overlay: true,
+      timeout: 3000,
+    });
+  }
 }

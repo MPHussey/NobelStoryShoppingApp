@@ -70,7 +70,7 @@ function updateBillingDetails(e) {
           // Here, place your AJAX call
           $.ajax({
             type: "POST",
-            url: "http://localhost/nobelcrmbackend/index.php",
+            url: apiLink,
             data: formData,
             processData: false,
             contentType: false,
@@ -340,23 +340,25 @@ function getAllCartItems() {
             } <span>${itemWiseSubTotal} </span></li>
                         `;
           });
-        }
 
-        $(".place-order-product-list").html(productListTemplate);
-        $("#place-order-subtotal").text(subtotal.toFixed(2));
-        var checkBoxStatus = $("#check-ship-different").prop("checked");
-        var shippingOrderAddress = "";
-        if (checkBoxStatus) {
-          shippingOrderAddress = `
-                    <li>Shipping <p >Secondory Address</p></li>
-                    `;
-        } else {
-          shippingOrderAddress = `
-                    <li>Shipping <p >Same as Billing address</p></li>
-                    `;
+          $(".place-order-product-list").html(productListTemplate);
+          $("#place-order-subtotal").text(subtotal.toFixed(2));
+          var checkBoxStatus = $("#check-ship-different").prop("checked");
+          var shippingOrderAddress = "";
+          if (checkBoxStatus) {
+            shippingOrderAddress = `
+                      <li>Shipping <p >Secondory Address</p></li>
+                      `;
+          } else {
+            shippingOrderAddress = `
+                      <li>Shipping <p >Same as Billing address</p></li>
+                      `;
+          }
+          $("#place-order-shipping-status").html(shippingOrderAddress);
+          $(".place-order-total-amount").text(subtotal.toFixed(2));
+        }else{
+          window.location.href="cart.php";
         }
-        $("#place-order-shipping-status").html(shippingOrderAddress);
-        $(".place-order-total-amount").text(subtotal.toFixed(2));
         Notiflix.Loading.remove();
       }
     });
