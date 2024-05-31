@@ -344,7 +344,7 @@ function onClickaddToCart() {
                 } else {
                   currenlyAvailableQuantity = response.data[0].quantity;
                   totalQuantity =
-                    currenlyAvailableQuantity + parseInt(selectedItemQuantity);
+                  parseInt(currenlyAvailableQuantity) + parseInt(selectedItemQuantity);
                   //console.log(totalQuantity);
                 }
                 //console.log(totalQuantity);
