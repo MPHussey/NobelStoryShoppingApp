@@ -189,7 +189,7 @@ function quantityDecement() {
         product_id: productId,
       },
       success: function (response) {
-        var currentProductQunatity = response.data[0].quantity;
+        var currentProductQunatity = parseInt(response.data[0].quantity);
         //console.log(currentProductQunatity);
         //update inventory by adding back
         $.ajax({
@@ -210,7 +210,7 @@ function quantityDecement() {
                   action: "addToCart",
                   user_id: userId,
                   product_id: productId,
-                  product_quantity: currentQuantity - 1,
+                  product_quantity: parseInt(currentQuantity) - 1,
                 },
                 success: function (response) {
                   //console.log(response);
@@ -236,7 +236,7 @@ function quantityDecement() {
       success: function (response) {
         console.log(response);
         var cartItemLength = response.data.length;
-        if (cartItemLength != 1) {
+        if (cartItemLength > 1) {
           //cart id
           var cartId = response.data[0].cart_id;
           console.log(cartId);
@@ -341,7 +341,7 @@ function deleteItem(cartId, productId, currentQuantity, deleteType) {
         data: {
           action: "updateInventory",
           product_id: productId,
-          updated_quantity: currentProductQunatity + currentQuantity,
+          updated_quantity: parseInt(currentProductQunatity) + parseInt(currentQuantity),
         },
         success: function (response) {
           if (response.success == true) {

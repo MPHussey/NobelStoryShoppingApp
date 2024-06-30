@@ -3,7 +3,7 @@ var imageBaseUrl = "http://localhost/nobelcrmbackend/";
 //shopping cart items for global use
 $(document).ready(function () {
   sessionCheck();
-  viewShoppingCart();
+  
   $(".btn-logout").on("click", function (e) {
     logOutUser.call(this, e);
   });
@@ -26,6 +26,8 @@ function sessionCheck() {
         //console.log(userData);
         $("#log-user").text(userData.userName);
         $('.user-name-mobile').text(userData.userName);
+        //if there is a session trigger the view cart for the user details
+        viewShoppingCart();
       } else {
         localStorage.removeItem("userData");
         $(".login-link").removeClass("d-none");
@@ -48,7 +50,7 @@ function logOutUser(e) {
       //console.log(response);
       if (response.success == true) {
         sessionCheck();
-        window.location.href = "index.php";
+        window.location.reload();
       }
     },
   });
@@ -80,7 +82,7 @@ function viewShoppingCart() {
           $(".user-item-count").text(productItemCount);
           $('#num-items-mobile').text(productItemCount);
           var template = "";
-          var baseUrl = "http://localhost/nobelcrmbackend/";
+          var baseUrl = imageBaseUrl;
           response.data.forEach((item, index) => {
             template += `
                           
