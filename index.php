@@ -51,7 +51,7 @@
             <div class="row align-items-center g-0">
                 <div class="col-lg-6 col-md-6 col-12 col-sm-12">
                     <div class="slider-content-4 ml-150">
-                        <h1 class="wow fadeInLeft col-md-6 col-sm-12">Changes of Yaml</h1>
+                        <h1 class="wow fadeInLeft col-md-6 col-sm-12">Best Gems in Sri Lanka</h1>
                         <p class="wow fadeInLeft">There are many variations of passages of Lorem Ipsum available, but
                             the majority have suffered alteration in some form, by injected humour, or randomised words
                             which don't look even slightly believable. </p>
